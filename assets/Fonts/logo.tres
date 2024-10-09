@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://l7s3kctpa142"]
+
+[ext_resource type="FontFile" uid="uid://dluwn7pawqh0p" path="res://assets/Fonts/pixelated.ttf" id="1_5sbum"]
+
+[resource]
+font = ExtResource("1_5sbum")
+font_size = 100
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)

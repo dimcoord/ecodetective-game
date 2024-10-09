@@ -1,0 +1,126 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckciifrtxaglb"]
+
+[ext_resource type="Texture2D" uid="uid://c7qgli4qpw61v" path="res://assets/PNG/buttonLong_beige.png" id="1_2ivkd"]
+[ext_resource type="LabelSettings" uid="uid://l7s3kctpa142" path="res://assets/Fonts/logo.tres" id="1_holtc"]
+[ext_resource type="Texture2D" uid="uid://mdsif37plwrh" path="res://assets/PNG/buttonLong_beige_pressed.png" id="2_bccb2"]
+[ext_resource type="FontFile" uid="uid://dluwn7pawqh0p" path="res://assets/Fonts/pixelated.ttf" id="4_hi04g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_22rv7"]
+font = ExtResource("4_hi04g")
+font_size = 26
+font_color = Color(0.482815, 0.426871, 0.294484, 1)
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.296602, 0.688196, 0.888141, 1)
+
+[node name="Logo" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -276.0
+offset_top = -124.0
+offset_right = 337.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "EcoDetective"
+label_settings = ExtResource("1_holtc")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="ButtonsRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.0
+offset_top = 26.0
+offset_right = 168.0
+offset_bottom = 173.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="ButtonsRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_right = 95.0
+offset_bottom = 49.0
+grow_horizontal = 2
+texture_normal = ExtResource("1_2ivkd")
+texture_pressed = ExtResource("2_bccb2")
+
+[node name="Label" type="Label" parent="ButtonsRect/TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -20.73
+offset_right = 39.0
+offset_bottom = 15.27
+grow_horizontal = 2
+grow_vertical = 2
+text = "START"
+label_settings = SubResource("LabelSettings_22rv7")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="TextureButton2" type="TextureButton" parent="ButtonsRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -95.0
+offset_top = -49.0
+offset_right = 95.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("1_2ivkd")
+texture_pressed = ExtResource("2_bccb2")
+
+[node name="Label" type="Label" parent="ButtonsRect/TextureButton2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -20.73
+offset_right = 39.0
+offset_bottom = 15.27
+grow_horizontal = 2
+grow_vertical = 2
+text = "quit"
+label_settings = SubResource("LabelSettings_22rv7")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
