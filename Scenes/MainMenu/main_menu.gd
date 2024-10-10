@@ -10,7 +10,7 @@ func _process(delta):
 	pass
 
 func load_game():
-	get_tree().change_scene_to_file("res://Scenes/Levels/town.tscn")
+	get_tree().change_scene_to_file("res://Scenes/main.tscn")
 
 func _on_start_button_pressed() -> void:
 	button_type = "start"
@@ -21,7 +21,7 @@ func _on_start_button_pressed() -> void:
 	# Start fade-in transition.
 	$FadeTransition.show()
 	$FadeTransition/FadeTimer.start()
-	$FadeTransition/AnimationPlayer.play("fade_in")
+	$FadeTransition/AnimationPlayer.play("fade_out")
 
 func _on_exit_button_pressed() -> void:
 	button_type = "exit"
@@ -32,7 +32,7 @@ func _on_exit_button_pressed() -> void:
 	# Start fade-out transition.
 	$FadeTransition.show()
 	$FadeTransition/FadeTimer.start()
-	$FadeTransition/AnimationPlayer.play("fade_in")
+	$FadeTransition/AnimationPlayer.play("fade_out")
 
 
 func _on_fade_timer_timeout() -> void:

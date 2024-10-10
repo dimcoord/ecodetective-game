@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://be3w3dt1xh2cl"]
+
+[ext_resource type="Texture2D" uid="uid://ttmfypw4m1cw" path="res://assets/PNG/buttonSquare_brown_pressed.png" id="1_oc1u2"]
+[ext_resource type="PackedScene" uid="uid://cebgm8jsj671r" path="res://Scenes/Transition/fade_transition.tscn" id="2_ijae6"]
+
+[node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 15.0
+offset_right = 57.0
+offset_bottom = 55.0
+
+[node name="PauseButton" type="Sprite2D" parent="."]
+position = Vector2(57.75, 54.75)
+scale = Vector2(1.43333, 1.47778)
+texture = ExtResource("1_oc1u2")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="PauseButton"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -36.5
+offset_right = -12.5
+offset_bottom = -10.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "||"
+
+[node name="FadeTransition" parent="." instance=ExtResource("2_ijae6")]
+layout_mode = 1

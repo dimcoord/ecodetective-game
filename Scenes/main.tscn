@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://drrl8wthi3rkr"]
+
+[ext_resource type="PackedScene" uid="uid://cebgm8jsj671r" path="res://Scenes/Transition/fade_transition.tscn" id="1_4ugg2"]
+[ext_resource type="PackedScene" uid="uid://be3w3dt1xh2cl" path="res://Scenes/gui.tscn" id="1_mqo2d"]
+[ext_resource type="Script" path="res://Scenes/main.gd" id="1_tesnu"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_tesnu")
+
+[node name="GUI" parent="." instance=ExtResource("1_mqo2d")]
+
+[node name="FadeTransition" parent="." instance=ExtResource("1_4ugg2")]
+visible = false
+offset_right = 1258.0
+offset_bottom = 717.0
