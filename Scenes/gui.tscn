@@ -1,7 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://be3w3dt1xh2cl"]
+[gd_scene load_steps=12 format=3 uid="uid://be3w3dt1xh2cl"]
 
+[ext_resource type="Script" path="res://Scenes/gui.gd" id="1_iyrt0"]
+[ext_resource type="Texture2D" uid="uid://c3s63wsv150ba" path="res://assets/PNG/buttonSquare_brown.png" id="1_obrpw"]
 [ext_resource type="Texture2D" uid="uid://ttmfypw4m1cw" path="res://assets/PNG/buttonSquare_brown_pressed.png" id="1_oc1u2"]
 [ext_resource type="PackedScene" uid="uid://cebgm8jsj671r" path="res://Scenes/Transition/fade_transition.tscn" id="2_ijae6"]
+[ext_resource type="AudioStream" uid="uid://ft17gsj86oab" path="res://assets/Sounds/switch-a.ogg" id="4_5jvem"]
+[ext_resource type="Texture2D" uid="uid://g84s1uyt3242" path="res://assets/PNG/panel_brown.png" id="4_nfxaf"]
+[ext_resource type="FontFile" uid="uid://dluwn7pawqh0p" path="res://assets/Fonts/pixelated.ttf" id="5_srawt"]
+[ext_resource type="Texture2D" uid="uid://c7qgli4qpw61v" path="res://assets/PNG/buttonLong_beige.png" id="6_otmhe"]
+[ext_resource type="Texture2D" uid="uid://mdsif37plwrh" path="res://assets/PNG/buttonLong_beige_pressed.png" id="7_ulfre"]
+[ext_resource type="LabelSettings" uid="uid://cwtxthmpxnura" path="res://Scenes/beige_button.tres" id="8_qdxv0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ic2eh"]
+font = ExtResource("5_srawt")
+font_size = 71
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [node name="GUI" type="Control"]
 layout_mode = 3
@@ -10,33 +24,145 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_iyrt0")
 
-[node name="TextureButton" type="TextureButton" parent="."]
-layout_mode = 0
+[node name="ClickSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(5.72205e-06, -5.72205e-06)
+stream = ExtResource("4_5jvem")
+
+[node name="PauseButton" type="TextureButton" parent="."]
+layout_mode = 1
 offset_left = 17.0
 offset_top = 15.0
-offset_right = 57.0
-offset_bottom = 55.0
-
-[node name="PauseButton" type="Sprite2D" parent="."]
-position = Vector2(57.75, 54.75)
-scale = Vector2(1.43333, 1.47778)
-texture = ExtResource("1_oc1u2")
-metadata/_edit_group_ = true
+offset_right = 62.0
+offset_bottom = 64.0
+scale = Vector2(1.995, 1.995)
+action_mode = 0
+texture_normal = ExtResource("1_obrpw")
+texture_pressed = ExtResource("1_oc1u2")
 
 [node name="Label" type="Label" parent="PauseButton"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -31.5
-offset_top = -36.5
-offset_right = -12.5
-offset_bottom = -10.5
+offset_left = -9.5
+offset_top = -16.24
+offset_right = 9.5
+offset_bottom = 9.76
 grow_horizontal = 2
 grow_vertical = 2
 text = "||"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PauseMenu" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 157.0
+offset_right = 820.0
+offset_bottom = 507.0
+texture = ExtResource("4_nfxaf")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Label" type="Label" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -191.0
+offset_top = 35.0
+offset_right = 191.0
+offset_bottom = 116.0
+grow_horizontal = 2
+text = "game paused"
+label_settings = SubResource("LabelSettings_ic2eh")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="ResumeButton" type="TextureButton" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -24.5
+offset_right = 95.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+action_mode = 0
+texture_normal = ExtResource("6_otmhe")
+texture_pressed = ExtResource("7_ulfre")
+
+[node name="Label" type="Label" parent="PauseMenu/ResumeButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -15.0
+offset_right = 42.5
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "resume"
+label_settings = ExtResource("8_qdxv0")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="QuitButton" type="TextureButton" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = 75.5
+offset_right = 95.0
+offset_bottom = 124.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("6_otmhe")
+texture_pressed = ExtResource("7_ulfre")
+
+[node name="Label" type="Label" parent="PauseMenu/QuitButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -15.0
+offset_right = 42.5
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "quit"
+label_settings = ExtResource("8_qdxv0")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
 [node name="FadeTransition" parent="." instance=ExtResource("2_ijae6")]
 layout_mode = 1
+
+[node name="FadeTimer" type="Timer" parent="FadeTransition"]
+
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="PauseMenu/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseMenu/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="timeout" from="FadeTransition/FadeTimer" to="." method="_on_fade_timer_timeout"]

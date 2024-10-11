@@ -36,6 +36,7 @@ func _on_exit_button_pressed() -> void:
 
 
 func _on_fade_timer_timeout() -> void:
+	$FadeTransition.visible = false
 	if button_type == "start":
 		load_game()
 	elif button_type == "exit":

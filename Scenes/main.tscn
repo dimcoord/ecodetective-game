@@ -13,3 +13,7 @@ script = ExtResource("1_tesnu")
 visible = false
 offset_right = 1258.0
 offset_bottom = 717.0
+
+[node name="FadeTimer" type="Timer" parent="FadeTransition"]
+
+[connection signal="timeout" from="FadeTransition/FadeTimer" to="." method="_on_fade_timer_timeout"]
