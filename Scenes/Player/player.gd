@@ -12,10 +12,10 @@ var move_direction = Vector2.ZERO
 var is_moving = false
 
 # Battle variables
-var battle_scene = preload("res://Scenes/Combat/combat.tscn")
+#var battle_scene = preload("res://Scenes/Combat/combat.tscn")
 
 func _ready():
-	SignalManager.connect("instantiate_battle", battle)
+	#SignalManager.connect("instantiate_battle", battle)
 	pass
 
 func _process(delta):
@@ -73,10 +73,10 @@ func move():
 	velocity = velocity.limit_length(max_speed)
 	move_and_slide()
 		
-func battle():
+#func battle():
 	# Inisiate battle scene
-	GameManager.is_battle = true
-	var battle_instance = battle_scene.instantiate()
-	add_child(battle_instance)
+	#GameManager.is_battle = true
+	#var battle_instance = battle_scene.instantiate()
+	#add_child(battle_instance)
 	
 	
