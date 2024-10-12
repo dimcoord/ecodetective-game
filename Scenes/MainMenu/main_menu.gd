@@ -19,7 +19,7 @@ func _on_start_button_pressed() -> void:
 	$ButtonsRect/ClickSound.play()
 	
 	# Start fade-in transition.
-	$FadeTransition.show()
+	$FadeTransition.visible = visible
 	$FadeTransition/FadeTimer.start()
 	$FadeTransition/AnimationPlayer.play("fade_out")
 
@@ -30,7 +30,7 @@ func _on_exit_button_pressed() -> void:
 	$ButtonsRect/ClickSound.play()
 	
 	# Start fade-out transition.
-	$FadeTransition.show()
+	$FadeTransition.visible = visible
 	$FadeTransition/FadeTimer.start()
 	$FadeTransition/AnimationPlayer.play("fade_out")
 

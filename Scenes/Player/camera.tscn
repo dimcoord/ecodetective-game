@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx84c81lhnsow"]
+
+[ext_resource type="Script" path="res://Scenes/Player/camera_2d.gd" id="1_nxmun"]
+
+[node name="Camera" type="Camera2D"]
+position = Vector2(16, 16)
+script = ExtResource("1_nxmun")
+
+[node name="Limits" type="Node2D" parent="."]
+position = Vector2(-96, -96)
+
+[node name="TopLeft" type="Marker2D" parent="Limits"]
+position = Vector2(-96, -80)
+
+[node name="BottomRight" type="Marker2D" parent="Limits"]
+position = Vector2(512, 352)

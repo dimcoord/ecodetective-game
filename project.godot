@@ -18,6 +18,16 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*res://Scenes/Global/game_manager.gd"
+SignalManager="*res://Scenes/Global/signal_manager.gd"
+
+[display]
+
+window/size/viewport_width=400
+window/size/viewport_height=260
+window/size/window_width_override=1200
+window/size/window_height_override=680
+window/stretch/mode="canvas_items"
+window/stretch/aspect="ignore"
 
 [rendering]
 

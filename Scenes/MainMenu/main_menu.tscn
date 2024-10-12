@@ -10,7 +10,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_22rv7"]
 font = ExtResource("5_vjcu1")
-font_size = 26
+font_size = 10
 font_color = Color(0.482815, 0.426871, 0.294484, 1)
 
 [node name="Main Menu" type="Control"]
@@ -33,17 +33,15 @@ color = Color(0.296602, 0.688196, 0.888141, 1)
 
 [node name="Logo" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -276.0
-offset_top = -124.0
-offset_right = 337.0
-offset_bottom = -11.0
+offset_left = -107.0
+offset_top = 68.0
+offset_right = 107.0
+offset_bottom = 108.0
 grow_horizontal = 2
-grow_vertical = 2
+theme_override_font_sizes/font_size = 4
 text = "EcoDetective"
 label_settings = ExtResource("2_0vehv")
 horizontal_alignment = 1
@@ -57,10 +55,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -141.0
-offset_top = 26.0
-offset_right = 168.0
-offset_bottom = 173.0
+offset_left = -142.0
+offset_top = -27.5
+offset_right = 142.0
+offset_bottom = 95.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -69,12 +67,16 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -95.0
-offset_right = 95.0
-offset_bottom = 49.0
+offset_left = -41.0
+offset_top = 40.0
+offset_right = 44.0
+offset_bottom = 62.0
 grow_horizontal = 2
 texture_normal = ExtResource("3_v66tx")
 texture_pressed = ExtResource("4_f4ygf")
+ignore_texture_size = true
+stretch_mode = 4
+metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="ButtonsRect/StartButton"]
 layout_mode = 1
@@ -84,9 +86,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -39.0
-offset_top = -20.73
+offset_top = -18.73
 offset_right = 39.0
-offset_bottom = 15.27
+offset_bottom = 17.27
 grow_horizontal = 2
 grow_vertical = 2
 text = "START"
@@ -97,18 +99,22 @@ uppercase = true
 
 [node name="ExitButton" type="TextureButton" parent="ButtonsRect"]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -95.0
-offset_top = -49.0
-offset_right = 95.0
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = 6.0
+offset_right = 42.5
+offset_bottom = 28.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 texture_normal = ExtResource("3_v66tx")
 texture_pressed = ExtResource("4_f4ygf")
+ignore_texture_size = true
+stretch_mode = 4
+metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="ButtonsRect/ExitButton"]
 layout_mode = 1
@@ -117,10 +123,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -39.0
-offset_top = -20.73
-offset_right = 39.0
-offset_bottom = 15.27
+offset_left = -38.5
+offset_top = -8.0
+offset_right = 39.5
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "quit"
