@@ -1,4 +1,4 @@
 extends Node
 
 # Signals
-#signal instantiate_battle
+signal instantiate_battle

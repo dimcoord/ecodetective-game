@@ -51,6 +51,6 @@ func _on_hit_box_body_entered(body):
 		# change direction on collision with objects
 		var rnd_num = rng.randi_range(0, 3)
 		move_direction = dir[rnd_num]
-	#else:
-		#SignalManager.instantiate_battle.emit()
-		#queue_free()
+	else:
+		SignalManager.instantiate_battle.emit()
+		queue_free()

@@ -1,0 +1,324 @@
+[gd_scene load_steps=14 format=3 uid="uid://cwmmn7pbghdme"]
+
+[ext_resource type="Script" path="res://Scenes/Combat/combat.gd" id="1_qcgm6"]
+[ext_resource type="Texture2D" uid="uid://b6hm1uumku3tx" path="res://assets/PNG/buttonRound_brown.png" id="2_7d8hu"]
+[ext_resource type="Texture2D" uid="uid://bs6hwsctd6024" path="res://assets/PNG/arrowBeige_right.png" id="3_25rfs"]
+[ext_resource type="Texture2D" uid="uid://c55x4ffalvnwr" path="res://assets/PNG/buttonRound_beige.png" id="4_eicqx"]
+[ext_resource type="Texture2D" uid="uid://c737qo2yg6nev" path="res://assets/PNG/cursorSword_silver.png" id="5_ahnsl"]
+[ext_resource type="Texture2D" uid="uid://dxxidunf2sqmr" path="res://assets/PNG/cursorHand_grey.png" id="6_tv5sq"]
+[ext_resource type="Texture2D" uid="uid://kjwvu4nyrsiw" path="res://assets/PNG/custom/shield_grey.png" id="7_041e3"]
+[ext_resource type="AudioStream" uid="uid://ft17gsj86oab" path="res://assets/Sounds/switch-a.ogg" id="8_5gphe"]
+[ext_resource type="Texture2D" uid="uid://g84s1uyt3242" path="res://assets/PNG/panel_brown.png" id="9_7nsdk"]
+[ext_resource type="LabelSettings" uid="uid://dvfj7c3m625nj" path="res://Scenes/Combat/status.tres" id="10_e0oh8"]
+[ext_resource type="Texture2D" uid="uid://beyiq2g60y2lw" path="res://assets/PNG/panelInset_blue.png" id="11_kjbiq"]
+[ext_resource type="Texture2D" uid="uid://em38aesow7ux" path="res://assets/PNG/barRed_horizontalMid.png" id="12_fnrlu"]
+[ext_resource type="Texture2D" uid="uid://dxotqlrfagq4n" path="res://assets/PNG/barBlue_horizontalBlue.png" id="13_koo5d"]
+
+[node name="Ui" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_right = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qcgm6")
+
+[node name="CombatMenu" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -68.0
+offset_right = -72.0
+offset_bottom = -59.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(12.23, 12.23)
+texture = ExtResource("2_7d8hu")
+
+[node name="MenuUpButton" type="TextureButton" parent="CombatMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.143
+anchor_top = 0.075
+anchor_right = -0.143
+anchor_bottom = 0.077
+offset_left = -1.32952
+offset_top = 0.633258
+offset_right = 6.67048
+offset_bottom = 5.60726
+rotation = -1.5708
+scale = Vector2(0.35, 0.35)
+action_mode = 0
+texture_normal = ExtResource("3_25rfs")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="MenuAttackButton" type="TextureButton" parent="CombatMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.267
+anchor_top = 0.23
+anchor_right = 0.267
+anchor_bottom = 0.23
+offset_left = -12.403
+offset_top = -5.07
+offset_right = -1.403
+offset_bottom = 7.93
+rotation = -4.71239
+scale = Vector2(0.45, 0.45)
+action_mode = 0
+texture_normal = ExtResource("4_eicqx")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CombatMenu/MenuAttackButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.64781
+offset_top = -5.46429
+offset_right = 9.35219
+offset_bottom = 11.5357
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.44, 0.44)
+texture = ExtResource("5_ahnsl")
+
+[node name="MenuItemButton" type="TextureButton" parent="CombatMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.267
+anchor_top = 0.23
+anchor_right = 0.267
+anchor_bottom = 0.23
+offset_left = -6.136
+offset_top = -10.07
+offset_right = 5.864
+offset_bottom = 1.93
+rotation = -4.71239
+scale = Vector2(0.45, 0.45)
+action_mode = 0
+texture_normal = ExtResource("4_eicqx")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CombatMenu/MenuItemButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.09276
+offset_top = -4.09276
+offset_right = 14.9072
+offset_bottom = 13.9072
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.44, 0.44)
+texture = ExtResource("6_tv5sq")
+
+[node name="MenuBlockButton" type="TextureButton" parent="CombatMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.267
+anchor_top = 0.216
+anchor_right = 0.267
+anchor_bottom = 0.23
+offset_left = 5.71355
+offset_top = -1.944
+offset_right = 16.7135
+offset_bottom = 8.874
+rotation = -4.71239
+scale = Vector2(0.45, 0.45)
+action_mode = 0
+texture_normal = ExtResource("4_eicqx")
+ignore_texture_size = true
+stretch_mode = 4
+metadata/_edit_group_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CombatMenu/MenuBlockButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.1246
+offset_top = 2.46458
+offset_right = 10.8754
+offset_bottom = 15.4646
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5708
+scale = Vector2(0.44, 0.44)
+texture = ExtResource("7_041e3")
+
+[node name="SwitchSound" type="AudioStreamPlayer" parent="CombatMenu"]
+stream = ExtResource("8_5gphe")
+
+[node name="MenuItemSelect" type="NinePatchRect" parent="CombatMenu"]
+layout_mode = 0
+offset_left = -44.4808
+offset_top = 10.4661
+offset_right = -15.4808
+offset_bottom = 28.466
+texture = ExtResource("9_7nsdk")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="CombatMenu/MenuItemSelect"]
+layout_mode = 1
+offset_left = 2.04415
+offset_top = 0.817662
+offset_right = 76.0442
+offset_bottom = 22.8177
+scale = Vector2(0.22, 0.22)
+text = "Use items"
+label_settings = ExtResource("10_e0oh8")
+
+[node name="EnemyStatus" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 256.0
+offset_top = 448.0
+offset_right = 296.0
+offset_bottom = 488.0
+grow_horizontal = 0
+scale = Vector2(7.075, 4.75)
+texture = ExtResource("11_kjbiq")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="EnemyStatus"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.067
+anchor_top = 0.17
+anchor_right = 0.067
+anchor_bottom = 0.17
+offset_left = -0.00500011
+offset_top = -4.76
+offset_right = 70.995
+offset_bottom = 18.24
+scale = Vector2(0.29, 0.415)
+text = "<enemy>"
+label_settings = ExtResource("10_e0oh8")
+
+[node name="EnemyHealthbar" type="TextureProgressBar" parent="EnemyStatus"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.501
+anchor_top = 0.5
+anchor_right = 0.501
+anchor_bottom = 0.5
+offset_left = -18.9093
+offset_top = -3.57895
+offset_right = -0.90926
+offset_bottom = 15.4211
+grow_vertical = 2
+scale = Vector2(2.1, 0.51)
+value = 100.0
+texture_progress = ExtResource("12_fnrlu")
+
+[node name="EnemyStaminaBar" type="TextureProgressBar" parent="EnemyStatus"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.501
+anchor_top = 0.808
+anchor_right = 0.501
+anchor_bottom = 0.808
+offset_left = -18.909
+offset_top = -4.839
+offset_right = -0.909
+offset_bottom = 14.161
+grow_vertical = 2
+scale = Vector2(2.1, 0.51)
+value = 100.0
+texture_progress = ExtResource("13_koo5d")
+
+[node name="PlayerStatus" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -608.0
+offset_top = 76.0
+offset_right = -568.0
+offset_bottom = 116.0
+grow_vertical = 0
+scale = Vector2(7.075, 4.75)
+texture = ExtResource("9_7nsdk")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="PlayerStatus"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.067
+anchor_top = 0.17
+anchor_right = 0.067
+anchor_bottom = 0.17
+offset_left = -0.00500011
+offset_top = -4.76
+offset_right = 70.995
+offset_bottom = 18.24
+scale = Vector2(0.29, 0.415)
+text = "<username>"
+label_settings = ExtResource("10_e0oh8")
+
+[node name="EnemyHealthbar" type="TextureProgressBar" parent="PlayerStatus"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.501
+anchor_top = 0.5
+anchor_right = 0.501
+anchor_bottom = 0.5
+offset_left = -18.9093
+offset_top = -3.57895
+offset_right = -0.90926
+offset_bottom = 15.4211
+grow_vertical = 2
+scale = Vector2(2.1, 0.51)
+value = 100.0
+texture_progress = ExtResource("12_fnrlu")
+
+[node name="EnemyStaminaBar" type="TextureProgressBar" parent="PlayerStatus"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.501
+anchor_top = 0.808
+anchor_right = 0.501
+anchor_bottom = 0.808
+offset_left = -18.909
+offset_top = -4.839
+offset_right = -0.909
+offset_bottom = 14.161
+grow_vertical = 2
+scale = Vector2(2.1, 0.51)
+value = 100.0
+texture_progress = ExtResource("13_koo5d")
+
+[node name="ItemMenu" type="Node" parent="."]
+
+[node name="ItemList" type="ItemList" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 8
+select_mode = 1
+item_count = 2
+item_0/text = "Selang"
+
+[connection signal="pressed" from="CombatMenu/MenuUpButton" to="." method="_on_menu_up_button_pressed"]
+[connection signal="pressed" from="CombatMenu/MenuItemButton" to="." method="_on_menu_item_button_pressed"]
