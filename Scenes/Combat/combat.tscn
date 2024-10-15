@@ -263,13 +263,33 @@ texture = ExtResource("12_qu0gi")
 
 [node name="Label" type="Label" parent="CanvasLayer/CombatMenu/MenuItemSelect"]
 layout_mode = 1
-offset_left = 2.04415
-offset_top = 0.817662
-offset_right = 76.0442
-offset_bottom = 22.8177
-scale = Vector2(0.22, 0.22)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -7.36429
+offset_top = 0.758463
+offset_right = 108.636
+offset_bottom = 35.7585
+grow_horizontal = 2
+scale = Vector2(0.125, 0.125)
 text = "Use items"
 label_settings = ExtResource("9_stgyv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemList" type="ItemList" parent="CanvasLayer/CombatMenu/MenuItemSelect"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 2.11689
+offset_top = -3.22272
+offset_right = 42.1169
+offset_bottom = 36.7773
+grow_vertical = 2
+scale = Vector2(0.255, 0.255)
+allow_search = false
+item_count = 1
 
 [connection signal="pressed" from="CanvasLayer/CombatMenu/MenuUpButton" to="." method="_on_menu_up_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/CombatMenu/MenuDownButton" to="." method="_on_menu_down_button_pressed"]
