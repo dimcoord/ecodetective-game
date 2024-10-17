@@ -26,6 +26,7 @@ texture_pressed = ExtResource("1_oc1u2")
 ignore_texture_size = true
 stretch_mode = 6
 metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="CanvasLayer/PauseButton"]
 texture_filter = 1

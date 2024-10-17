@@ -79,4 +79,36 @@ func battle():
 	var battle_instance = battle_scene.instantiate()
 	add_child(battle_instance)
 	
+# TOUCH CONTROL
+# Nyalain "Emulate Touch to Mouse" di Project Settings
+# Nanti pas build mah diumpetin biar mobile-only
+
+func _on_top_pressed() -> void:
+	move_direction = Vector2.UP
+	is_moving = true
+
+func _on_top_released() -> void:
+	is_moving = false
+
+func _on_right_pressed() -> void:
+	move_direction = Vector2.RIGHT
+	is_moving = true
+
+func _on_right_released() -> void:
+	is_moving = false
+
+func _on_left_pressed() -> void:
+	move_direction = Vector2.LEFT
+	is_moving = true
+
+func _on_left_released() -> void:
+	is_moving = false
+
+func _on_bottom_pressed() -> void:
+	move_direction = Vector2.DOWN
+	is_moving = true
+
+func _on_bottom_released() -> void:
+	is_moving = false
+
 	

@@ -1,12 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://drrl8wthi3rkr"]
+[gd_scene load_steps=12 format=3 uid="uid://bagmrxxq1v5e1"]
 
 [ext_resource type="PackedScene" uid="uid://cebgm8jsj671r" path="res://Scenes/Transition/fade_transition.tscn" id="1_4ugg2"]
-[ext_resource type="PackedScene" uid="uid://be3w3dt1xh2cl" path="res://Scenes/gui.tscn" id="1_mqo2d"]
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_tesnu"]
 [ext_resource type="PackedScene" uid="uid://bxhu7mmy3r7uh" path="res://Scenes/Levels/town.tscn" id="4_csalh"]
 [ext_resource type="Script" path="res://Scenes/Player/camera_2d.gd" id="4_i13yh"]
 [ext_resource type="PackedScene" uid="uid://clbb0drt0mnwn" path="res://Scenes/Player/player_ambatekkom.tscn" id="5_5xcqf"]
+[ext_resource type="Texture2D" uid="uid://c3s63wsv150ba" path="res://assets/PNG/buttonSquare_brown.png" id="6_cwi52"]
 [ext_resource type="PackedScene" uid="uid://cpjjfneouj1l1" path="res://Scenes/Monster/monster.tscn" id="7_j6ufg"]
+[ext_resource type="Texture2D" uid="uid://ttmfypw4m1cw" path="res://assets/PNG/buttonSquare_brown_pressed.png" id="7_ot32f"]
+[ext_resource type="Texture2D" uid="uid://c1b6pchoh0u3b" path="res://assets/PNG/arrowBrown_right.png" id="8_3vrdj"]
+[ext_resource type="Texture2D" uid="uid://crqd35gjkbvsu" path="res://assets/PNG/arrowBrown_left.png" id="9_p6gir"]
+[ext_resource type="AudioStream" uid="uid://cvm4sv6auttr4" path="res://assets/TempAssets/Musics/fnaf_world_adventure.mp3" id="11_bwmt8"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_tesnu")
@@ -15,9 +19,6 @@ script = ExtResource("1_tesnu")
 
 [node name="PlayerAmbatekkom" parent="." groups=["player"] instance=ExtResource("5_5xcqf")]
 position = Vector2(64, 112)
-speed = 40
-max_speed = 100
-FRICTION = 0.15
 
 [node name="Camera" type="Camera2D" parent="PlayerAmbatekkom"]
 position = Vector2(16, 16)
@@ -36,12 +37,71 @@ position = Vector2(-80, -128)
 [node name="BottomRight" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits"]
 position = Vector2(640, 256)
 
-[node name="GUI" parent="." instance=ExtResource("1_mqo2d")]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+
+[node name="PauseButton" type="TextureButton" parent="Control/CanvasLayer"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 32.0
+offset_bottom = 32.0
+scale = Vector2(1.97567, 1.99398)
+texture_normal = ExtResource("6_cwi52")
+texture_pressed = ExtResource("7_ot32f")
+ignore_texture_size = true
+stretch_mode = 6
 metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Control/CanvasLayer/PauseButton"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.5
+offset_top = -8.5
+offset_right = 3.5
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 9
+text = "II"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControlButton" type="Node2D" parent="Control/CanvasLayer"]
+texture_filter = 1
+position = Vector2(16, 169)
+metadata/_edit_group_ = true
+
+[node name="Top" type="TouchScreenButton" parent="Control/CanvasLayer/ControlButton"]
+position = Vector2(32, 14)
+rotation = -1.5708
+texture_normal = ExtResource("8_3vrdj")
+
+[node name="Right" type="TouchScreenButton" parent="Control/CanvasLayer/ControlButton"]
+position = Vector2(64, 22)
+texture_normal = ExtResource("8_3vrdj")
+
+[node name="Left" type="TouchScreenButton" parent="Control/CanvasLayer/ControlButton"]
+position = Vector2(0, 22)
+texture_normal = ExtResource("9_p6gir")
+
+[node name="Bottom" type="TouchScreenButton" parent="Control/CanvasLayer/ControlButton"]
+position = Vector2(32, 74)
+rotation = -1.5708
+texture_normal = ExtResource("9_p6gir")
 
 [node name="FadeTransition" parent="." instance=ExtResource("1_4ugg2")]
 visible = false
-z_index = 1
+z_index = 4096
 offset_left = -192.0
 offset_top = -144.0
 offset_right = 608.0
@@ -55,3 +115,16 @@ position = Vector2(64, 48)
 
 [node name="Monster3" parent="." instance=ExtResource("7_j6ufg")]
 position = Vector2(112, 240)
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_bwmt8")
+parameters/looping = true
+
+[connection signal="pressed" from="Control/CanvasLayer/ControlButton/Top" to="PlayerAmbatekkom" method="_on_top_pressed"]
+[connection signal="released" from="Control/CanvasLayer/ControlButton/Top" to="PlayerAmbatekkom" method="_on_top_released"]
+[connection signal="pressed" from="Control/CanvasLayer/ControlButton/Right" to="PlayerAmbatekkom" method="_on_right_pressed"]
+[connection signal="released" from="Control/CanvasLayer/ControlButton/Right" to="PlayerAmbatekkom" method="_on_right_released"]
+[connection signal="pressed" from="Control/CanvasLayer/ControlButton/Left" to="PlayerAmbatekkom" method="_on_left_pressed"]
+[connection signal="released" from="Control/CanvasLayer/ControlButton/Left" to="PlayerAmbatekkom" method="_on_left_released"]
+[connection signal="pressed" from="Control/CanvasLayer/ControlButton/Bottom" to="PlayerAmbatekkom" method="_on_bottom_pressed"]
+[connection signal="released" from="Control/CanvasLayer/ControlButton/Bottom" to="PlayerAmbatekkom" method="_on_bottom_released"]

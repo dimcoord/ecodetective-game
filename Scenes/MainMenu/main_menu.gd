@@ -3,7 +3,7 @@ extends Control
 var button_type = null
 
 func _ready():
-	#$Music.play()
+	$Music.play()
 	pass
 
 func _process(delta):

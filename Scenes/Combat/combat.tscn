@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c2p71hryj44ue"]
+[gd_scene load_steps=16 format=3 uid="uid://c2p71hryj44ue"]
 
 [ext_resource type="Texture2D" uid="uid://dsd68bwfdqoey" path="res://assets/TempAssets/Backgrounds/forest_background.png" id="1_17onk"]
 [ext_resource type="Texture2D" uid="uid://b6hm1uumku3tx" path="res://assets/PNG/buttonRound_brown.png" id="1_mbfjw"]
@@ -14,6 +14,7 @@
 [ext_resource type="LabelSettings" uid="uid://dvfj7c3m625nj" path="res://Scenes/Combat/status.tres" id="9_stgyv"]
 [ext_resource type="Texture2D" uid="uid://ttmfypw4m1cw" path="res://assets/PNG/buttonSquare_brown_pressed.png" id="10_hbyqc"]
 [ext_resource type="Texture2D" uid="uid://g84s1uyt3242" path="res://assets/PNG/panel_brown.png" id="12_qu0gi"]
+[ext_resource type="AudioStream" uid="uid://cvnepp6wxygk3" path="res://assets/TempAssets/Musics/fnaf_world_combat.mp3" id="15_5rlui"]
 
 [node name="Combat" type="Control"]
 texture_filter = 1
@@ -270,6 +271,9 @@ offset_bottom = 22.8177
 scale = Vector2(0.22, 0.22)
 text = "Use items"
 label_settings = ExtResource("9_stgyv")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_5rlui")
 
 [connection signal="pressed" from="CanvasLayer/CombatMenu/MenuUpButton" to="." method="_on_menu_up_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/CombatMenu/MenuDownButton" to="." method="_on_menu_down_button_pressed"]

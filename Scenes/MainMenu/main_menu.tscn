@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ckciifrtxaglb"]
+[gd_scene load_steps=10 format=3 uid="uid://ckciifrtxaglb"]
 
 [ext_resource type="Script" path="res://Scenes/MainMenu/main_menu.gd" id="1_n1v7s"]
 [ext_resource type="LabelSettings" uid="uid://l7s3kctpa142" path="res://assets/Fonts/logo.tres" id="2_0vehv"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://dluwn7pawqh0p" path="res://assets/Fonts/pixelated.ttf" id="5_vjcu1"]
 [ext_resource type="AudioStream" uid="uid://ft17gsj86oab" path="res://assets/Sounds/switch-a.ogg" id="6_3tvx4"]
 [ext_resource type="PackedScene" uid="uid://cebgm8jsj671r" path="res://Scenes/Transition/fade_transition.tscn" id="7_0h6ar"]
+[ext_resource type="AudioStream" uid="uid://ntuwa2booumu" path="res://assets/TempAssets/Musics/fnaf_world_main_menu.mp3" id="8_focex"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_22rv7"]
 font = ExtResource("5_vjcu1")
@@ -143,6 +144,10 @@ visible = false
 layout_mode = 1
 
 [node name="FadeTimer" type="Timer" parent="FadeTransition"]
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_focex")
+parameters/looping = true
 
 [connection signal="pressed" from="ButtonsRect/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="ButtonsRect/ExitButton" to="." method="_on_exit_button_pressed"]
