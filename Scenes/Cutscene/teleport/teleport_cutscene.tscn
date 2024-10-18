@@ -1,0 +1,331 @@
+[gd_scene load_steps=14 format=3 uid="uid://bnwc4rro4omdx"]
+
+[ext_resource type="Shader" path="res://Scenes/Cutscene/teleport/teleport_cutscene.gdshader" id="1_1exg6"]
+[ext_resource type="Texture2D" uid="uid://bypmufel3wn4s" path="res://assets/PNG/custom/space.jpg" id="1_i7qcf"]
+[ext_resource type="Script" path="res://Scenes/Cutscene/teleport/teleport_cutscene.gd" id="1_lvq6o"]
+[ext_resource type="Texture2D" uid="uid://2j6w42pwmb1p" path="res://assets/TempAssets/Player/ambatekkom_player.png" id="2_pdya5"]
+[ext_resource type="AudioStream" uid="uid://d3p6xj1peg1op" path="res://assets/Sounds/charge_teleport.wav" id="4_cbmf1"]
+[ext_resource type="AudioStream" uid="uid://7rxgndagcwi0" path="res://assets/Sounds/wooooooshh.wav" id="5_mbh6n"]
+[ext_resource type="AudioStream" uid="uid://cudmiffpxpvs8" path="res://assets/Sounds/tearing1.wav" id="6_aa202"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5q1dg"]
+shader = ExtResource("1_1exg6")
+shader_parameter/scroll = Vector2(0.05, 0.05)
+shader_parameter/noise = ExtResource("1_i7qcf")
+
+[sub_resource type="Animation" id="Animation_bd0cp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlashTransition:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(234, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(151, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_5lf3o"]
+resource_name = "character"
+length = 4.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(127, -0.25, 0, 0.25, 0, 234, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 3.93333)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(99, -0.25, 0, 0.25, 0, 151, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 3.93333)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(3.115, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 3.93333)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(3.115, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 3.93333)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.987856, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 3.93333)
+}
+
+[sub_resource type="Animation" id="Animation_yqpte"]
+resource_name = "flash"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlashTransition:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667, 1.4, 1.66667, 1.93333, 1.96667, 2.2, 2.43333, 2.46667, 2.66667, 2.86667, 2.9, 3.06667, 3.23333, 3.26667, 3.4, 3.53333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_phi75"]
+resource_name = "full"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlashTransition:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667, 1.4, 1.66667, 1.93333, 1.96667, 2.2, 2.43333, 2.46667, 2.66667, 2.86667, 2.9, 3.06667, 3.23333, 3.26667, 3.4, 3.53333, 3.86667, 3.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(127, -0.25, 0, 0.25, 0, 234, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 3.93333)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(99, -0.25, 0, 0.25, 0, 151, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 3.93333)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(3.115, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 3.93333)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(3.115, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 3.93333)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.987856, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 3.93333)
+}
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TeleportCharge")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_cbmf1")
+}],
+"times": PackedFloat32Array(1.6)
+}
+tracks/6/use_blend = true
+tracks/7/type = "audio"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TeleportWhoosh")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_mbh6n")
+}],
+"times": PackedFloat32Array(3.6)
+}
+tracks/7/use_blend = true
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TeleportBump")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_aa202")
+}],
+"times": PackedFloat32Array(0.0333333)
+}
+tracks/8/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qd20j"]
+_data = {
+"RESET": SubResource("Animation_bd0cp"),
+"character": SubResource("Animation_5lf3o"),
+"flash": SubResource("Animation_yqpte"),
+"full": SubResource("Animation_phi75")
+}
+
+[node name="TeleportCutscene" type="Node2D"]
+script = ExtResource("1_lvq6o")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+material = SubResource("ShaderMaterial_5q1dg")
+position = Vector2(200.5, 131)
+scale = Vector2(0.345833, 0.3425)
+texture = ExtResource("1_i7qcf")
+
+[node name="Cutscene" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cutscene"]
+libraries = {
+"": SubResource("AnimationLibrary_qd20j")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="Cutscene"]
+texture_filter = 1
+position = Vector2(234, 151)
+texture = ExtResource("2_pdya5")
+flip_h = true
+hframes = 4
+vframes = 4
+frame = 4
+
+[node name="FlashTransition" type="ColorRect" parent="Cutscene"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 800.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.325, 0.325)
+
+[node name="Timer" type="Timer" parent="Cutscene"]
+wait_time = 5.0
+
+[node name="TeleportBump" type="AudioStreamPlayer" parent="Cutscene"]
+
+[node name="TeleportCharge" type="AudioStreamPlayer" parent="Cutscene"]
+
+[node name="TeleportWhoosh" type="AudioStreamPlayer" parent="Cutscene"]
+
+[connection signal="timeout" from="Cutscene/Timer" to="." method="_on_timer_timeout"]

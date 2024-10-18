@@ -1,0 +1,1165 @@
+[gd_scene load_steps=21 format=3 uid="uid://bkvioarbo8nqm"]
+
+[ext_resource type="Script" path="res://Scenes/Cutscene/ending/good/good_ending.gd" id="1_gbc05"]
+[ext_resource type="AudioStream" uid="uid://bj7sl3yoaetyp" path="res://assets/Sounds/type2.wav" id="2_kh3uq"]
+[ext_resource type="Texture2D" uid="uid://b3ggjbgxn8r1h" path="res://assets/PNG/custom/rural.jpg" id="3_k5krh"]
+[ext_resource type="FontFile" uid="uid://dluwn7pawqh0p" path="res://assets/Fonts/pixelated.ttf" id="4_5jhv2"]
+[ext_resource type="Texture2D" uid="uid://cbhobog273wtr" path="res://assets/PNG/custom/good_ending.jpg" id="5_1uayg"]
+[ext_resource type="Texture2D" uid="uid://2j6w42pwmb1p" path="res://assets/TempAssets/Player/ambatekkom_player.png" id="6_j8suw"]
+[ext_resource type="PackedScene" uid="uid://clbb0drt0mnwn" path="res://Scenes/Player/player_ambatekkom.tscn" id="7_cf2qt"]
+[ext_resource type="AudioStream" uid="uid://2qwdghcyl1wv" path="res://assets/Sounds/Soundtrack/good_ending.wav" id="7_x007m"]
+[ext_resource type="Script" path="res://Scenes/Player/camera_2d.gd" id="8_6l1oy"]
+[ext_resource type="AudioStream" uid="uid://cgw4xtlafbiek" path="res://assets/Sounds/Soundtrack/credits1.wav" id="8_h0gr2"]
+[ext_resource type="LabelSettings" uid="uid://l7s3kctpa142" path="res://assets/Fonts/logo.tres" id="11_3n1fu"]
+[ext_resource type="LabelSettings" uid="uid://c4xh37k4rv08o" path="res://assets/Fonts/headING1.tres" id="12_06u7g"]
+[ext_resource type="Texture2D" uid="uid://c1b6pchoh0u3b" path="res://assets/PNG/arrowBrown_right.png" id="13_160po"]
+[ext_resource type="Texture2D" uid="uid://crqd35gjkbvsu" path="res://assets/PNG/arrowBrown_left.png" id="14_3b2xv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4exa"]
+size = Vector2(399.5, 63.5)
+
+[sub_resource type="Animation" id="Animation_jb8o8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Text1:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Text1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Text2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Text2:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Text3:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Text3:visible_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Text4:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Text4:visible_ratio")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Image1:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Image1:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Image2:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Image2:self_modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("LineEdit:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("LineEdit:self_modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../../PlayerAmbatekkom:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../../PlayerAmbatekkom:self_modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("../GoodEndingTheme:playing")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("../GoodEndingTheme:volume_db")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-11.304]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("../../Control/CanvasLayer/ControlButton:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_t447n"]
+resource_name = "tpyewriter"
+length = 23.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Text1:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Text1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Text2:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(5, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Text2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 5, 11),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Text3:visible_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(11, 14),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Text3:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 11, 17),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Text4:visible_ratio")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(17, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Text4:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 17),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Image1:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 2, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Image1:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Image2:self_modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(5, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Image2:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 5, 17),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("LineEdit:self_modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(17, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("LineEdit:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 17),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../../PlayerAmbatekkom:self_modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(17, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../../PlayerAmbatekkom:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 17),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("../GoodEndingTheme:playing")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("../GoodEndingTheme:volume_db")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(20, 23),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-11.304, -80.0]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("../../Control/CanvasLayer/ControlButton:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 22),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vhbgk"]
+_data = {
+"RESET": SubResource("Animation_jb8o8"),
+"tpyewriter": SubResource("Animation_t447n")
+}
+
+[sub_resource type="Theme" id="Theme_x6yvu"]
+default_font = ExtResource("4_5jhv2")
+default_font_size = 26
+
+[sub_resource type="LabelSettings" id="LabelSettings_owwln"]
+font = ExtResource("4_5jhv2")
+font_size = 20
+
+[node name="OpeningCutscene" type="Node2D"]
+script = ExtResource("1_gbc05")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 400.0
+offset_bottom = 2201.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="Background"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Area2D"]
+position = Vector2(201.25, 467.25)
+shape = SubResource("RectangleShape2D_u4exa")
+
+[node name="PlayerAmbatekkom" parent="." instance=ExtResource("7_cf2qt")]
+position = Vector2(185, 69)
+
+[node name="Camera2D" type="Camera2D" parent="PlayerAmbatekkom"]
+limit_left = 0
+limit_top = 0
+limit_right = 640
+limit_bottom = 256
+script = ExtResource("8_6l1oy")
+
+[node name="Limits" type="Node2D" parent="PlayerAmbatekkom/Camera2D"]
+position = Vector2(-185, -70)
+
+[node name="TopLeft" type="Marker2D" parent="PlayerAmbatekkom/Camera2D/Limits"]
+
+[node name="BottomRight" type="Marker2D" parent="PlayerAmbatekkom/Camera2D/Limits"]
+position = Vector2(400, 2200)
+
+[node name="Cutscene" type="Node2D" parent="."]
+
+[node name="TextBox" type="NinePatchRect" parent="Cutscene"]
+offset_right = 400.0
+offset_bottom = 260.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cutscene/TextBox"]
+libraries = {
+"": SubResource("AnimationLibrary_vhbgk")
+}
+
+[node name="TypingSound" type="AudioStreamPlayer" parent="Cutscene/TextBox"]
+stream = ExtResource("2_kh3uq")
+
+[node name="Image1" type="NinePatchRect" parent="Cutscene/TextBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = -109.0
+offset_right = 106.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_k5krh")
+
+[node name="Text1" type="RichTextLabel" parent="Cutscene/TextBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.758
+anchor_right = 0.5
+anchor_bottom = 0.758
+offset_left = -73.0
+offset_top = -28.08
+offset_right = 141.0
+offset_bottom = 61.92
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+theme = SubResource("Theme_x6yvu")
+text = "SUMBER  POLUSI  TELAH  KAMU MUSNAHKAN"
+fit_content = true
+
+[node name="Image2" type="NinePatchRect" parent="Cutscene/TextBox"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = -109.0
+offset_right = 106.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_1uayg")
+
+[node name="Text2" type="RichTextLabel" parent="Cutscene/TextBox"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.738
+anchor_right = 0.5
+anchor_bottom = 0.738
+offset_left = -76.0
+offset_top = -30.88
+offset_right = 138.0
+offset_bottom = 59.12
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.72, 0.72)
+theme = SubResource("Theme_x6yvu")
+text = "INDONESIA  BELAJAR  DARI  KESALAHANNYA"
+fit_content = true
+
+[node name="Text3" type="RichTextLabel" parent="Cutscene/TextBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.738
+anchor_right = 0.5
+anchor_bottom = 0.738
+offset_left = -76.0
+offset_top = -30.88
+offset_right = 138.0
+offset_bottom = 59.12
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.72, 0.72)
+theme = SubResource("Theme_x6yvu")
+text = "BUMI  TERSELAMATKAN  UNTUK  SEKARANG . . "
+fit_content = true
+
+[node name="Text4" type="RichTextLabel" parent="Cutscene/TextBox"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.738
+anchor_right = 0.5
+anchor_bottom = 0.738
+offset_left = -76.0
+offset_top = -30.88
+offset_right = 138.0
+offset_bottom = 59.12
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.72, 0.72)
+theme = SubResource("Theme_x6yvu")
+text = "KAMU  BERHASIL  MENYELAMATKAN  BUMI"
+fit_content = true
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Cutscene/TextBox"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+position = Vector2(201, 75)
+scale = Vector2(1.865, 1.865)
+texture = ExtResource("6_j8suw")
+hframes = 4
+vframes = 4
+frame = 4
+
+[node name="LineEdit" type="LineEdit" parent="Cutscene/TextBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -16.0
+offset_right = 48.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_5jhv2")
+alignment = 1
+max_length = 10
+editable = false
+expand_to_text_length = true
+context_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+drag_and_drop_selection_enabled = false
+caret_blink = true
+
+[node name="Timer" type="Timer" parent="Cutscene"]
+wait_time = 23.0
+
+[node name="CreditsTimer" type="Timer" parent="Cutscene"]
+wait_time = 66.0
+
+[node name="GoodEndingTheme" type="AudioStreamPlayer" parent="Cutscene"]
+stream = ExtResource("7_x007m")
+volume_db = -11.304
+
+[node name="CreditsTheme" type="AudioStreamPlayer" parent="Cutscene"]
+stream = ExtResource("8_h0gr2")
+
+[node name="CreditsBox" type="NinePatchRect" parent="Cutscene"]
+offset_left = 2.0
+offset_top = 518.0
+offset_right = 401.0
+offset_bottom = 1722.0
+
+[node name="Logo" type="Label" parent="Cutscene/CreditsBox"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -107.0
+offset_right = 107.0
+offset_bottom = 40.0
+grow_horizontal = 2
+text = "ECODETECTIVE"
+label_settings = ExtResource("11_3n1fu")
+horizontal_alignment = 1
+
+[node name="Versi" type="Label" parent="Cutscene/CreditsBox"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -107.0
+offset_top = 100.0
+offset_right = 107.0
+offset_bottom = 140.0
+grow_horizontal = 2
+text = "V 0.1.1.3   Beta"
+label_settings = ExtResource("12_06u7g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Dedikasi" type="Label" parent="Cutscene/CreditsBox"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -107.0
+offset_top = 200.0
+offset_right = 107.0
+offset_bottom = 240.0
+grow_horizontal = 2
+text = "DIDEDIKASIKAN  UNTUK:"
+label_settings = ExtResource("12_06u7g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Cutscene/CreditsBox/Dedikasi"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -162.5
+offset_top = 10.0
+offset_right = 162.5
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "UNIVERSITAS  PENDIDIKAN  INDONESIA
+KAMPUS  UPI  DI  CIBIRU
+PRODI  TEKNIK  KOMPUTER"
+label_settings = SubResource("LabelSettings_owwln")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Dosen" type="Label" parent="Cutscene/CreditsBox"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -156.0
+offset_top = 375.0
+offset_right = 156.0
+offset_bottom = 415.0
+grow_horizontal = 2
+text = "DOSEN  PENANGGUNGJAWAB"
+label_settings = ExtResource("12_06u7g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Cutscene/CreditsBox/Dosen"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -162.0
+offset_top = 10.0
+offset_right = 163.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "DR.  ENG.  MUNAWIR,  S.  KOM.,  M.  T."
+label_settings = SubResource("LabelSettings_owwln")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tim Pengembang" type="Label" parent="Cutscene/CreditsBox"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -136.5
+offset_top = 550.0
+offset_right = 136.5
+offset_bottom = 590.0
+grow_horizontal = 2
+text = "TIM PENGEMBANG"
+label_settings = ExtResource("12_06u7g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Konseptor" type="Label" parent="Cutscene/CreditsBox/Tim Pengembang"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -136.5
+offset_top = 75.0
+offset_right = 136.5
+offset_bottom = 115.0
+grow_horizontal = 2
+text = "KONSEPTOR"
+label_settings = ExtResource("12_06u7g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Cutscene/CreditsBox/Tim Pengembang/Konseptor"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -162.5
+offset_top = 10.0
+offset_right = 162.5
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "MUHAMMAD  AZKA  LUFTHANSA"
+label_settings = SubResource("LabelSettings_owwln")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Story" type="Label" parent="Cutscene/CreditsBox/Tim Pengembang"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -136.5
+offset_top = 175.0
+offset_right = 136.5
+offset_bottom = 215.0
+grow_horizontal = 2
+text = "STORY"
+label_settings = ExtResource("12_06u7g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Cutscene/CreditsBox/Tim Pengembang/Story"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -162.5
+offset_top = 10.0
+offset_right = 162.5
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "ANGGA  ADITIA  KURNIA"
+label_settings = SubResource("LabelSettings_owwln")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Chaaracter" type="Label" parent="Cutscene/CreditsBox/Tim Pengembang"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -136.5
+offset_top = 275.0
+offset_right = 136.5
+offset_bottom = 315.0
+grow_horizontal = 2
+text = "CHARACTER DESIGN"
+label_settings = ExtResource("12_06u7g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Cutscene/CreditsBox/Tim Pengembang/Chaaracter"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -162.5
+offset_top = 10.0
+offset_right = 162.5
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "ANGGA  ADITIA  KURNIA"
+label_settings = SubResource("LabelSettings_owwln")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Proposal" type="Label" parent="Cutscene/CreditsBox/Tim Pengembang"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -136.5
+offset_top = 374.0
+offset_right = 136.5
+offset_bottom = 414.0
+grow_horizontal = 2
+text = "PROPOSAL"
+label_settings = ExtResource("12_06u7g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Cutscene/CreditsBox/Tim Pengembang/Proposal"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -162.5
+offset_top = 10.0
+offset_right = 162.5
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "MUHAMMAD  ARIZAL  MAULANA"
+label_settings = SubResource("LabelSettings_owwln")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Gameplay" type="Label" parent="Cutscene/CreditsBox/Tim Pengembang"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -136.5
+offset_top = 475.0
+offset_right = 136.5
+offset_bottom = 515.0
+grow_horizontal = 2
+text = "GAMEPLAY"
+label_settings = ExtResource("12_06u7g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Cutscene/CreditsBox/Tim Pengembang/Gameplay"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -162.5
+offset_top = 10.0
+offset_right = 162.5
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "MUHAMMAD  AZKA  LUFTHANSA"
+label_settings = SubResource("LabelSettings_owwln")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UI" type="Label" parent="Cutscene/CreditsBox/Tim Pengembang"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -136.5
+offset_top = 575.0
+offset_right = 136.5
+offset_bottom = 615.0
+grow_horizontal = 2
+text = "USER INTERFACE"
+label_settings = ExtResource("12_06u7g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Cutscene/CreditsBox/Tim Pengembang/UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -162.5
+offset_top = 10.0
+offset_right = 162.5
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "DIMASTIO  SETIAWAN"
+label_settings = SubResource("LabelSettings_owwln")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cutscene" type="Label" parent="Cutscene/CreditsBox/Tim Pengembang"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -136.5
+offset_top = 675.0
+offset_right = 136.5
+offset_bottom = 715.0
+grow_horizontal = 2
+text = "CUTSCENE"
+label_settings = ExtResource("12_06u7g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Cutscene/CreditsBox/Tim Pengembang/Cutscene"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -162.5
+offset_top = 10.0
+offset_right = 162.5
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "DIMASTIO  SETIAWAN"
+label_settings = SubResource("LabelSettings_owwln")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Programming" type="Label" parent="Cutscene/CreditsBox/Tim Pengembang"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -136.5
+offset_top = 775.0
+offset_right = 136.5
+offset_bottom = 815.0
+grow_horizontal = 2
+text = "PROGRAMMING"
+label_settings = ExtResource("12_06u7g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Cutscene/CreditsBox/Tim Pengembang/Programming"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -162.5
+offset_top = 10.0
+offset_right = 162.5
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "MUHAMMAD  AZKA  LUFTHANSA"
+label_settings = SubResource("LabelSettings_owwln")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Cutscene/CreditsBox/Tim Pengembang/Programming"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -162.5
+offset_top = 35.0
+offset_right = 162.5
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "DIMASTIO  SETIAWAN"
+label_settings = SubResource("LabelSettings_owwln")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Copyright" type="Label" parent="Cutscene/CreditsBox"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -140.0
+offset_top = 1550.0
+offset_right = 140.0
+offset_bottom = 1590.0
+grow_horizontal = 2
+text = "(C)  AMBATEKKOM,  2024"
+label_settings = ExtResource("12_06u7g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+
+[node name="ControlButton" type="Node2D" parent="Control/CanvasLayer"]
+texture_filter = 1
+position = Vector2(16, 169)
+metadata/_edit_group_ = true
+
+[node name="Top" type="TouchScreenButton" parent="Control/CanvasLayer/ControlButton"]
+position = Vector2(32, 14)
+rotation = -1.5708
+texture_normal = ExtResource("13_160po")
+
+[node name="Right" type="TouchScreenButton" parent="Control/CanvasLayer/ControlButton"]
+position = Vector2(64, 22)
+texture_normal = ExtResource("13_160po")
+
+[node name="Left" type="TouchScreenButton" parent="Control/CanvasLayer/ControlButton"]
+position = Vector2(0, 22)
+texture_normal = ExtResource("14_3b2xv")
+
+[node name="Bottom" type="TouchScreenButton" parent="Control/CanvasLayer/ControlButton"]
+position = Vector2(32, 74)
+rotation = -1.5708
+texture_normal = ExtResource("14_3b2xv")
+
+[connection signal="body_entered" from="Background/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="text_submitted" from="Cutscene/TextBox/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="timeout" from="Cutscene/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Cutscene/CreditsTimer" to="." method="_on_credits_timer_timeout"]
+[connection signal="pressed" from="Control/CanvasLayer/ControlButton/Top" to="PlayerAmbatekkom" method="_on_top_pressed"]
+[connection signal="released" from="Control/CanvasLayer/ControlButton/Top" to="PlayerAmbatekkom" method="_on_top_released"]
+[connection signal="pressed" from="Control/CanvasLayer/ControlButton/Right" to="PlayerAmbatekkom" method="_on_right_pressed"]
+[connection signal="released" from="Control/CanvasLayer/ControlButton/Right" to="PlayerAmbatekkom" method="_on_right_released"]
+[connection signal="pressed" from="Control/CanvasLayer/ControlButton/Left" to="PlayerAmbatekkom" method="_on_left_pressed"]
+[connection signal="released" from="Control/CanvasLayer/ControlButton/Left" to="PlayerAmbatekkom" method="_on_left_released"]
+[connection signal="pressed" from="Control/CanvasLayer/ControlButton/Bottom" to="PlayerAmbatekkom" method="_on_bottom_pressed"]
+[connection signal="released" from="Control/CanvasLayer/ControlButton/Bottom" to="PlayerAmbatekkom" method="_on_bottom_released"]

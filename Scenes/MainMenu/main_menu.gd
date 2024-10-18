@@ -1,27 +1,36 @@
 extends Control
 
-var button_type = null
+var save_path := "user://player_data.json"
+var username = null
 
-func _ready():
-	#$Music.play()
-	pass
+var button_type = null 
 
-func _process(delta):
-	pass
+func load_user() -> void:
+	if not FileAccess.file_exists(save_path):
+		return
+	var file_access := FileAccess.open(save_path, FileAccess.READ)
+	var json_string := file_access.get_line()
+	file_access.close()
 
-func load_game():
-	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+	var json := JSON.new()
+	var error := json.parse(json_string)
+	if error:
+		print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
+		return
+	var data:Dictionary = json.data
+	username = data.get("username")
 
-func _on_start_button_pressed() -> void:
-	button_type = "start"
+func _ready() -> void:
+	load_user()
 	
-	# Play click sound.
-	$ButtonsRect/ClickSound.play()
+	$AudioStreamPlayer.play()
 	
-	# Start fade-in transition.
-	$FadeTransition.visible = visible
-	$FadeTransition/FadeTimer.start()
-	$FadeTransition/AnimationPlayer.play("fade_out")
+	if username != null:
+		$ButtonsRect/NewGameButton/Label.text = "NEW GAME"
+		$ButtonsRect/ContinueButton.visible = true
+	else:
+		$ButtonsRect/NewGameButton/Label.text = "START"
+		$ButtonsRect/ContinueButton.visible = false
 
 func _on_exit_button_pressed() -> void:
 	button_type = "exit"
@@ -34,9 +43,32 @@ func _on_exit_button_pressed() -> void:
 	$FadeTransition/FadeTimer.start()
 	$FadeTransition/AnimationPlayer.play("fade_out")
 
+func _on_continue_button_pressed() -> void:
+	button_type = "continue"
+	
+	# Play click sound.
+	$ButtonsRect/ClickSound.play()
+	
+	# Start fade-in transition.
+	$FadeTransition.visible = visible
+	$FadeTransition/FadeTimer.start()
+	$FadeTransition/AnimationPlayer.play("fade_out")
+
+func _on_new_game_button_pressed() -> void:
+	button_type = "new_game"
+	
+	# Play click sound.
+	$ButtonsRect/ClickSound.play()
+	
+	# Start fade-in transition.
+	$FadeTransition.visible = visible
+	$FadeTransition/FadeTimer.start()
+	$FadeTransition/AnimationPlayer.play("fade_out")
 
 func _on_fade_timer_timeout() -> void:
-	if button_type == "start":
-		load_game()
+	if button_type == "continue":
+		get_tree().change_scene_to_file("res://Scenes/Cutscene/teleport/teleport_cutscene.tscn")
 	elif button_type == "exit":
 		get_tree().quit()
+	else:
+		get_tree().change_scene_to_file("res://Scenes/Cutscene/opening/opening_cutscene.tscn")

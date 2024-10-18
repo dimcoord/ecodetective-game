@@ -7,9 +7,10 @@ extends CharacterBody2D
 @export var speed = 40
 @export var max_speed = 100
 @export var FRICTION: float = 0.15
+@export var move_direction = Vector2.ZERO
+@export var is_input_locked = false
+@export var is_moving = false
 var is_alive = true
-var move_direction = Vector2.ZERO
-var is_moving = false
 
 # Battle variables
 var battle_scene = preload("res://Scenes/Combat/combat.tscn")
@@ -20,7 +21,7 @@ func _ready():
 
 func _process(delta):
 	get_input()
-	
+
 func _physics_process(delta):
 	velocity = lerp(velocity, Vector2.ZERO, FRICTION)
 	
@@ -39,27 +40,27 @@ func get_input():
 			#print("player swalk")
 			
 		# Movement
-		if Input.is_action_pressed("ui_down"):
+		if Input.is_action_pressed("ui_down") && !is_input_locked:
 			move_direction = Vector2.DOWN
 			is_moving = true
-		elif Input.is_action_pressed("ui_up"):
+		elif Input.is_action_pressed("ui_up") && !is_input_locked:
 			move_direction = Vector2.UP
 			is_moving = true
-		elif Input.is_action_pressed("ui_left"):
+		elif Input.is_action_pressed("ui_left") && !is_input_locked:
 			move_direction = Vector2.LEFT
 			is_moving = true
-		elif Input.is_action_pressed("ui_right"):
+		elif Input.is_action_pressed("ui_right") && !is_input_locked:
 			move_direction = Vector2.RIGHT
 			is_moving = true
 
 		# Idle animations
-		if Input.is_action_just_released("ui_down"):
+		if Input.is_action_just_released("ui_down") && !is_input_locked:
 			is_moving = false
-		if Input.is_action_just_released("ui_up"):
+		if Input.is_action_just_released("ui_up") && !is_input_locked:
 			is_moving = false
-		if Input.is_action_just_released("ui_left"):
+		if Input.is_action_just_released("ui_left") && !is_input_locked:
 			is_moving = false
-		if Input.is_action_just_released("ui_right"):
+		if Input.is_action_just_released("ui_right") && !is_input_locked:
 			is_moving = false
 			
 		# Set animations direction
@@ -84,29 +85,37 @@ func battle():
 # Nanti pas build mah diumpetin biar mobile-only
 
 func _on_top_pressed() -> void:
-	move_direction = Vector2.UP
-	is_moving = true
+	if !is_input_locked:
+		move_direction = Vector2.UP
+		is_moving = true
 
 func _on_top_released() -> void:
-	is_moving = false
+	if !is_input_locked:
+		is_moving = false
 
 func _on_right_pressed() -> void:
-	move_direction = Vector2.RIGHT
-	is_moving = true
+	if !is_input_locked:
+		move_direction = Vector2.RIGHT
+		is_moving = true
 
 func _on_right_released() -> void:
-	is_moving = false
+	if !is_input_locked:
+		is_moving = false
 
 func _on_left_pressed() -> void:
-	move_direction = Vector2.LEFT
-	is_moving = true
+	if !is_input_locked:
+		move_direction = Vector2.LEFT
+		is_moving = true
 
 func _on_left_released() -> void:
-	is_moving = false
+	if !is_input_locked:
+		is_moving = false
 
 func _on_bottom_pressed() -> void:
-	move_direction = Vector2.DOWN
-	is_moving = true
+	if !is_input_locked:
+		move_direction = Vector2.DOWN
+		is_moving = true
 
 func _on_bottom_released() -> void:
-	is_moving = false
+	if !is_input_locked:
+		is_moving = false
