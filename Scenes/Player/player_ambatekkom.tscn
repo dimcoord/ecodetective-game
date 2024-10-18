@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://2j6w42pwmb1p" path="res://assets/TempAssets/Player/ambatekkom_player.png" id="2_7nx40"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bov1b"]
-size = Vector2(32, 32)
+size = Vector2(8, 11)
 
 [sub_resource type="Animation" id="Animation_f3qtk"]
 resource_name = "IdleDown"
@@ -385,15 +385,17 @@ script = ExtResource("1_awjrw")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(16, 18)
 texture = ExtResource("2_7nx40")
 centered = false
+offset = Vector2(-16, -25)
 flip_h = true
 hframes = 4
 vframes = 4
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(16, 16)
+position = Vector2(16, 18)
 shape = SubResource("RectangleShape2D_bov1b")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

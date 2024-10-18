@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ttmfypw4m1cw" path="res://assets/PNG/buttonSquare_brown_pressed.png" id="7_ot32f"]
 [ext_resource type="Texture2D" uid="uid://c1b6pchoh0u3b" path="res://assets/PNG/arrowBrown_right.png" id="8_3vrdj"]
 [ext_resource type="Texture2D" uid="uid://crqd35gjkbvsu" path="res://assets/PNG/arrowBrown_left.png" id="9_p6gir"]
+[ext_resource type="AudioStream" uid="uid://cvm4sv6auttr4" path="res://assets/TempAssets/Musics/fnaf_world_adventure.mp3" id="11_bwmt8"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_tesnu")
@@ -100,7 +101,7 @@ texture_normal = ExtResource("9_p6gir")
 
 [node name="FadeTransition" parent="." instance=ExtResource("1_4ugg2")]
 visible = false
-z_index = 1
+z_index = 4096
 offset_left = -192.0
 offset_top = -144.0
 offset_right = 608.0
@@ -114,6 +115,10 @@ position = Vector2(64, 48)
 
 [node name="Monster3" parent="." instance=ExtResource("7_j6ufg")]
 position = Vector2(112, 240)
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_bwmt8")
+parameters/looping = true
 
 [connection signal="pressed" from="Control/CanvasLayer/ControlButton/Top" to="PlayerAmbatekkom" method="_on_top_pressed"]
 [connection signal="released" from="Control/CanvasLayer/ControlButton/Top" to="PlayerAmbatekkom" method="_on_top_released"]

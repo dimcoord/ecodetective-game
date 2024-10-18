@@ -6,6 +6,7 @@ var button_index = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Music.play()
 	button_index = 0
 	$CanvasLayer/CombatMenu/MenuItemSelect.visible = false
 

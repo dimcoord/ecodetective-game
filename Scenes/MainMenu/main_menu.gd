@@ -3,7 +3,7 @@ extends Control
 var save_path := "user://player_data.json"
 var username = null
 
-var button_type = null 
+var button_type = null
 
 func load_user() -> void:
 	if not FileAccess.file_exists(save_path):

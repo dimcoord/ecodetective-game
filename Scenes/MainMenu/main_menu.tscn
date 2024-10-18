@@ -15,6 +15,7 @@
 shader = ExtResource("2_lwy7u")
 shader_parameter/scroll = Vector2(0.03, 0)
 shader_parameter/noise = ExtResource("3_hothj")
+[ext_resource type="AudioStream" uid="uid://ntuwa2booumu" path="res://assets/TempAssets/Musics/fnaf_world_main_menu.mp3" id="8_focex"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_22rv7"]
 font = ExtResource("5_vjcu1")
