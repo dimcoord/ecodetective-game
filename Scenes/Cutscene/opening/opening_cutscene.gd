@@ -28,7 +28,10 @@ func save() -> void:
 		"current_hp" : 100,
 		"max_hp" : 100,
 		"exp": 0,
-		"is_alive" : true
+		"is_alive" : true,
+		"items_obtained": [
+			"i_fire_extinguisher"
+		],
 	}
 	var json_string := JSON.stringify(save_dict)
 	var file_access := FileAccess.open(save_path, FileAccess.WRITE)

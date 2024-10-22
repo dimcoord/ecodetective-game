@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://drrl8wthi3rkr"]
+[gd_scene load_steps=12 format=3 uid="uid://drrl8wthi3rkr"]
 
 [ext_resource type="PackedScene" uid="uid://cebgm8jsj671r" path="res://Scenes/Transition/fade_transition.tscn" id="1_4ugg2"]
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_tesnu"]
@@ -16,26 +16,6 @@
 script = ExtResource("1_tesnu")
 
 [node name="Town" parent="." instance=ExtResource("4_csalh")]
-
-[node name="PlayerAmbatekkom" parent="." groups=["player"] instance=ExtResource("5_5xcqf")]
-position = Vector2(64, 112)
-
-[node name="Camera" type="Camera2D" parent="PlayerAmbatekkom"]
-position = Vector2(16, 16)
-limit_left = 16
-limit_top = 16
-limit_right = 640
-limit_bottom = 256
-editor_draw_limits = true
-script = ExtResource("4_i13yh")
-
-[node name="Limits" type="Node2D" parent="PlayerAmbatekkom/Camera"]
-position = Vector2(-80, -128)
-
-[node name="TopLeft" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits"]
-
-[node name="BottomRight" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits"]
-position = Vector2(640, 256)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -108,13 +88,33 @@ offset_right = 608.0
 offset_bottom = 448.0
 
 [node name="Monster" parent="." instance=ExtResource("7_j6ufg")]
-position = Vector2(368, 160)
+position = Vector2(384, 208)
 
 [node name="Monster2" parent="." instance=ExtResource("7_j6ufg")]
 position = Vector2(64, 48)
 
 [node name="Monster3" parent="." instance=ExtResource("7_j6ufg")]
 position = Vector2(112, 240)
+
+[node name="PlayerAmbatekkom" parent="." groups=["player"] instance=ExtResource("5_5xcqf")]
+position = Vector2(64, 112)
+
+[node name="Camera" type="Camera2D" parent="PlayerAmbatekkom"]
+position = Vector2(16, 16)
+limit_left = 16
+limit_top = 16
+limit_right = 640
+limit_bottom = 256
+editor_draw_limits = true
+script = ExtResource("4_i13yh")
+
+[node name="Limits" type="Node2D" parent="PlayerAmbatekkom/Camera"]
+position = Vector2(-80, -128)
+
+[node name="TopLeft" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits"]
+
+[node name="BottomRight" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits"]
+position = Vector2(640, 256)
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_bwmt8")

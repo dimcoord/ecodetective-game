@@ -1,0 +1,10 @@
+{
+    "data": [
+        {
+            "code": "i_fire_extinguisher",
+            "name": "Fire Extinguisher",
+            "image_path": "",
+            "damage": 8
+        }
+    ]
+}

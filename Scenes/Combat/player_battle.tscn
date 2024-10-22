@@ -1,0 +1,170 @@
+[gd_scene load_steps=13 format=3 uid="uid://d346guxg3kuaa"]
+
+[ext_resource type="Texture2D" uid="uid://2j6w42pwmb1p" path="res://assets/TempAssets/Player/ambatekkom_player.png" id="1_p2pwt"]
+[ext_resource type="Script" path="res://Scenes/Combat/player_battle.gd" id="1_u7kj2"]
+[ext_resource type="Texture2D" uid="uid://ttmfypw4m1cw" path="res://assets/PNG/buttonSquare_brown_pressed.png" id="2_uowo8"]
+[ext_resource type="LabelSettings" uid="uid://dvfj7c3m625nj" path="res://Scenes/Combat/status.tres" id="3_7kr2d"]
+[ext_resource type="Texture2D" uid="uid://em38aesow7ux" path="res://assets/PNG/barRed_horizontalMid.png" id="4_dld3f"]
+[ext_resource type="Texture2D" uid="uid://dxotqlrfagq4n" path="res://assets/PNG/barBlue_horizontalBlue.png" id="6_i13wr"]
+[ext_resource type="Texture2D" uid="uid://kjwvu4nyrsiw" path="res://assets/PNG/custom/shield_grey.png" id="7_3jnc0"]
+
+[sub_resource type="Animation" id="Animation_1e7b4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(60, 176)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Shield:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8pf8b"]
+resource_name = "block"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Shield:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0.0588235), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_w6ue2"]
+resource_name = "hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_0as5k"]
+resource_name = "normal_attack"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(60, 176), Vector2(92, 176), Vector2(60, 176)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rmfwx"]
+_data = {
+"RESET": SubResource("Animation_1e7b4"),
+"block": SubResource("Animation_8pf8b"),
+"hit": SubResource("Animation_w6ue2"),
+"normal_attack": SubResource("Animation_0as5k")
+}
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_u7kj2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(60, 176)
+scale = Vector2(2, 2)
+texture = ExtResource("1_p2pwt")
+hframes = 4
+vframes = 4
+frame = 12
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_rmfwx")
+}
+
+[node name="Status" type="NinePatchRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = 212.0
+offset_right = 96.0
+offset_bottom = 244.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_uowo8")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Status"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.067
+anchor_top = 0.17
+anchor_right = 0.067
+anchor_bottom = 0.17
+offset_left = 5.64
+offset_top = -4.44
+offset_right = 178.64
+offset_bottom = 30.56
+scale = Vector2(0.29, 0.415)
+text = "<username>"
+label_settings = ExtResource("3_7kr2d")
+
+[node name="HealthBar" type="TextureProgressBar" parent="Status"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 20.0
+offset_right = 69.0
+offset_bottom = 26.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("4_dld3f")
+texture_progress = ExtResource("6_i13wr")
+
+[node name="Shield" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(109.5, 158.5)
+scale = Vector2(0.0575, 0.0558333)
+texture = ExtResource("7_3jnc0")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

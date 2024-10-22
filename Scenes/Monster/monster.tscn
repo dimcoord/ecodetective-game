@@ -372,6 +372,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s37cg"]
+radius = 7.07107
 
 [node name="Monster" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_j8kia")

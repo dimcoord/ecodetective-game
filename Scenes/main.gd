@@ -10,6 +10,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if GameManager.game_over && !GameManager.is_battle:
+		get_tree().change_scene_to_file("res://Scenes/Cutscene/ending/bad/game_over.tscn")
+		
 	# Control music playing.
 	if GameManager.is_battle and forest_music.is_playing():
 		forest_music.stop()

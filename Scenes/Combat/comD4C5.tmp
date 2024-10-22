@@ -1,0 +1,280 @@
+[gd_scene load_steps=18 format=3 uid="uid://c2p71hryj44ue"]
+
+[ext_resource type="Texture2D" uid="uid://dsd68bwfdqoey" path="res://assets/TempAssets/Backgrounds/forest_background.png" id="1_17onk"]
+[ext_resource type="Texture2D" uid="uid://b6hm1uumku3tx" path="res://assets/PNG/buttonRound_brown.png" id="1_mbfjw"]
+[ext_resource type="Script" path="res://Scenes/Combat/combat.gd" id="1_wn64j"]
+[ext_resource type="Texture2D" uid="uid://bs6hwsctd6024" path="res://assets/PNG/arrowBeige_right.png" id="2_nvlwr"]
+[ext_resource type="PackedScene" uid="uid://d346guxg3kuaa" path="res://Scenes/Combat/player_battle.tscn" id="3_4rsqx"]
+[ext_resource type="Texture2D" uid="uid://c55x4ffalvnwr" path="res://assets/PNG/buttonRound_beige.png" id="3_mc2mg"]
+[ext_resource type="Texture2D" uid="uid://c737qo2yg6nev" path="res://assets/PNG/cursorSword_silver.png" id="4_fsosx"]
+[ext_resource type="Texture2D" uid="uid://dxxidunf2sqmr" path="res://assets/PNG/cursorHand_grey.png" id="6_kvm2m"]
+[ext_resource type="Texture2D" uid="uid://kjwvu4nyrsiw" path="res://assets/PNG/custom/shield_grey.png" id="7_b4m8e"]
+[ext_resource type="AudioStream" uid="uid://ft17gsj86oab" path="res://assets/Sounds/switch-a.ogg" id="8_sc2uk"]
+[ext_resource type="LabelSettings" uid="uid://dvfj7c3m625nj" path="res://Scenes/Combat/status.tres" id="9_stgyv"]
+[ext_resource type="Texture2D" uid="uid://g84s1uyt3242" path="res://assets/PNG/panel_brown.png" id="12_qu0gi"]
+[ext_resource type="PackedScene" uid="uid://brr68l80l8nae" path="res://Scenes/Combat/monster_battle.tscn" id="13_t45cs"]
+[ext_resource type="AudioStream" uid="uid://cvnepp6wxygk3" path="res://assets/TempAssets/Musics/fnaf_world_combat.mp3" id="15_5rlui"]
+
+[sub_resource type="Animation" id="Animation_3mkeb"]
+resource_name = "fade_in"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xgqrn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jm7fv"]
+_data = {
+"RESET": SubResource("Animation_xgqrn"),
+"fade_in": SubResource("Animation_3mkeb")
+}
+
+[node name="Combat" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wn64j")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CombatBackground" type="Sprite2D" parent="CanvasLayer"]
+texture_filter = 1
+position = Vector2(200, 136)
+scale = Vector2(0.5, 0.566667)
+texture = ExtResource("1_17onk")
+
+[node name="CombatMenu" type="NinePatchRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 1.007
+anchor_top = 0.983
+anchor_right = 1.007
+anchor_bottom = 0.983
+offset_left = -79.8
+offset_top = -79.58
+offset_right = -39.8
+offset_bottom = -39.58
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(3.985, 3.985)
+texture = ExtResource("1_mbfjw")
+
+[node name="MenuUpButton" type="TextureButton" parent="CanvasLayer/CombatMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.143
+anchor_top = 0.075
+anchor_right = -0.143
+anchor_bottom = 0.075
+offset_left = -3.76487
+offset_top = 3.86836
+offset_right = 18.2351
+offset_bottom = 24.8683
+rotation = -1.5708
+scale = Vector2(0.35, 0.35)
+action_mode = 0
+texture_normal = ExtResource("2_nvlwr")
+
+[node name="MenuDownButton" type="TextureButton" parent="CanvasLayer/CombatMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.147
+anchor_top = 0.372
+anchor_right = -0.147
+anchor_bottom = 0.372
+offset_left = 3.67231
+offset_top = -3.84157
+offset_right = 25.6723
+offset_bottom = 17.1585
+rotation = -4.71239
+scale = Vector2(0.35, 0.35)
+action_mode = 0
+texture_normal = ExtResource("2_nvlwr")
+
+[node name="MenuAttackButton" type="TextureButton" parent="CanvasLayer/CombatMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.267
+anchor_top = 0.23
+anchor_right = 0.267
+anchor_bottom = 0.23
+offset_left = 6.81797
+offset_top = -7.72821
+offset_right = 41.818
+offset_bottom = 30.2718
+rotation = -4.71239
+scale = Vector2(0.45, 0.45)
+action_mode = 0
+texture_normal = ExtResource("3_mc2mg")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/CombatMenu/MenuAttackButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.14169
+offset_top = -10.6417
+offset_right = 30.8583
+offset_bottom = 29.3583
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.44, 0.44)
+texture = ExtResource("4_fsosx")
+
+[node name="MenuItemButton" type="TextureButton" parent="CanvasLayer/CombatMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.267
+anchor_top = 0.23
+anchor_right = 0.267
+anchor_bottom = 0.23
+offset_left = 6.81797
+offset_top = -7.72821
+offset_right = 41.818
+offset_bottom = 30.2718
+rotation = -4.71239
+scale = Vector2(0.45, 0.45)
+action_mode = 0
+texture_normal = ExtResource("3_mc2mg")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/CombatMenu/MenuItemButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.14169
+offset_top = -10.6417
+offset_right = 30.8583
+offset_bottom = 29.3583
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.44, 0.44)
+texture = ExtResource("6_kvm2m")
+
+[node name="MenuBlockButton" type="TextureButton" parent="CanvasLayer/CombatMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.267
+anchor_top = 0.23
+anchor_right = 0.267
+anchor_bottom = 0.23
+offset_left = 6.81797
+offset_top = -7.72821
+offset_right = 41.818
+offset_bottom = 30.2718
+rotation = -4.71239
+scale = Vector2(0.45, 0.45)
+action_mode = 0
+texture_normal = ExtResource("3_mc2mg")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/CombatMenu/MenuBlockButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.59662
+offset_top = 7.1652
+offset_right = 31.4034
+offset_bottom = 47.1652
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5708
+scale = Vector2(0.44, 0.44)
+texture = ExtResource("7_b4m8e")
+
+[node name="SwitchSound" type="AudioStreamPlayer" parent="CanvasLayer/CombatMenu"]
+stream = ExtResource("8_sc2uk")
+
+[node name="MenuItemSelect" type="NinePatchRect" parent="CanvasLayer/CombatMenu"]
+layout_mode = 0
+offset_left = -42.5184
+offset_top = 0.245299
+offset_right = -13.5184
+offset_bottom = 18.2453
+texture = ExtResource("12_qu0gi")
+
+[node name="Label" type="Label" parent="CanvasLayer/CombatMenu/MenuItemSelect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -7.36429
+offset_top = 0.758463
+offset_right = 108.636
+offset_bottom = 35.7585
+grow_horizontal = 2
+scale = Vector2(0.125, 0.125)
+text = "Use items"
+label_settings = ExtResource("9_stgyv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemList" type="ItemList" parent="CanvasLayer/CombatMenu/MenuItemSelect"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 2.11689
+offset_top = -3.22272
+offset_right = 42.1169
+offset_bottom = 36.7773
+grow_vertical = 2
+scale = Vector2(0.255, 0.255)
+allow_search = false
+item_count = 1
+
+[node name="Player" parent="CanvasLayer" instance=ExtResource("3_4rsqx")]
+
+[node name="Monster" parent="CanvasLayer" instance=ExtResource("13_t45cs")]
+position = Vector2(16, 0)
+
+[node name="Fade" type="ColorRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_jm7fv")
+}
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_5rlui")
+
+[connection signal="pressed" from="CanvasLayer/CombatMenu/MenuUpButton" to="." method="_on_menu_up_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/CombatMenu/MenuDownButton" to="." method="_on_menu_down_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/CombatMenu/MenuAttackButton" to="." method="_on_menu_attack_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/CombatMenu/MenuItemButton" to="." method="_on_menu_item_button_pressed"]
