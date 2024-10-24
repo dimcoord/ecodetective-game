@@ -38,7 +38,7 @@ func _process(delta):
 		animated_sprite.flip_h = false
 	elif move_direction == Vector2.RIGHT:
 		animation_player.play("right")
-		animated_sprite.flip_h = true
+		animated_sprite.flip_h = false
 		
 func initiate_monster_animationn():
 	if ($AnimatedSprite2D || $AnimationPlayer):

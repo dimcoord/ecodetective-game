@@ -1,109 +1,13 @@
-[gd_scene load_steps=24 format=3 uid="uid://cpjjfneouj1l1"]
+[gd_scene load_steps=20 format=3 uid="uid://bhe7tsl8622h1"]
 
-[ext_resource type="Script" path="res://Scenes/Monster/monster.gd" id="1_j8kia"]
-[ext_resource type="Texture2D" uid="uid://c7tx0gv4ugvfh" path="res://assets/TempAssets/Enemies/Ratata/8directional/move_down_00.png" id="2_6q2au"]
-[ext_resource type="Texture2D" uid="uid://gtl06i2i870i" path="res://assets/TempAssets/Enemies/Ratata/8directional/move_down_01.png" id="3_afx07"]
-[ext_resource type="Texture2D" uid="uid://n4audckeqjr3" path="res://assets/TempAssets/Enemies/Ratata/8directional/move_down_02.png" id="4_jlae3"]
-[ext_resource type="Texture2D" uid="uid://fb5hwsptrxm" path="res://assets/TempAssets/Enemies/Ratata/8directional/move_left_02.png" id="5_0cqvc"]
-[ext_resource type="Texture2D" uid="uid://dxw6v4bvhlb0h" path="res://assets/TempAssets/Enemies/Ratata/8directional/move_up_02.png" id="6_7nmik"]
-[ext_resource type="Texture2D" uid="uid://d1f8d5j8q7i3h" path="res://assets/TempAssets/Enemies/Ratata/8directional/move_left_00.png" id="7_5iwvv"]
-[ext_resource type="Texture2D" uid="uid://cspi3lwgr4j3d" path="res://assets/TempAssets/Enemies/Ratata/8directional/move_left_01.png" id="8_fl8fc"]
-[ext_resource type="Texture2D" uid="uid://d0rk57b3372ec" path="res://assets/TempAssets/Enemies/Ratata/8directional/move_up_00.png" id="9_dvolf"]
-[ext_resource type="Texture2D" uid="uid://cxtxo310stm1c" path="res://assets/TempAssets/Enemies/Ratata/8directional/move_up_01.png" id="10_w4pfe"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_vs7wi"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_6q2au")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_afx07")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_jlae3")
-}],
-"loop": true,
-"name": &"down",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_jlae3")
-}],
-"loop": true,
-"name": &"idle_down",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_0cqvc")
-}],
-"loop": true,
-"name": &"idle_left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_0cqvc")
-}],
-"loop": true,
-"name": &"idle_right",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_7nmik")
-}],
-"loop": true,
-"name": &"idle_up",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_5iwvv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_fl8fc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_0cqvc")
-}],
-"loop": true,
-"name": &"left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_5iwvv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_fl8fc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_0cqvc")
-}],
-"loop": true,
-"name": &"right",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("9_dvolf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_w4pfe")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_7nmik")
-}],
-"loop": true,
-"name": &"up",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_28m4i"]
-size = Vector2(12, 14)
+[ext_resource type="Texture2D" uid="uid://dp1txykssalfn" path="res://assets/Monsters/2/overworld/ambatekkom - asep bawah1.png" id="1_35ieu"]
+[ext_resource type="Texture2D" uid="uid://dn57or2giu62n" path="res://assets/Monsters/2/overworld/ambatekkom - asep bawah2.png" id="2_nl31w"]
+[ext_resource type="Texture2D" uid="uid://c4pruihhogbue" path="res://assets/Monsters/2/overworld/ambatekkom - asep kiri1.png" id="3_21tgy"]
+[ext_resource type="Texture2D" uid="uid://6nwblefk765i" path="res://assets/Monsters/2/overworld/ambatekkom - asep kanan1.png" id="4_1mcap"]
+[ext_resource type="Texture2D" uid="uid://uruc8e1f1bpg" path="res://assets/Monsters/2/overworld/ambatekkom - asep atas1.png" id="5_tp6vq"]
+[ext_resource type="Texture2D" uid="uid://2gemso01i6hy" path="res://assets/Monsters/2/overworld/ambatekkom - asep kiri2.png" id="6_3o78k"]
+[ext_resource type="Texture2D" uid="uid://x6jpp1vtivhs" path="res://assets/Monsters/2/overworld/ambatekkom - asep kanan2.png" id="7_vbc75"]
+[ext_resource type="Texture2D" uid="uid://cvgxm7bpqi7d0" path="res://assets/Monsters/2/overworld/ambatekkom - asep atas2.png" id="8_xw6bf"]
 
 [sub_resource type="Animation" id="Animation_o4sfk"]
 length = 0.001
@@ -305,6 +209,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_vgv4d"]
 resource_name = "right"
 length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -333,6 +238,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_s4opd"]
 resource_name = "up"
 length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -371,35 +277,93 @@ _data = {
 "up": SubResource("Animation_s4opd")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_s37cg"]
-radius = 7.07107
+[sub_resource type="SpriteFrames" id="SpriteFrames_4gn83"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_35ieu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_nl31w")
+}],
+"loop": true,
+"name": &"down",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_35ieu")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_21tgy")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1mcap")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_tp6vq")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_21tgy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3o78k")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1mcap")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vbc75")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_tp6vq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xw6bf")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
 
-[node name="Monster" type="CharacterBody2D" groups=["enemy"]]
-script = ExtResource("1_j8kia")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_vs7wi")
-animation = &"down"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
-shape = SubResource("RectangleShape2D_28m4i")
+[node name="MAnimation1" type="Node2D"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_fkkbn")
 }
 
-[node name="HitBox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(0, 8)
-shape = SubResource("CircleShape2D_s37cg")
-
-[node name="ChangeDirectionTimer" type="Timer" parent="."]
-wait_time = 2.0
-autostart = true
-
-[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
-[connection signal="timeout" from="ChangeDirectionTimer" to="." method="_on_change_direction_timer_timeout"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_4gn83")
+animation = &"down"

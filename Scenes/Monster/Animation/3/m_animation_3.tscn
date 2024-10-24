@@ -1,13 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://d3y23bco8aoty"]
+[gd_scene load_steps=20 format=3 uid="uid://udtw0a44137c"]
 
-[ext_resource type="Texture2D" uid="uid://c1b4eaqknyt00" path="res://assets/Monsters/1/overworld/ambatekkom - api bawah1.png" id="1_sfxiv"]
-[ext_resource type="Texture2D" uid="uid://dlkc2g47xrbr7" path="res://assets/Monsters/1/overworld/ambatekkom - api bawah2.png" id="2_dfrfx"]
-[ext_resource type="Texture2D" uid="uid://co6j423oqoafb" path="res://assets/Monsters/1/overworld/ambatekkom - api kiri1.png" id="3_wqiqt"]
-[ext_resource type="Texture2D" uid="uid://b4eoptjtb6q3f" path="res://assets/Monsters/1/overworld/ambatekkom - api kanan1.png" id="4_r8udr"]
-[ext_resource type="Texture2D" uid="uid://bcvjkg2v3bqjg" path="res://assets/Monsters/1/overworld/ambatekkom - api atas1.png" id="5_m7hcc"]
-[ext_resource type="Texture2D" uid="uid://ba5r8m2b817gj" path="res://assets/Monsters/1/overworld/ambatekkom - api kiri2.png" id="6_tbgdx"]
-[ext_resource type="Texture2D" uid="uid://blq3xurkejauh" path="res://assets/Monsters/1/overworld/ambatekkom - api kanan2.png" id="7_byi56"]
-[ext_resource type="Texture2D" uid="uid://ubh2pkdfpsnc" path="res://assets/Monsters/1/overworld/ambatekkom - api atas2.png" id="8_13xoq"]
+[ext_resource type="Texture2D" uid="uid://bdmk8nyceide8" path="res://assets/Monsters/3/overworld/ambatekkom - iyak bawah1.png" id="1_gmwxq"]
+[ext_resource type="Texture2D" uid="uid://coq84n6abbp4q" path="res://assets/Monsters/3/overworld/ambatekkom - iyak bawah2.png" id="2_ltf4p"]
+[ext_resource type="Texture2D" uid="uid://ix36a6bjuwsl" path="res://assets/Monsters/3/overworld/ambatekkom - iyak kiri1.png" id="3_yrlf6"]
+[ext_resource type="Texture2D" uid="uid://d2xsw42tn6wrq" path="res://assets/Monsters/3/overworld/ambatekkom - iyak kanan1.png" id="4_shs7l"]
+[ext_resource type="Texture2D" uid="uid://c7ab4gvvf1gji" path="res://assets/Monsters/3/overworld/ambatekkom - iyak atas1.png" id="5_wirvr"]
+[ext_resource type="Texture2D" uid="uid://rkyhj5nekcnq" path="res://assets/Monsters/3/overworld/ambatekkom - iyak kiri2.png" id="6_2c5ck"]
+[ext_resource type="Texture2D" uid="uid://cflub6cnxkenu" path="res://assets/Monsters/3/overworld/ambatekkom - iyak kanan2.png" id="7_8i25h"]
+[ext_resource type="Texture2D" uid="uid://cucc64ltnisij" path="res://assets/Monsters/3/overworld/ambatekkom - iyak atas2.png" id="8_af3e3"]
 
 [sub_resource type="Animation" id="Animation_o4sfk"]
 length = 0.001
@@ -281,10 +281,10 @@ _data = {
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_sfxiv")
+"texture": ExtResource("1_gmwxq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_dfrfx")
+"texture": ExtResource("2_ltf4p")
 }],
 "loop": true,
 "name": &"down",
@@ -292,7 +292,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_sfxiv")
+"texture": ExtResource("1_gmwxq")
 }],
 "loop": true,
 "name": &"idle_down",
@@ -300,7 +300,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_wqiqt")
+"texture": ExtResource("3_yrlf6")
 }],
 "loop": true,
 "name": &"idle_left",
@@ -308,7 +308,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_r8udr")
+"texture": ExtResource("4_shs7l")
 }],
 "loop": true,
 "name": &"idle_right",
@@ -316,7 +316,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_m7hcc")
+"texture": ExtResource("5_wirvr")
 }],
 "loop": true,
 "name": &"idle_up",
@@ -324,10 +324,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_wqiqt")
+"texture": ExtResource("3_yrlf6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_tbgdx")
+"texture": ExtResource("6_2c5ck")
 }],
 "loop": true,
 "name": &"left",
@@ -335,10 +335,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_r8udr")
+"texture": ExtResource("4_shs7l")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_byi56")
+"texture": ExtResource("7_8i25h")
 }],
 "loop": true,
 "name": &"right",
@@ -346,10 +346,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_m7hcc")
+"texture": ExtResource("5_wirvr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_13xoq")
+"texture": ExtResource("8_af3e3")
 }],
 "loop": true,
 "name": &"up",
