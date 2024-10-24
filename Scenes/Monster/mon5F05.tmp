@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpjjfneouj1l1"]
+
+[ext_resource type="Script" path="res://Scenes/Monster/monster.gd" id="1_j8kia"]
+
+[node name="Monster" type="Node2D" groups=["enemy"]]
+script = ExtResource("1_j8kia")
+monster_id = null
+
+[node name="ChangeDirectionTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="ChangeDirectionTimer" to="." method="_on_change_direction_timer_timeout"]

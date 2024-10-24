@@ -1,10 +1,12 @@
 extends Node
 
 var items: Dictionary = {}
+var monsters: Dictionary = {}
 
 func _ready() -> void:
 	# Load all items.
 	items = load_json_file("res://Data/items.json")
+	monsters = load_json_file("res://Data/monsters.json")
 
 # Load JSON file.
 func load_json_file(file_path: String):
@@ -21,10 +23,10 @@ func load_json_file(file_path: String):
 		print("File doesn't exist!")
 
 # Search for single item in array of dictionary
-func search_from_dictionary(dictionary: Array, unique_id: String):
+func search_from_dictionary(dictionary: Array, unique_id: String, key: String):
 	var result
 	for item in dictionary:
-		if (item["code"] == unique_id):
+		if (item[key] == unique_id):
 			result = item
 			break
 			

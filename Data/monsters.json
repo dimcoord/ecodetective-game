@@ -1,27 +1,42 @@
 {
     "data": [
         {
-           "name": "Si Jago Gosong",
+           "id": 1,
+           "monster_code": "m_sjg",
+           "name": "SI JAGO GOSONG",
            "pollution_code": "t_fire",
            "max_hp": 25,
            "base_attack": 6,
-           "sprite_path": "",
+           "movement_speed": 10,
+           "max_movement_speed": 30,
+           "tscn_path": "res://Scenes/Monster/Animation/1/m_animation_1.tscn",
+           "tscn_combat_path": "res://Scenes/Monster/Animation/1/mc_animation_1.tscn",
            "attack_effect_path": ""
         },
         {
-           "name": "Si Asap Kenyang",
+           "id": 2,
+           "monster_code": "m_sak",
+           "name": "SI ASAP KENYANG",
            "pollution_code": "t_smoke",
            "max_hp": 25,
            "base_attack": 6,
-           "sprite_path": "",
+           "movement_speed": 10,
+           "max_movement_speed": 30,
+           "tscn_path": "res://Scenes/Monster/Animation/2/m_animation_2.tscn",
+           "tscn_combat_path": "res://Scenes/Monster/Animation/2/mc_animation_2.tscn",
            "attack_effect_path": ""
         },
         {
-           "name": "Bang Iyak",
+           "id": 3,
+           "monster_code": "m_iyk",
+           "name": "BANG IYAK",
            "pollution_code": "t_stink",
            "max_hp": 25,
            "base_attack": 6,
-           "sprite_path": "",
+           "movement_speed": 10,
+           "max_movement_speed": 30,
+           "tscn_path": "res://Scenes/Monster/Animation/3/m_animation_3.tscn",
+           "tscn_combat_path": "res://Scenes/Monster/Animation/3/mc_animation_3.tscn",
            "attack_effect_path": ""
         }
     ]

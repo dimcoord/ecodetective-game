@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dsd68bwfdqoey" path="res://assets/TempAssets/Backgrounds/forest_background.png" id="1_17onk"]
 [ext_resource type="Script" path="res://Scenes/Combat/combat.gd" id="1_wn64j"]
 [ext_resource type="PackedScene" path="res://Scenes/Combat/player_battle.tscn" id="3_4rsqx"]
-[ext_resource type="PackedScene" path="res://Scenes/Combat/menu.tscn" id="5_62cda"]
-[ext_resource type="PackedScene" path="res://Scenes/Combat/monster_battle.tscn" id="13_t45cs"]
+[ext_resource type="PackedScene" uid="uid://v3nt2hjwoeji" path="res://Scenes/Combat/menu.tscn" id="5_62cda"]
+[ext_resource type="PackedScene" uid="uid://c835b5f555m12" path="res://Scenes/Combat/monster_battle.tscn" id="13_t45cs"]
 [ext_resource type="AudioStream" uid="uid://cvnepp6wxygk3" path="res://assets/TempAssets/Musics/fnaf_world_combat.mp3" id="15_5rlui"]
 
 [sub_resource type="Animation" id="Animation_xgqrn"]
@@ -111,14 +111,13 @@ script = ExtResource("1_wn64j")
 
 [node name="CombatBackground" type="Sprite2D" parent="CanvasLayer"]
 texture_filter = 1
-position = Vector2(200, 136)
-scale = Vector2(0.5, 0.566667)
+position = Vector2(200, 143)
+scale = Vector2(0.5325, 0.6375)
 texture = ExtResource("1_17onk")
 
 [node name="Player" parent="CanvasLayer" instance=ExtResource("3_4rsqx")]
 
 [node name="Monster" parent="CanvasLayer" instance=ExtResource("13_t45cs")]
-position = Vector2(16, 0)
 
 [node name="Menu" parent="CanvasLayer" instance=ExtResource("5_62cda")]
 

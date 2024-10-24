@@ -6,7 +6,18 @@ extends Control
 @onready var menu_animation = $CanvasLayer/Menu/MenuAnimation
 @onready var menu = $CanvasLayer/CombatMenu
 
+var monster_code = "m_sak"
+var monster_attributes: Dictionary = {}
+
 var playerBlocked = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	_initiate_signal()
+	
+	$Music.play()
+	
+	anim.play("fade_in")
 
 func _initiate_signal():
 	SignalManager.connect("player_attack", on_attack_button_pressed)
@@ -16,14 +27,6 @@ func _initiate_signal():
 	SignalManager.connect("player_animation_finished", on_player_animation_finished)
 	SignalManager.connect("monster_animation_finished", on_monster_animation_finished)
 	SignalManager.connect("player_use_item", on_player_use_item)
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	_initiate_signal()
-	
-	$Music.play()
-	
-	anim.play("fade_in")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -76,7 +79,7 @@ func on_monster_animation_finished():
 	if !playerBlocked:
 		player.animation_player.play("hit")
 		await get_tree().create_timer(1.0).timeout
-		SignalManager.player_hp_changed.emit(4)
+		SignalManager.player_hp_changed.emit(monster.base_attack)
 	else:
 		player.shield.visible = true
 		player.animation_player.play("block")
@@ -88,7 +91,7 @@ func _on_fade_transition_animation_finished(anim_name: StringName) -> void:
 		queue_free()
 		
 func on_player_use_item(item_id: String):
-	var item_attributes = Data.search_from_dictionary(Data.items["data"], item_id)
+	var item_attributes = Data.search_from_dictionary(Data.items["data"], item_id, "code")
 	
 	# Update attack damage for this turn.
 	player.this_turn_attack = item_attributes["damage"]

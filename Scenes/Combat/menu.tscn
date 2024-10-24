@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://gl1g5mwf143d"]
+[gd_scene load_steps=17 format=3 uid="uid://v3nt2hjwoeji"]
 
 [ext_resource type="Script" path="res://Scenes/Combat/menu.gd" id="1_3pok0"]
 [ext_resource type="Texture2D" uid="uid://b6hm1uumku3tx" path="res://assets/PNG/buttonRound_brown.png" id="1_r0jvj"]
@@ -189,10 +189,10 @@ anchor_left = 0.267
 anchor_top = 0.23
 anchor_right = 0.267
 anchor_bottom = 0.23
-offset_left = 6.81797
-offset_top = -7.72821
-offset_right = 41.818
-offset_bottom = 30.2718
+offset_left = 6.88587
+offset_top = -7.44341
+offset_right = 41.8859
+offset_bottom = 30.5566
 rotation = -4.71239
 scale = Vector2(0.45, 0.45)
 action_mode = 0
