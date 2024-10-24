@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://c2p71hryj44ue"]
+[gd_scene load_steps=12 format=3 uid="uid://c2p71hryj44ue"]
 
 [ext_resource type="Texture2D" uid="uid://dsd68bwfdqoey" path="res://assets/TempAssets/Backgrounds/forest_background.png" id="1_17onk"]
 [ext_resource type="Script" path="res://Scenes/Combat/combat.gd" id="1_wn64j"]
-[ext_resource type="PackedScene" path="res://Scenes/Combat/player_battle.tscn" id="3_4rsqx"]
+[ext_resource type="PackedScene" uid="uid://beil038uf0af2" path="res://Scenes/Combat/player_battle.tscn" id="3_4rsqx"]
 [ext_resource type="PackedScene" uid="uid://v3nt2hjwoeji" path="res://Scenes/Combat/menu.tscn" id="5_62cda"]
+[ext_resource type="AudioStream" uid="uid://r6algs5lmb8d" path="res://assets/Sounds/Attacks/slam.mp3" id="6_p61va"]
 [ext_resource type="PackedScene" uid="uid://c835b5f555m12" path="res://Scenes/Combat/monster_battle.tscn" id="13_t45cs"]
 [ext_resource type="AudioStream" uid="uid://cvnepp6wxygk3" path="res://assets/TempAssets/Musics/fnaf_world_combat.mp3" id="15_5rlui"]
 
@@ -132,6 +133,16 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_jm7fv")
 }
+
+[node name="FX_pos" type="Marker2D" parent="CanvasLayer"]
+position = Vector2(64, 176)
+
+[node name="FXE_pos" type="Marker2D" parent="CanvasLayer"]
+position = Vector2(256, 112)
+
+[node name="AttackSound" type="AudioStreamPlayer2D" parent="CanvasLayer"]
+stream = ExtResource("6_p61va")
+volume_db = 10.281
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_5rlui")

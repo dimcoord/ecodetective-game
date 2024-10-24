@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d346guxg3kuaa"]
+[gd_scene load_steps=14 format=3 uid="uid://beil038uf0af2"]
 
 [ext_resource type="Texture2D" uid="uid://2j6w42pwmb1p" path="res://assets/TempAssets/Player/ambatekkom_player.png" id="1_p2pwt"]
 [ext_resource type="Script" path="res://Scenes/Combat/player_battle.gd" id="1_u7kj2"]
@@ -94,12 +94,29 @@ tracks/0/keys = {
 "values": [Vector2(60, 176), Vector2(92, 176), Vector2(60, 176)]
 }
 
+[sub_resource type="Animation" id="Animation_i1y2o"]
+resource_name = "special_attack"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(60, 176), Vector2(92, 176), Vector2(60, 176)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rmfwx"]
 _data = {
 "RESET": SubResource("Animation_1e7b4"),
 "block": SubResource("Animation_8pf8b"),
 "hit": SubResource("Animation_w6ue2"),
-"normal_attack": SubResource("Animation_0as5k")
+"normal_attack": SubResource("Animation_0as5k"),
+"special_attack": SubResource("Animation_i1y2o")
 }
 
 [node name="Player" type="Node2D"]
@@ -168,3 +185,4 @@ scale = Vector2(0.0575, 0.0558333)
 texture = ExtResource("7_3jnc0")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]

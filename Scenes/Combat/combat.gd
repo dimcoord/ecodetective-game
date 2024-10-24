@@ -1,5 +1,6 @@
 extends Control
 
+@onready var canvas = $CanvasLayer
 @onready var anim = $CanvasLayer/FadeTransition
 @onready var player = $CanvasLayer/Player
 @onready var monster = $CanvasLayer/Monster
@@ -7,9 +8,10 @@ extends Control
 @onready var menu = $CanvasLayer/CombatMenu
 
 var monster_code = "m_sak"
-var monster_attributes: Dictionary = {}
 
 var playerBlocked = false
+
+var item_attribute: Dictionary = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,6 +29,7 @@ func _initiate_signal():
 	SignalManager.connect("player_animation_finished", on_player_animation_finished)
 	SignalManager.connect("monster_animation_finished", on_monster_animation_finished)
 	SignalManager.connect("player_use_item", on_player_use_item)
+	SignalManager.connect("hit", on_hit)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -66,7 +69,14 @@ func on_player_turn():
 func on_player_animation_finished(anim_name):
 	if (anim_name == "hit"):
 		on_player_turn()
-	elif (anim_name == "normal_attack"):
+	elif (anim_name == "normal_attack" || anim_name == "special_attack"):
+		if (anim_name == "special_attack"):
+			var effect_scene = load(item_attribute["attack_effect_path"])
+			var effect_instance = effect_scene.instantiate()
+			canvas.add_child(effect_instance)
+			effect_instance.position = $CanvasLayer/FXE_pos.position	
+			await get_tree().create_timer(1.0).timeout 
+		
 		monster.animation_player.play("hit")
 		await get_tree().create_timer(1.0).timeout 
 		SignalManager.monster_hp_changed.emit(player.this_turn_attack)
@@ -76,7 +86,15 @@ func on_player_animation_finished(anim_name):
 		on_player_turn()
 	
 func on_monster_animation_finished():
+	# If player not block
 	if !playerBlocked:
+		var effect_scene = load(monster.monster_attribute["attack_effect_path"])
+		var effect_instance = effect_scene.instantiate()
+		canvas.add_child(effect_instance)
+		effect_instance.position = $CanvasLayer/FX_pos.position	
+
+		await get_tree().create_timer(1.0).timeout 
+		
 		player.animation_player.play("hit")
 		await get_tree().create_timer(1.0).timeout
 		SignalManager.player_hp_changed.emit(monster.base_attack)
@@ -91,10 +109,13 @@ func _on_fade_transition_animation_finished(anim_name: StringName) -> void:
 		queue_free()
 		
 func on_player_use_item(item_id: String):
-	var item_attributes = Data.search_from_dictionary(Data.items["data"], item_id, "code")
+	item_attribute = Data.search_from_dictionary(Data.items["data"], item_id, "code")
 	
 	# Update attack damage for this turn.
-	player.this_turn_attack = item_attributes["damage"]
+	player.this_turn_attack = item_attribute["damage"]
 	
 	menu_animation.play("hide")
-	player.animation_player.play("normal_attack")
+	player.animation_player.play("special_attack")
+	
+func on_hit():
+	$CanvasLayer/AttackSound.play()

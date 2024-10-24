@@ -11,7 +11,7 @@
            "max_movement_speed": 30,
            "tscn_path": "res://Scenes/Monster/Animation/1/m_animation_1.tscn",
            "tscn_combat_path": "res://Scenes/Monster/Animation/1/mc_animation_1.tscn",
-           "attack_effect_path": ""
+           "attack_effect_path": "res://Scenes/Combat/AttackEffects/fire.tscn"
         },
         {
            "id": 2,
@@ -24,7 +24,7 @@
            "max_movement_speed": 40,
            "tscn_path": "res://Scenes/Monster/Animation/2/m_animation_2.tscn",
            "tscn_combat_path": "res://Scenes/Monster/Animation/2/mc_animation_2.tscn",
-           "attack_effect_path": ""
+           "attack_effect_path": "res://Scenes/Combat/AttackEffects/smoke.tscn"
         },
         {
            "id": 3,

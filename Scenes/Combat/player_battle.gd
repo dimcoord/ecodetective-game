@@ -48,3 +48,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if (anim_name == "block"):
 		shield.visible = false
 	SignalManager.player_animation_finished.emit(anim_name)
+
+
+func _on_animation_player_animation_started(anim_name: StringName) -> void:
+	if (anim_name == "hit"):
+		SignalManager.hit.emit()
