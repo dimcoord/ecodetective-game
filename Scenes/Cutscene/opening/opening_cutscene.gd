@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 func _on_button_pressed() -> void:
 	GameManager.username = $Cutscene/TextBox/LineEdit.text
 	if GameManager.username:
-		Data.save("user://player_data.json")
+		Data.save()
 		get_tree().change_scene_to_file("res://Scenes/Cutscene/teleport/teleport_cutscene.tscn")
 	else:
 		pass

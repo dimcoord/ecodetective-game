@@ -1,22 +1,31 @@
 [gd_scene load_steps=27 format=4 uid="uid://b6dtnwy7c3q3n"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/Forest/Stage1/stage1_1.gd" id="1_6o3cm"]
-[ext_resource type="AudioStream" uid="uid://b27gtfd8auane" path="res://assets/Sounds/Soundtrack/adventure1.wav" id="2_gid8y"]
-[ext_resource type="Texture2D" uid="uid://ce3nhuoqbdj3u" path="res://assets/TempAssets/Tiles/Grass_Middle.png" id="3_4j7gb"]
-[ext_resource type="Texture2D" uid="uid://c6wrfoqr3p7kc" path="res://assets/TempAssets/Tiles/Path_Tile.png" id="4_0qlxq"]
-[ext_resource type="Texture2D" uid="uid://dx1cf84x5he1o" path="res://assets/TempAssets/Tiles/Water_Tile.png" id="5_lmya4"]
-[ext_resource type="Texture2D" uid="uid://bgoo6x8m0fskw" path="res://assets/TempAssets/Outdoor decoration/Outdoor_Decor_Free.png" id="6_f4fge"]
-[ext_resource type="Texture2D" uid="uid://vkwk2x3gglkq" path="res://assets/TempAssets/Outdoor decoration/Oak_Tree.png" id="7_hfgup"]
-[ext_resource type="Texture2D" uid="uid://cm6nkmvyubv4t" path="res://assets/TempAssets/Outdoor decoration/Oak_Tree_Small.png" id="8_80u4s"]
-[ext_resource type="Texture2D" uid="uid://d0g4mix3xiqj1" path="res://assets/TempAssets/Outdoor decoration/Chest.png" id="9_unaht"]
-[ext_resource type="Texture2D" uid="uid://bjng1y4g0h68y" path="res://assets/TempAssets/Outdoor decoration/Fences.png" id="10_gf7t6"]
+[ext_resource type="AudioStream" uid="uid://b27gtfd8auane" path="res://assets/Sounds/Soundtrack/adventure1.wav" id="1_d0eja"]
+[ext_resource type="Texture2D" uid="uid://ce3nhuoqbdj3u" path="res://assets/TempAssets/Tiles/Grass_Middle.png" id="2_o8tcl"]
+[ext_resource type="Texture2D" uid="uid://c6wrfoqr3p7kc" path="res://assets/TempAssets/Tiles/Path_Tile.png" id="3_ckfae"]
+[ext_resource type="Texture2D" uid="uid://dx1cf84x5he1o" path="res://assets/TempAssets/Tiles/Water_Tile.png" id="4_ge0m3"]
+[ext_resource type="Texture2D" uid="uid://bgoo6x8m0fskw" path="res://assets/TempAssets/Outdoor decoration/Outdoor_Decor_Free.png" id="5_e3ho6"]
+[ext_resource type="Texture2D" uid="uid://vkwk2x3gglkq" path="res://assets/TempAssets/Outdoor decoration/Oak_Tree.png" id="6_lyssx"]
+[ext_resource type="Texture2D" uid="uid://cm6nkmvyubv4t" path="res://assets/TempAssets/Outdoor decoration/Oak_Tree_Small.png" id="7_kqba2"]
+[ext_resource type="Texture2D" uid="uid://d0g4mix3xiqj1" path="res://assets/TempAssets/Outdoor decoration/Chest.png" id="8_uhe0o"]
+[ext_resource type="Texture2D" uid="uid://bjng1y4g0h68y" path="res://assets/TempAssets/Outdoor decoration/Fences.png" id="9_o1arb"]
+
+[sub_resource type="GDScript" id="GDScript_05710"]
+script/source = "extends Node2D
+
+func _ready():
+	pass
+
+func _process(delta):
+	pass
+"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xobj1"]
-texture = ExtResource("3_4j7gb")
+texture = ExtResource("2_o8tcl")
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5njx"]
-texture = ExtResource("4_0qlxq")
+texture = ExtResource("3_ckfae")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrains_peering_bit/bottom_right_corner = 0
@@ -96,7 +105,7 @@ texture = ExtResource("4_0qlxq")
 2:5/0/terrain_set = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f8imx"]
-texture = ExtResource("5_lmya4")
+texture = ExtResource("4_ge0m3")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.5, 8, -2.125, -0.375, 8, -0.375, 8, 4.625, 8, 8)
@@ -199,7 +208,7 @@ tile_data = PackedInt32Array(0, 262144, 4, 65536, 262144, 5, 131072, 262144, 6)
 tile_data = PackedInt32Array(65536, 1, 1, 131072, 1, 2, 196608, 1, 3, 1, 65537, 0, 65537, 65537, 1, 131073, 65537, 2, 196609, 65537, 3, 262145, 65537, 4, 2, 131073, 0, 65538, 131073, 1, 131074, 131073, 2, 196610, 131073, 3, 262146, 131073, 4, 65539, 196609, 1, 131075, 196609, 2, 196611, 196609, 3)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1e3dt"]
-texture = ExtResource("6_f4fge")
+texture = ExtResource("5_e3ho6")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -266,7 +275,7 @@ texture = ExtResource("6_f4fge")
 3:11/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ywcbt"]
-texture = ExtResource("7_hfgup")
+texture = ExtResource("6_lyssx")
 0:1/0 = 0
 0:2/0 = 0
 0:3/0 = 0
@@ -287,7 +296,7 @@ texture = ExtResource("7_hfgup")
 3:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x2j1m"]
-texture = ExtResource("8_80u4s")
+texture = ExtResource("7_kqba2")
 2:0/0 = 0
 3:0/0 = 0
 4:0/0 = 0
@@ -308,11 +317,11 @@ texture = ExtResource("8_80u4s")
 3:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lc1x1"]
-texture = ExtResource("9_unaht")
+texture = ExtResource("8_uhe0o")
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yigvo"]
-texture = ExtResource("10_gf7t6")
+texture = ExtResource("9_o1arb")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -402,12 +411,12 @@ pattern_0 = SubResource("TileMapPattern_lyfdh")
 pattern_1 = SubResource("TileMapPattern_ox8k8")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uisus"]
-texture = ExtResource("6_f4fge")
+texture = ExtResource("5_e3ho6")
 4:4/0 = 0
 4:5/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5g5jo"]
-texture = ExtResource("7_hfgup")
+texture = ExtResource("6_lyssx")
 1:0/0 = 0
 2:0/0 = 0
 2:1/0 = 0
@@ -420,7 +429,7 @@ texture = ExtResource("7_hfgup")
 1:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eki3g"]
-texture = ExtResource("8_80u4s")
+texture = ExtResource("7_kqba2")
 2:0/0 = 0
 3:0/0 = 0
 
@@ -430,10 +439,10 @@ sources/2 = SubResource("TileSetAtlasSource_5g5jo")
 sources/3 = SubResource("TileSetAtlasSource_eki3g")
 
 [node name="Forest_Stage2_1" type="Node2D"]
-script = ExtResource("1_6o3cm")
+script = SubResource("GDScript_05710")
 
 [node name="TownMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_gid8y")
+stream = ExtResource("1_d0eja")
 
 [node name="LayerHolder" type="Node2D" parent="."]
 

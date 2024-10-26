@@ -1,6 +1,5 @@
 [gd_scene load_steps=35 format=4 uid="uid://dg2w6tcvqx6jl"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/Forest/Stage1/stage1_1.gd" id="1_p7bh8"]
 [ext_resource type="AudioStream" uid="uid://b27gtfd8auane" path="res://assets/Sounds/Soundtrack/adventure1.wav" id="2_13om7"]
 [ext_resource type="Texture2D" uid="uid://ce3nhuoqbdj3u" path="res://assets/TempAssets/Tiles/Grass_Middle.png" id="3_lhc6t"]
 [ext_resource type="Texture2D" uid="uid://dxk1q5uuyvwv3" path="res://assets/TempAssets/Tiles/cibiru.png" id="4_mr5hl"]
@@ -13,6 +12,16 @@
 [ext_resource type="Texture2D" uid="uid://bjng1y4g0h68y" path="res://assets/TempAssets/Outdoor decoration/Fences.png" id="10_ithfg"]
 [ext_resource type="Texture2D" uid="uid://d0f47seexejuk" path="res://assets/TempAssets/Tiles/upi.png" id="12_h83mi"]
 [ext_resource type="Texture2D" uid="uid://trmd5m5mvv7b" path="res://assets/TempAssets/Tiles/satpam.png" id="13_jc5qg"]
+
+[sub_resource type="GDScript" id="GDScript_05710"]
+script/source = "extends Node2D
+
+func _ready():
+	pass
+
+func _process(delta):
+	pass
+"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xobj1"]
 texture = ExtResource("3_lhc6t")
@@ -960,7 +969,7 @@ pattern_0 = SubResource("TileMapPattern_lyfdh")
 pattern_1 = SubResource("TileMapPattern_ox8k8")
 
 [node name="Cibiru" type="Node2D"]
-script = ExtResource("1_p7bh8")
+script = SubResource("GDScript_05710")
 
 [node name="TownMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_13om7")

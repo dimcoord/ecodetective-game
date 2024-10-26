@@ -1,6 +1,7 @@
 extends Node
 
 var items: Dictionary = {}
+var file_path = "user://player_data.json"
 
 func _ready() -> void:
 	# Load all items.
@@ -32,7 +33,7 @@ func search_from_dictionary(dictionary: Array, unique_id: String):
 			
 	return result
 
-func save(file_path: String) -> void:
+func save() -> void:
 	var save_dict := {
 		"pos_x" : GameManager.pos_x, # gak support Vector2
 		"pos_y" : GameManager.pos_y, # gak support Vector2
@@ -52,3 +53,6 @@ func save(file_path: String) -> void:
 		return
 	file_access.store_line(json_string)
 	file_access.close()
+
+func deleteSave() -> void:
+	DirAccess.remove_absolute(file_path)

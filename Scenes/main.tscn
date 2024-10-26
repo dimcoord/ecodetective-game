@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://drrl8wthi3rkr"]
+[gd_scene load_steps=45 format=3 uid="uid://drrl8wthi3rkr"]
 
 [ext_resource type="PackedScene" uid="uid://cebgm8jsj671r" path="res://Scenes/Transition/fade_transition.tscn" id="1_4ugg2"]
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_tesnu"]
@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://bnwc4rro4omdx" path="res://Scenes/Cutscene/cinematic_screen.tscn" id="11_s27hh"]
 [ext_resource type="FontFile" uid="uid://dluwn7pawqh0p" path="res://assets/Fonts/pixelated.ttf" id="12_c2h3d"]
 [ext_resource type="Texture2D" uid="uid://bs0pswykmglws" path="res://assets/PNG/panel_blue.png" id="17_t5we5"]
-[ext_resource type="Script" path="res://Scenes/dialog.gd" id="17_vebti"]
 [ext_resource type="Texture2D" uid="uid://cfijdacwc0tig" path="res://assets/PNG/panelInset_brown.png" id="18_qo8w5"]
 [ext_resource type="Texture2D" uid="uid://c7qgli4qpw61v" path="res://assets/PNG/buttonLong_beige.png" id="19_le4va"]
 [ext_resource type="Texture2D" uid="uid://mdsif37plwrh" path="res://assets/PNG/buttonLong_beige_pressed.png" id="20_i0exs"]
@@ -78,7 +77,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("MapDefaultPos/Portal:visible")
+tracks/4/path = NodePath("Portal:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -158,7 +157,7 @@ tracks/3/use_blend = true
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("MapDefaultPos/Portal:visible")
+tracks/4/path = NodePath("Portal:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -412,6 +411,7 @@ outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Main" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_tesnu")
 
 [node name="CameraAnim" type="AnimationPlayer" parent="."]
@@ -419,27 +419,30 @@ libraries = {
 "": SubResource("AnimationLibrary_lvsyx")
 }
 
-[node name="MapDefaultPos" type="Marker2D" parent="."]
-position = Vector2(13, -145)
-
-[node name="Portal" type="AnimatedSprite2D" parent="MapDefaultPos"]
-position = Vector2(553, 6)
+[node name="Portal" type="AnimatedSprite2D" parent="."]
+position = Vector2(566, -139)
 sprite_frames = SubResource("SpriteFrames_tp0hg")
 
-[node name="Area2D" type="Area2D" parent="MapDefaultPos/Portal"]
+[node name="Area2D" type="Area2D" parent="Portal"]
 position = Vector2(0, 13)
 scale = Vector2(0.660524, 0.24965)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MapDefaultPos/Portal/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal/Area2D"]
+position = Vector2(0, -44.0617)
+scale = Vector2(1.82407, 5.31957)
 shape = SubResource("CircleShape2D_h4ksj")
+
+[node name="MapDefaultPos" type="Marker2D" parent="."]
+position = Vector2(13, -145)
 
 [node name="FadeTransition" parent="." instance=ExtResource("1_4ugg2")]
 visible = false
 z_index = 4096
 offset_left = -192.0
-offset_top = -144.0
+offset_top = -300.0
 offset_right = 608.0
-offset_bottom = 448.0
+offset_bottom = 700.0
+scale = Vector2(1.5, 1.5)
 
 [node name="Flash" type="ColorRect" parent="."]
 offset_top = -262.0
@@ -563,11 +566,6 @@ vertical_alignment = 1
 texture_filter = 1
 position = Vector2(102, -56)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="NPC_Pedagang1"]
-libraries = {
-"": SubResource("AnimationLibrary_bmxqp")
-}
-
 [node name="Sprite2D" type="Sprite2D" parent="NPC_Pedagang1"]
 texture = ExtResource("7_dbp30")
 
@@ -579,90 +577,6 @@ texture = ExtResource("8_f85i7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC_Pedagang1"]
 position = Vector2(8, 1.5)
 shape = SubResource("RectangleShape2D_d1mt8")
-
-[node name="Area2D" type="Area2D" parent="NPC_Pedagang1"]
-position = Vector2(42, 2)
-
-[node name="InteractBody" type="CollisionShape2D" parent="NPC_Pedagang1/Area2D"]
-position = Vector2(-5.5, 0)
-shape = SubResource("RectangleShape2D_d1mt8")
-debug_color = Color(0.831239, 0.274633, 0.706121, 0.42)
-
-[node name="Area2D2" type="Area2D" parent="NPC_Pedagang1"]
-position = Vector2(24, 259)
-
-[node name="InteractBody" type="CollisionShape2D" parent="NPC_Pedagang1/Area2D2"]
-position = Vector2(57, 9)
-scale = Vector2(7.08408, 3.26348)
-shape = SubResource("RectangleShape2D_d1mt8")
-debug_color = Color(0.831239, 0.274633, 0.706121, 0.42)
-
-[node name="DialogBox" type="NinePatchRect" parent="NPC_Pedagang1"]
-z_index = 1
-texture_filter = 1
-offset_left = -51.0
-offset_top = 25.0
-offset_right = 79.0
-offset_bottom = 90.0
-scale = Vector2(0.01, 0.01)
-texture = ExtResource("17_t5we5")
-patch_margin_left = 3
-patch_margin_top = 3
-patch_margin_right = 3
-patch_margin_bottom = 3
-
-[node name="Text1" type="RichTextLabel" parent="NPC_Pedagang1/DialogBox"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = 2.0
-offset_right = 6.0
-offset_bottom = 2.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.92, 0.92)
-theme_override_constants/outline_size = 1
-theme_override_constants/line_separation = 0
-theme_override_fonts/normal_font = ExtResource("12_c2h3d")
-text = "MAU  BELI  APA,  KANG?"
-fit_content = true
-scroll_active = false
-
-[node name="InteractButton" type="TextureButton" parent="NPC_Pedagang1"]
-z_index = 1
-texture_filter = 1
-offset_left = -18.0
-offset_top = -49.0
-offset_right = 53.0
-offset_bottom = -20.0
-scale = Vector2(0.01, 0.01)
-texture_normal = ExtResource("9_xpvfc")
-texture_pressed = ExtResource("10_65ir7")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Text1" type="Label" parent="NPC_Pedagang1/InteractButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -29.5
-offset_top = -12.5
-offset_right = 36.5
-offset_bottom = 10.5
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.92, 0.92)
-theme_override_constants/outline_size = 1
-theme_override_fonts/font = ExtResource("12_c2h3d")
-theme_override_font_sizes/font_size = 20
-text = "TEKAN"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="PlayerAmbatekkom" parent="." groups=["player"] instance=ExtResource("5_5xcqf")]
 position = Vector2(180, 274)
@@ -697,7 +611,6 @@ scale = Vector2(0.01, 0.01)
 texture_normal = ExtResource("17_t5we5")
 ignore_texture_size = true
 stretch_mode = 0
-script = ExtResource("17_vebti")
 
 [node name="Text1" type="Label" parent="PlayerAmbatekkom/DialogBox"]
 layout_mode = 1
@@ -827,6 +740,7 @@ text = "Lv.  "
 label_settings = SubResource("LabelSettings_23pds")
 
 [node name="PlayerLevel" type="Label" parent="Control/CanvasLayer/LevelText"]
+layout_mode = 0
 offset_left = 24.0
 offset_right = 64.0
 offset_bottom = 23.0
@@ -996,16 +910,12 @@ texture_normal = ExtResource("9_p6gir")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
-[connection signal="body_entered" from="MapDefaultPos/Portal/Area2D" to="." method="_on_portal_body_entered"]
+[connection signal="body_entered" from="Portal/Area2D" to="." method="_on_portal_body_entered"]
 [connection signal="body_entered" from="NPC_Cewek/Area2D" to="." method="_on_npc_cewek_body_entered"]
 [connection signal="body_exited" from="NPC_Cewek/Area2D" to="." method="_on_npc_cewek_body_exited"]
 [connection signal="body_entered" from="NPC_Cewek/Area2D2" to="." method="_on_area_2d_2_body_entered"]
 [connection signal="pressed" from="NPC_Cewek/DialogBox" to="." method="_on_npc_cewek_dialog_box_pressed"]
 [connection signal="pressed" from="NPC_Cewek/InteractButton" to="." method="_on_npc_cewek_button_pressed"]
-[connection signal="body_entered" from="NPC_Pedagang1/Area2D" to="." method="_on_npc_pedagang1_body_entered"]
-[connection signal="body_exited" from="NPC_Pedagang1/Area2D" to="." method="_on_npc_pedagang1_body_exited"]
-[connection signal="body_entered" from="NPC_Pedagang1/Area2D2" to="." method="_on_area_2d_2_body_entered"]
-[connection signal="pressed" from="NPC_Pedagang1/InteractButton" to="." method="_on_npc_pedagang1_button_pressed"]
 [connection signal="pressed" from="PlayerAmbatekkom/DialogBox" to="." method="_on_player_box1_pressed"]
 [connection signal="timeout" from="OpeningCutscene/MoveTimer" to="." method="_on_move_timer_timeout"]
 [connection signal="timeout" from="CanvasLayer/CinematicScreen/CinematicScreenTimer" to="." method="_on_cinematic_screen_timer_timeout"]

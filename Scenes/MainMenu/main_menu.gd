@@ -37,6 +37,9 @@ func _on_continue_button_pressed() -> void:
 func _on_new_game_button_pressed() -> void:
 	button_type = "new_game"
 	
+	GameManager.setDefaults()
+	Data.deleteSave()
+	
 	# Play click sound.
 	$ButtonsRect/ClickSound.play()
 	

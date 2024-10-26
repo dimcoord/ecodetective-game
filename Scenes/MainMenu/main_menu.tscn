@@ -22,6 +22,7 @@ font_size = 10
 font_color = Color(0.482815, 0.426871, 0.294484, 1)
 
 [node name="Main Menu" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

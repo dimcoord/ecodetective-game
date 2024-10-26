@@ -35,3 +35,20 @@ func _ready():
 		level = save_file.get("level")
 		total_move = save_file.get("total_move")
 		is_new = save_file.get("is_new")
+
+func setDefaults() -> void:
+	pos_x = 0
+	pos_y = 0
+	username = null
+	current_map = "cibiru"
+	current_hp = 100
+	max_hp = 100
+	exp = 0
+	level = 1
+	total_move = 0
+	turn = "player"
+	is_alive = true
+	is_battle = false
+	is_dialog = false
+	is_new = true
+	game_over = false

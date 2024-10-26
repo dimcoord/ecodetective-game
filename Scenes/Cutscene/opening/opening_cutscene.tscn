@@ -458,6 +458,7 @@ default_font = ExtResource("1_pmmfr")
 default_font_size = 26
 
 [node name="OpeningCutscene" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_kt5b6")
 
 [node name="Background" type="Node2D" parent="."]
