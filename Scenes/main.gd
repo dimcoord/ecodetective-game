@@ -57,9 +57,13 @@ func instantiateMap() -> void:
 		music = $Cibiru/TownMusic
 	if GameManager.current_map == "stage1_1":
 		music = $Forest_Stage1_1/TownMusic
+		
+func update_level_status():
+	$Control/CanvasLayer/LevelText/PlayerLevel.text = str(GameManager.level)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SignalManager.connect("exit_combat", update_level_status)
 	playFadeIn()
 	initiateDefaultAnims()
 	preloadMap()
