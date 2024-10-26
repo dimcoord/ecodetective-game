@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cberd4r5hvryt"]
+
+[ext_resource type="Texture2D" uid="uid://bjp72niysj55h" path="res://assets/TempAssets/Player/cibiru - orang cowogerobak.png" id="1_atncq"]
+[ext_resource type="Texture2D" uid="uid://d0n3e2t3n1oc8" path="res://assets/TempAssets/Player/cibiru - gerobak1.png" id="2_xhp2l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1mt8"]
+size = Vector2(23, 10.5)
+
+[node name="NPC_Pedagang1" type="CharacterBody2D"]
+texture_filter = 1
+position = Vector2(102, -56)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_atncq")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(15, 1)
+rotation = -1.57243
+texture = ExtResource("2_xhp2l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 1.5)
+shape = SubResource("RectangleShape2D_d1mt8")

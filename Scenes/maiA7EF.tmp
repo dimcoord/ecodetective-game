@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://drrl8wthi3rkr"]
+[gd_scene load_steps=44 format=3 uid="uid://drrl8wthi3rkr"]
 
 [ext_resource type="PackedScene" uid="uid://cebgm8jsj671r" path="res://Scenes/Transition/fade_transition.tscn" id="1_4ugg2"]
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_tesnu"]
@@ -22,8 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://cfijdacwc0tig" path="res://assets/PNG/panelInset_brown.png" id="18_qo8w5"]
 [ext_resource type="Texture2D" uid="uid://c7qgli4qpw61v" path="res://assets/PNG/buttonLong_beige.png" id="19_le4va"]
 [ext_resource type="Texture2D" uid="uid://mdsif37plwrh" path="res://assets/PNG/buttonLong_beige_pressed.png" id="20_i0exs"]
-[ext_resource type="Texture2D" uid="uid://bb2ve1rvuprm1" path="res://assets/PNG/items/fire_extinguisher.png" id="23_gx7ql"]
-[ext_resource type="AudioStream" uid="uid://b27gtfd8auane" path="res://assets/Sounds/Soundtrack/adventure1.wav" id="23_jgjih"]
 
 [sub_resource type="Animation" id="Animation_mqww7"]
 length = 0.001
@@ -238,8 +236,6 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h4ksj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhjaa"]
-
 [sub_resource type="Animation" id="Animation_fr36c"]
 length = 0.001
 tracks/0/type = "value"
@@ -265,42 +261,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0.01, 0.01)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Control/CanvasLayer/FireExtinguisher:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../Control/CanvasLayer/FireExtinguisher:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(172, 77)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../Control/CanvasLayer/FireExtinguisher:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_cbwj2"]
@@ -348,7 +308,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.233333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0.75, 0.75), Vector2(0.01, 0.01)]
+"values": [Vector2(0.5, 0.5), Vector2(0.01, 0.01)]
 }
 
 [sub_resource type="Animation" id="Animation_5ebbi"]
@@ -364,48 +324,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.233333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0.01, 0.01), Vector2(0.75, 0.75)]
-}
-
-[sub_resource type="Animation" id="Animation_o31yu"]
-resource_name = "fire_ext"
-length = 3.0
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Control/CanvasLayer/FireExtinguisher:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(1.76, 1.76)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Control/CanvasLayer/FireExtinguisher:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.75, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(172, 77), Vector2(172, 77), Vector2(172, 400)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Control/CanvasLayer/FireExtinguisher:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
+"values": [Vector2(0.01, 0.01), Vector2(0.5, 0.5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bmxqp"]
@@ -414,8 +333,7 @@ _data = {
 "button_scale_down": SubResource("Animation_cbwj2"),
 "button_scale_up": SubResource("Animation_xqonx"),
 "dialog_scale_down": SubResource("Animation_d5cm6"),
-"dialog_scale_up": SubResource("Animation_5ebbi"),
-"fire_ext": SubResource("Animation_o31yu")
+"dialog_scale_up": SubResource("Animation_5ebbi")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrct3"]
@@ -491,8 +409,6 @@ font_size = 12
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rxu3c"]
-
 [node name="Main" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_tesnu")
@@ -515,36 +431,6 @@ position = Vector2(0, -44.0617)
 scale = Vector2(1.82407, 5.31957)
 shape = SubResource("CircleShape2D_h4ksj")
 
-[node name="TeleportPoints" type="Marker2D" parent="."]
-
-[node name="LeftArea" type="Area2D" parent="TeleportPoints"]
-position = Vector2(0, -100)
-scale = Vector2(1.04064, 2.61984)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportPoints/LeftArea"]
-shape = SubResource("RectangleShape2D_yhjaa")
-
-[node name="RightArea" type="Area2D" parent="TeleportPoints"]
-position = Vector2(0, -100)
-scale = Vector2(1.04131, 2.56774)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportPoints/RightArea"]
-shape = SubResource("RectangleShape2D_yhjaa")
-
-[node name="TopArea" type="Area2D" parent="TeleportPoints"]
-position = Vector2(0, -100)
-scale = Vector2(2.3573, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportPoints/TopArea"]
-shape = SubResource("RectangleShape2D_yhjaa")
-
-[node name="BottomArea" type="Area2D" parent="TeleportPoints"]
-position = Vector2(0, -100)
-scale = Vector2(2.28286, 1.0752)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportPoints/BottomArea"]
-shape = SubResource("RectangleShape2D_yhjaa")
-
 [node name="MapDefaultPos" type="Marker2D" parent="."]
 
 [node name="CibiruPos" type="Marker2D" parent="MapDefaultPos"]
@@ -553,58 +439,56 @@ position = Vector2(13, -145)
 [node name="ForestPos" type="Marker2D" parent="MapDefaultPos"]
 position = Vector2(0, -100)
 
-[node name="LeftArea" type="Marker2D" parent="MapDefaultPos/ForestPos"]
-
-[node name="RightArea" type="Marker2D" parent="MapDefaultPos/ForestPos"]
-
-[node name="TopArea" type="Marker2D" parent="MapDefaultPos/ForestPos"]
-
-[node name="BottomArea" type="Marker2D" parent="MapDefaultPos/ForestPos"]
-
 [node name="ForestFullPos" type="Marker2D" parent="MapDefaultPos"]
 
 [node name="ForestFullPos1" type="Marker2D" parent="MapDefaultPos/ForestFullPos"]
-position = Vector2(0, -1)
 
 [node name="ForestFullPos2" type="Marker2D" parent="MapDefaultPos/ForestFullPos"]
-position = Vector2(3, -455)
 
 [node name="ForestFullPos3" type="Marker2D" parent="MapDefaultPos/ForestFullPos"]
-position = Vector2(-784, 0)
 
 [node name="ForestFullPos4" type="Marker2D" parent="MapDefaultPos/ForestFullPos"]
-position = Vector2(-781, -463)
 
 [node name="PlayerDefaultPos" type="Marker2D" parent="."]
 
 [node name="CibiruPos" type="Marker2D" parent="PlayerDefaultPos"]
 position = Vector2(555, -100)
 
-[node name="CutscenePos" type="Marker2D" parent="PlayerDefaultPos/CibiruPos"]
-position = Vector2(-375, 374)
-
 [node name="ForestPos" type="Marker2D" parent="PlayerDefaultPos"]
-position = Vector2(450, 25)
+position = Vector2(250, 200)
 
 [node name="ForestFullPos" type="Marker2D" parent="PlayerDefaultPos"]
 
 [node name="ForestFullPos1" type="Marker2D" parent="PlayerDefaultPos/ForestFullPos"]
-position = Vector2(553, 54)
 
 [node name="ForestFullPos2" type="Marker2D" parent="PlayerDefaultPos/ForestFullPos"]
-position = Vector2(36, 26)
 
 [node name="ForestFullPos3" type="Marker2D" parent="PlayerDefaultPos/ForestFullPos"]
-position = Vector2(245, 237)
 
 [node name="ForestFullPos4" type="Marker2D" parent="PlayerDefaultPos/ForestFullPos"]
-position = Vector2(246, 25)
 
-[node name="ForestFullPos5" type="Marker2D" parent="PlayerDefaultPos/ForestFullPos"]
-position = Vector2(575, -173)
+[node name="NPCDefaultPos" type="Marker2D" parent="."]
 
-[node name="ForestFullPos6" type="Marker2D" parent="PlayerDefaultPos/ForestFullPos"]
-position = Vector2(53, 58)
+[node name="CibiruPos" type="Marker2D" parent="NPCDefaultPos"]
+
+[node name="NPC_Cewek" type="Marker2D" parent="NPCDefaultPos/CibiruPos"]
+position = Vector2(461, -130)
+
+[node name="NPC_Pedagang1" type="Marker2D" parent="NPCDefaultPos/CibiruPos"]
+position = Vector2(102, -56)
+
+[node name="ForestPos" type="Marker2D" parent="NPCDefaultPos"]
+position = Vector2(250, 200)
+
+[node name="ForestFullPos" type="Marker2D" parent="NPCDefaultPos"]
+
+[node name="ForestFullPos1" type="Marker2D" parent="NPCDefaultPos/ForestFullPos"]
+
+[node name="ForestFullPos2" type="Marker2D" parent="NPCDefaultPos/ForestFullPos"]
+
+[node name="ForestFullPos3" type="Marker2D" parent="NPCDefaultPos/ForestFullPos"]
+
+[node name="ForestFullPos4" type="Marker2D" parent="NPCDefaultPos/ForestFullPos"]
 
 [node name="FadeTransition" parent="." instance=ExtResource("1_4ugg2")]
 visible = false
@@ -656,10 +540,10 @@ debug_color = Color(0.831239, 0.274633, 0.706121, 0.42)
 [node name="DialogBox" type="TextureButton" parent="NPC_Cewek"]
 z_index = 1
 texture_filter = 1
-offset_left = -45.0
-offset_top = -66.0
-offset_right = 85.0
-offset_bottom = -1.0
+offset_left = -31.0
+offset_top = -50.0
+offset_right = 99.0
+offset_bottom = 15.0
 scale = Vector2(0.01, 0.01)
 texture_normal = ExtResource("17_t5we5")
 ignore_texture_size = true
@@ -696,57 +580,6 @@ grow_vertical = 2
 scale = Vector2(0.92, 0.92)
 theme_override_constants/outline_size = 1
 text = "KAMU  BENERAN  MAU  PERGI  KE  MASA  LALU?"
-label_settings = ExtResource("5_vjw8s")
-autowrap_mode = 3
-
-[node name="Text3" type="Label" parent="NPC_Cewek/DialogBox"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 3.0
-offset_right = 10.0
-offset_bottom = 3.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.92, 0.92)
-theme_override_constants/outline_size = 1
-text = "INGAT!  KALAHKAN  MONSTER SUMBER POLUSI!"
-label_settings = ExtResource("5_vjw8s")
-autowrap_mode = 3
-
-[node name="Text4" type="Label" parent="NPC_Cewek/DialogBox"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 3.0
-offset_right = 10.0
-offset_bottom = 3.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.92, 0.92)
-theme_override_constants/outline_size = 1
-text = "KAMU  JUGA  TIDAK  BOLEH  LAMA-LAMA  DI  MASA  LALU"
-label_settings = ExtResource("5_vjw8s")
-autowrap_mode = 3
-
-[node name="Text5" type="Label" parent="NPC_Cewek/DialogBox"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 3.0
-offset_right = 10.0
-offset_bottom = 3.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.92, 0.92)
-theme_override_constants/outline_size = 1
-text = "AMBIL  APAR  INI  UNTUK  BERJAGA-JAGA!"
 label_settings = ExtResource("5_vjw8s")
 autowrap_mode = 3
 
@@ -790,7 +623,7 @@ vertical_alignment = 1
 position = Vector2(180, 274)
 
 [node name="Camera" type="Camera2D" parent="PlayerAmbatekkom"]
-position = Vector2(35, 33)
+position = Vector2(16, 16)
 limit_left = 16
 limit_top = 16
 limit_right = 640
@@ -801,51 +634,10 @@ script = ExtResource("4_i13yh")
 [node name="Limits" type="Node2D" parent="PlayerAmbatekkom/Camera"]
 position = Vector2(-80, -128)
 
-[node name="Cibiru" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits"]
-
-[node name="TopLeft" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits/Cibiru"]
+[node name="TopLeft" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits"]
 position = Vector2(50, -300)
 
-[node name="BottomRight" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits/Cibiru"]
-position = Vector2(640, 269)
-
-[node name="Forest" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits"]
-
-[node name="TopLeft" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits/Forest"]
-position = Vector2(0, -250)
-
-[node name="BottomRight" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits/Forest"]
-position = Vector2(640, 269)
-
-[node name="ForestFull" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits"]
-
-[node name="Pos1" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits/ForestFull"]
-
-[node name="TopLeft" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits/ForestFull/Pos1"]
-
-[node name="BottomRight" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits/ForestFull/Pos1"]
-position = Vector2(640, 301)
-
-[node name="Pos2" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits/ForestFull"]
-
-[node name="TopLeft" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits/ForestFull/Pos2"]
-position = Vector2(423, 21)
-
-[node name="BottomRight" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits/ForestFull/Pos2"]
-position = Vector2(1063, 290)
-
-[node name="Pos3" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits/ForestFull"]
-
-[node name="TopLeft" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits/ForestFull/Pos3"]
-
-[node name="BottomRight" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits/ForestFull/Pos3"]
-position = Vector2(574, 343)
-
-[node name="Pos4" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits/ForestFull"]
-
-[node name="TopLeft" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits/ForestFull/Pos4"]
-
-[node name="BottomRight" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits/ForestFull/Pos4"]
+[node name="BottomRight" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits"]
 position = Vector2(640, 269)
 
 [node name="DialogBox" type="TextureButton" parent="PlayerAmbatekkom"]
@@ -966,7 +758,6 @@ visible = false
 [node name="Control" type="Control" parent="."]
 top_level = true
 z_index = 4096
-texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -1029,7 +820,6 @@ vertical_alignment = 1
 
 [node name="PauseMenu" type="NinePatchRect" parent="Control/CanvasLayer"]
 process_mode = 3
-texture_filter = 1
 offset_left = 120.0
 offset_top = 48.0
 offset_right = 296.0
@@ -1159,53 +949,9 @@ position = Vector2(32, 74)
 rotation = -1.5708
 texture_normal = ExtResource("9_p6gir")
 
-[node name="FireExtinguisher" type="TextureRect" parent="Control/CanvasLayer"]
-visible = false
-texture_filter = 1
-offset_left = 172.0
-offset_top = 77.0
-offset_right = 212.0
-offset_bottom = 117.0
-scale = Vector2(1e-05, 1e-05)
-texture = ExtResource("23_gx7ql")
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
-[node name="DetectiveMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("23_jgjih")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(586, -103)
-rotation = -1.5708
-
-[node name="Right" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 41)
-scale = Vector2(5.15506, 1.42511)
-shape = SubResource("WorldBoundaryShape2D_rxu3c")
-
-[node name="Left" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-27, -503)
-rotation = 3.14159
-scale = Vector2(5.15506, 1.42511)
-shape = SubResource("WorldBoundaryShape2D_rxu3c")
-
-[node name="Bottom" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-413, -253)
-rotation = 1.5708
-scale = Vector2(5.15506, 1.42511)
-shape = SubResource("WorldBoundaryShape2D_rxu3c")
-
-[node name="Top" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(126, -259)
-rotation = -1.5708
-scale = Vector2(5.15506, 1.42511)
-shape = SubResource("WorldBoundaryShape2D_rxu3c")
-
 [connection signal="body_entered" from="Portal/Area2D" to="." method="_on_portal_body_entered"]
-[connection signal="body_entered" from="TeleportPoints/LeftArea" to="." method="_on_left_area_body_entered"]
-[connection signal="body_entered" from="TeleportPoints/RightArea" to="." method="_on_right_area_body_entered"]
-[connection signal="body_entered" from="TeleportPoints/TopArea" to="." method="_on_top_area_body_entered"]
-[connection signal="body_entered" from="TeleportPoints/BottomArea" to="." method="_on_bottom_area_body_entered"]
 [connection signal="body_entered" from="NPC_Cewek/Area2D" to="." method="_on_npc_cewek_body_entered"]
 [connection signal="body_exited" from="NPC_Cewek/Area2D" to="." method="_on_npc_cewek_body_exited"]
 [connection signal="body_entered" from="NPC_Cewek/Area2D2" to="." method="_on_area_2d_2_body_entered"]

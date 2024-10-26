@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://bxhu7mmy3r7uh"]
+[gd_scene load_steps=27 format=4 uid="uid://bxhu7mmy3r7uh"]
 
 [ext_resource type="Texture2D" uid="uid://ce3nhuoqbdj3u" path="res://assets/TempAssets/Tiles/Grass_Middle.png" id="2_mj42h"]
 [ext_resource type="AudioStream" uid="uid://b27gtfd8auane" path="res://assets/Sounds/Soundtrack/adventure1.wav" id="2_qmhjh"]

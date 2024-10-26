@@ -26,10 +26,10 @@ SignalManager="*res://Scenes/Global/signal_manager.gd"
 window/size/viewport_width=400
 window/size/viewport_height=260
 window/size/resizable=false
-window/size/window_width_override=1200
-window/size/window_height_override=680
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/mode="canvas_items"
-window/stretch/aspect="keep_width"
+window/stretch/aspect="ignore"
 
 [input_devices]
 
