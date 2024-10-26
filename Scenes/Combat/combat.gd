@@ -7,7 +7,7 @@ extends Control
 @onready var menu_animation = $CanvasLayer/Menu/MenuAnimation
 @onready var menu = $CanvasLayer/CombatMenu
 
-var monster_code = "m_sak"
+var monster_code = "m_iyk"
 
 var playerBlocked = false
 

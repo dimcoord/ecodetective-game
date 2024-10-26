@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://c2p71hryj44ue"]
 
-[ext_resource type="Texture2D" uid="uid://dsd68bwfdqoey" path="res://assets/TempAssets/Backgrounds/forest_background.png" id="1_17onk"]
 [ext_resource type="Script" path="res://Scenes/Combat/combat.gd" id="1_wn64j"]
+[ext_resource type="Texture2D" uid="uid://gmamqm37ucvm" path="res://assets/Backgrounds/combat_background.jpeg" id="2_h7at7"]
 [ext_resource type="PackedScene" uid="uid://beil038uf0af2" path="res://Scenes/Combat/player_battle.tscn" id="3_4rsqx"]
 [ext_resource type="PackedScene" uid="uid://v3nt2hjwoeji" path="res://Scenes/Combat/menu.tscn" id="5_62cda"]
 [ext_resource type="AudioStream" uid="uid://r6algs5lmb8d" path="res://assets/Sounds/Attacks/slam.mp3" id="6_p61va"]
@@ -112,13 +112,15 @@ script = ExtResource("1_wn64j")
 
 [node name="CombatBackground" type="Sprite2D" parent="CanvasLayer"]
 texture_filter = 1
-position = Vector2(200, 143)
-scale = Vector2(0.5325, 0.6375)
-texture = ExtResource("1_17onk")
+position = Vector2(192, 128)
+scale = Vector2(0.233929, 0.27575)
+texture = ExtResource("2_h7at7")
 
 [node name="Player" parent="CanvasLayer" instance=ExtResource("3_4rsqx")]
+position = Vector2(16, 48)
 
 [node name="Monster" parent="CanvasLayer" instance=ExtResource("13_t45cs")]
+position = Vector2(0, 48)
 
 [node name="Menu" parent="CanvasLayer" instance=ExtResource("5_62cda")]
 
@@ -135,10 +137,10 @@ libraries = {
 }
 
 [node name="FX_pos" type="Marker2D" parent="CanvasLayer"]
-position = Vector2(64, 176)
+position = Vector2(80, 224)
 
 [node name="FXE_pos" type="Marker2D" parent="CanvasLayer"]
-position = Vector2(256, 112)
+position = Vector2(256, 160)
 
 [node name="AttackSound" type="AudioStreamPlayer2D" parent="CanvasLayer"]
 stream = ExtResource("6_p61va")
