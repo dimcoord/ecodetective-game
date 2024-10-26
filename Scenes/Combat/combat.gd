@@ -17,6 +17,8 @@ var item_attribute: Dictionary = {}
 func _ready() -> void:
 	_initiate_signal()
 	
+	$CanvasLayer/CombatResult.visible = false
+	
 	$Music.play()
 	
 	anim.play("fade_in")
@@ -30,6 +32,8 @@ func _initiate_signal():
 	SignalManager.connect("monster_animation_finished", on_monster_animation_finished)
 	SignalManager.connect("player_use_item", on_player_use_item)
 	SignalManager.connect("hit", on_hit)
+	SignalManager.connect("win_combat", win)
+	SignalManager.connect("exit_combat", exit_combat)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -48,9 +52,17 @@ func on_block_button_pressed() -> void:
 	on_monster_turn()
 	
 func on_monster_dead():
-	# Exit battle
-	print("curut na paeh")
-	anim.play("fade_out")
+	await get_tree().create_timer(0.5).timeout
+	
+	$Music.volume_db = -8.412
+	$CanvasLayer/Fade.visible = true
+	anim.play("combat_result_fade")
+	
+	await get_tree().create_timer(1.0).timeout
+	
+	# Show combat result
+	$CanvasLayer/CombatResult.visible = true
+	$CanvasLayer/CombatResult/AnimationPlayer.play("show")
 	
 func on_player_dead():
 	# Exit battle
@@ -119,3 +131,9 @@ func on_player_use_item(item_id: String):
 	
 func on_hit():
 	$CanvasLayer/AttackSound.play()
+
+func win():
+	GameManager.win_combat(monster.monster_attribute["is_boss"])
+
+func exit_combat():
+	anim.play("fade_out")
