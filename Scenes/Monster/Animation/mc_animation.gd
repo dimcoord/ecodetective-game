@@ -9,3 +9,4 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 func _on_animation_player_animation_started(anim_name: StringName) -> void:
 	if (anim_name == "hit"):
 		SignalManager.hit.emit()
+		get_parent().text_damage_animation.play("text_damage")

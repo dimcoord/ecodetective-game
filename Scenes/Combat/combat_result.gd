@@ -30,6 +30,7 @@ func player_level_up():
 	animation.track_set_key_value(animation.find_track("ContainerBox/Node2D/Level:text", 0), 0, before_level_up)
 	animation.track_set_key_value(animation.find_track("ContainerBox/Node2D/Level:text", 0), 1, after_level_up)
 	
+	$LevelUpSound.play()
 	$AnimationPlayer.play("level_up")
 	
 func combat_result_finished():
@@ -46,7 +47,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		$ContainerBox/Node2D.visible = true
 		set_exp_value()
 	elif anim_name == "gains_exp":
-		$LevelUpSound.stop()
+		$ProgressSound.stop()
 		if GameManager.exp >= 100:
 			$ContainerBox/Node2D/TextureProgressBar.value = 0
 			player_level_up()

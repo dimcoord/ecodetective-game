@@ -16,7 +16,7 @@ var is_battle: bool = false
 var is_dialog: bool = false
 var is_new: bool = true
 var game_over: bool = false
-var base_attack: int = 4
+var base_attack: int = 10
 
 func _ready():
 	levelUp()

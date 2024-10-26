@@ -2,7 +2,8 @@ extends Node2D
 
 @onready var base_attack = 4
 @onready var hp_bar = $Status/HealthBar
-
+@onready var text_damage_animation = $TeksDamageAnimation
+@onready var text_damage = $TextDamage
 @export var max_hp = 25
 
 var animation_scene: PackedScene
@@ -10,7 +11,6 @@ var animation_player: AnimationPlayer
 
 var monster_attribute: Dictionary = {}
 
-var this_turn_attack = base_attack
 var hp = 25
 var is_alive = true
 
