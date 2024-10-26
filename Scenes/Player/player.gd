@@ -74,10 +74,11 @@ func move():
 	velocity = velocity.limit_length(max_speed)
 	move_and_slide()
 		
-func battle():
+func battle(monster_code):
 	# Inisiate battle scene
 	GameManager.is_battle = true
 	var battle_instance = battle_scene.instantiate()
+	battle_instance.monster_code = monster_code
 	add_child(battle_instance)
 
 # TOUCH CONTROL

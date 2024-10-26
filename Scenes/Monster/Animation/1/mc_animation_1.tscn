@@ -1,0 +1,120 @@
+[gd_scene load_steps=11 format=3 uid="uid://bopgl0wrv7cg7"]
+
+[ext_resource type="Texture2D" uid="uid://cp4v4o6mmc0ep" path="res://assets/Monsters/1/ambatekkom - bosses - api 1.png" id="1_5lkjq"]
+[ext_resource type="Script" path="res://Scenes/Monster/Animation/mc_animation.gd" id="1_k511c"]
+[ext_resource type="Texture2D" uid="uid://ii2dhqy1vmrm" path="res://assets/Monsters/1/ambatekkom - bosses - api 2.png" id="2_vuu1g"]
+[ext_resource type="Texture2D" uid="uid://cg6e0oiv4rp0f" path="res://assets/Monsters/1/ambatekkom - bosses - api 3.png" id="3_3y7ew"]
+[ext_resource type="Texture2D" uid="uid://dn7e0ye0hnc87" path="res://assets/Monsters/1/ambatekkom - bosses - api 4.png" id="4_tigly"]
+
+[sub_resource type="Animation" id="Animation_amh5s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(263, 121)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_5lkjq")]
+}
+
+[sub_resource type="Animation" id="Animation_n1f3r"]
+resource_name = "attack"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(263, 121), Vector2(271, 115), Vector2(240, 144), Vector2(263, 121)]
+}
+
+[sub_resource type="Animation" id="Animation_l2u5a"]
+resource_name = "hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [true, false, true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_nqdl4"]
+resource_name = "idle"
+length = 1.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_5lkjq"), ExtResource("2_vuu1g"), ExtResource("3_3y7ew"), ExtResource("4_tigly"), ExtResource("3_3y7ew"), ExtResource("2_vuu1g")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_its00"]
+_data = {
+"RESET": SubResource("Animation_amh5s"),
+"attack": SubResource("Animation_n1f3r"),
+"hit": SubResource("Animation_l2u5a"),
+"idle": SubResource("Animation_nqdl4")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_k511c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(263, 121)
+scale = Vector2(1.76316, 1.7973)
+texture = ExtResource("1_5lkjq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_its00")
+}
+autoplay = "idle"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
