@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://c835b5f555m12"]
+
+[ext_resource type="Script" path="res://Scenes/Combat/monster_battle.gd" id="1_1x5mp"]
+[ext_resource type="Texture2D" uid="uid://ttmfypw4m1cw" path="res://assets/PNG/buttonSquare_brown_pressed.png" id="1_sucnb"]
+[ext_resource type="LabelSettings" uid="uid://dvfj7c3m625nj" path="res://Scenes/Combat/status.tres" id="2_3chln"]
+[ext_resource type="Texture2D" uid="uid://em38aesow7ux" path="res://assets/PNG/barRed_horizontalMid.png" id="3_2oo1v"]
+[ext_resource type="Texture2D" uid="uid://dxotqlrfagq4n" path="res://assets/PNG/barBlue_horizontalBlue.png" id="5_3dg1w"]
+
+[node name="Monster" type="Node2D"]
+script = ExtResource("1_1x5mp")
+
+[node name="Status" type="NinePatchRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 224.0
+offset_top = 48.0
+offset_right = 304.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_sucnb")
+
+[node name="MonsterName" type="Label" parent="Status"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.067
+anchor_top = 0.17
+anchor_right = 0.067
+anchor_bottom = 0.17
+offset_left = 5.64
+offset_top = -4.44
+offset_right = 178.64
+offset_bottom = 30.56
+scale = Vector2(0.29, 0.415)
+text = "CURUT BIRU"
+label_settings = ExtResource("2_3chln")
+
+[node name="HealthBar" type="TextureProgressBar" parent="Status"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 20.0
+offset_right = 69.0
+offset_bottom = 26.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("3_2oo1v")
+texture_progress = ExtResource("5_3dg1w")

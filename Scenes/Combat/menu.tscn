@@ -1,0 +1,275 @@
+[gd_scene load_steps=17 format=3 uid="uid://v3nt2hjwoeji"]
+
+[ext_resource type="Script" path="res://Scenes/Combat/menu.gd" id="1_3pok0"]
+[ext_resource type="Texture2D" uid="uid://b6hm1uumku3tx" path="res://assets/PNG/buttonRound_brown.png" id="1_r0jvj"]
+[ext_resource type="Texture2D" uid="uid://bs6hwsctd6024" path="res://assets/PNG/arrowBeige_right.png" id="2_dbjp3"]
+[ext_resource type="Texture2D" uid="uid://c55x4ffalvnwr" path="res://assets/PNG/buttonRound_beige.png" id="3_tx0h8"]
+[ext_resource type="Texture2D" uid="uid://c737qo2yg6nev" path="res://assets/PNG/cursorSword_silver.png" id="4_xjg7y"]
+[ext_resource type="Texture2D" uid="uid://dxxidunf2sqmr" path="res://assets/PNG/cursorHand_grey.png" id="5_g5qpc"]
+[ext_resource type="Texture2D" uid="uid://kjwvu4nyrsiw" path="res://assets/PNG/custom/shield_grey.png" id="6_8u2sc"]
+[ext_resource type="AudioStream" uid="uid://ft17gsj86oab" path="res://assets/Sounds/switch-a.ogg" id="7_66j2f"]
+[ext_resource type="Texture2D" uid="uid://g84s1uyt3242" path="res://assets/PNG/panel_brown.png" id="9_nujky"]
+[ext_resource type="LabelSettings" uid="uid://dvfj7c3m625nj" path="res://Scenes/Combat/status.tres" id="10_8plmj"]
+[ext_resource type="Texture2D" uid="uid://ccqnpwsn8l3y2" path="res://assets/PNG/panelInset_beige.png" id="11_ccyrb"]
+[ext_resource type="Texture2D" uid="uid://bb2ve1rvuprm1" path="res://assets/PNG/items/fire_extinguisher.png" id="12_66lwy"]
+
+[sub_resource type="Animation" id="Animation_ppbom"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(323, 176)]
+}
+
+[sub_resource type="Animation" id="Animation_gcyct"]
+resource_name = "hide"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(323, 176), Vector2(323, 338)]
+}
+
+[sub_resource type="Animation" id="Animation_np186"]
+resource_name = "show"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(323, 338), Vector2(323, 176)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_03sij"]
+_data = {
+"RESET": SubResource("Animation_ppbom"),
+"hide": SubResource("Animation_gcyct"),
+"show": SubResource("Animation_np186")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_3pok0")
+
+[node name="CombatMenu" type="NinePatchRect" parent="."]
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 1.007
+anchor_top = 0.983
+anchor_right = 1.007
+anchor_bottom = 0.983
+offset_left = 323.0
+offset_top = 176.0
+offset_right = 363.0
+offset_bottom = 216.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(3.985, 3.985)
+texture = ExtResource("1_r0jvj")
+
+[node name="MenuUpButton" type="TextureButton" parent="CombatMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.143
+anchor_top = 0.075
+anchor_right = -0.143
+anchor_bottom = 0.075
+offset_left = -3.76487
+offset_top = 3.86836
+offset_right = 18.2351
+offset_bottom = 24.8683
+rotation = -1.5708
+scale = Vector2(0.35, 0.35)
+action_mode = 0
+texture_normal = ExtResource("2_dbjp3")
+
+[node name="MenuDownButton" type="TextureButton" parent="CombatMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.147
+anchor_top = 0.372
+anchor_right = -0.147
+anchor_bottom = 0.372
+offset_left = 3.67231
+offset_top = -3.84157
+offset_right = 25.6723
+offset_bottom = 17.1585
+rotation = -4.71239
+scale = Vector2(0.35, 0.35)
+action_mode = 0
+texture_normal = ExtResource("2_dbjp3")
+
+[node name="MenuAttackButton" type="TextureButton" parent="CombatMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.267
+anchor_top = 0.23
+anchor_right = 0.267
+anchor_bottom = 0.23
+offset_left = 6.81797
+offset_top = -7.72821
+offset_right = 41.818
+offset_bottom = 30.2718
+rotation = -4.71239
+scale = Vector2(0.45, 0.45)
+action_mode = 0
+texture_normal = ExtResource("3_tx0h8")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CombatMenu/MenuAttackButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.14169
+offset_top = -10.6417
+offset_right = 30.8583
+offset_bottom = 29.3583
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.44, 0.44)
+texture = ExtResource("4_xjg7y")
+
+[node name="MenuItemButton" type="TextureButton" parent="CombatMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.267
+anchor_top = 0.23
+anchor_right = 0.267
+anchor_bottom = 0.23
+offset_left = 6.81797
+offset_top = -7.72821
+offset_right = 41.818
+offset_bottom = 30.2718
+rotation = -4.71239
+scale = Vector2(0.45, 0.45)
+action_mode = 0
+texture_normal = ExtResource("3_tx0h8")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CombatMenu/MenuItemButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.14169
+offset_top = -10.6417
+offset_right = 30.8583
+offset_bottom = 29.3583
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.44, 0.44)
+texture = ExtResource("5_g5qpc")
+
+[node name="MenuBlockButton" type="TextureButton" parent="CombatMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.267
+anchor_top = 0.23
+anchor_right = 0.267
+anchor_bottom = 0.23
+offset_left = 6.88587
+offset_top = -7.44341
+offset_right = 41.8859
+offset_bottom = 30.5566
+rotation = -4.71239
+scale = Vector2(0.45, 0.45)
+action_mode = 0
+texture_normal = ExtResource("3_tx0h8")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CombatMenu/MenuBlockButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.59662
+offset_top = 7.1652
+offset_right = 31.4034
+offset_bottom = 47.1652
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5708
+scale = Vector2(0.44, 0.44)
+texture = ExtResource("6_8u2sc")
+
+[node name="SwitchSound" type="AudioStreamPlayer" parent="CombatMenu"]
+stream = ExtResource("7_66j2f")
+
+[node name="MenuItemSelect" type="TextureRect" parent="CombatMenu"]
+layout_mode = 0
+offset_left = -38.4944
+offset_top = -8.49812
+offset_right = 12.5056
+offset_bottom = 42.5019
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_nujky")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CombatMenu/MenuItemSelect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.067
+anchor_top = 0.17
+anchor_right = 0.067
+anchor_bottom = 0.17
+offset_left = 1.57171
+offset_top = -5.66623
+offset_right = 146.572
+offset_bottom = 25.3338
+scale = Vector2(0.29, 0.415)
+theme_override_font_sizes/font_size = 30
+text = "ITEM SELECT
+"
+label_settings = ExtResource("10_8plmj")
+
+[node name="SelectedItem" type="TextureButton" parent="CombatMenu/MenuItemSelect"]
+layout_mode = 0
+offset_left = 10.7403
+offset_top = 16.4944
+offset_right = 39.7403
+offset_bottom = 45.4944
+texture_normal = ExtResource("11_ccyrb")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CombatMenu/MenuItemSelect/SelectedItem"]
+position = Vector2(15.0565, 14.5546)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("12_66lwy")
+
+[node name="MenuAnimation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CombatMenu")
+libraries = {
+"": SubResource("AnimationLibrary_03sij")
+}
+
+[connection signal="pressed" from="CombatMenu/MenuUpButton" to="." method="_on_menu_up_button_pressed"]
+[connection signal="pressed" from="CombatMenu/MenuDownButton" to="." method="_on_menu_down_button_pressed"]
+[connection signal="pressed" from="CombatMenu/MenuAttackButton" to="." method="_on_menu_attack_button_pressed"]
+[connection signal="pressed" from="CombatMenu/MenuItemButton" to="." method="_on_menu_item_button_pressed"]
+[connection signal="pressed" from="CombatMenu/MenuBlockButton" to="." method="_on_menu_block_button_pressed"]
+[connection signal="pressed" from="CombatMenu/MenuItemSelect/SelectedItem" to="." method="_on_selected_item_pressed"]

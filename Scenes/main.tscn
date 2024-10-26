@@ -827,6 +827,7 @@ text = "Lv.  "
 label_settings = SubResource("LabelSettings_23pds")
 
 [node name="PlayerLevel" type="Label" parent="Control/CanvasLayer/LevelText"]
+layout_mode = 0
 offset_left = 24.0
 offset_right = 64.0
 offset_bottom = 23.0
