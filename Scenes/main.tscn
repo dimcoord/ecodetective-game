@@ -1,24 +1,671 @@
-[gd_scene load_steps=11 format=3 uid="uid://drrl8wthi3rkr"]
+[gd_scene load_steps=46 format=3 uid="uid://drrl8wthi3rkr"]
 
 [ext_resource type="PackedScene" uid="uid://cebgm8jsj671r" path="res://Scenes/Transition/fade_transition.tscn" id="1_4ugg2"]
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_tesnu"]
-[ext_resource type="PackedScene" uid="uid://bxhu7mmy3r7uh" path="res://Scenes/Levels/town.tscn" id="4_csalh"]
+[ext_resource type="AudioStream" uid="uid://7rxgndagcwi0" path="res://assets/Sounds/wooooooshh.wav" id="2_4hnp2"]
 [ext_resource type="Script" path="res://Scenes/Player/camera_2d.gd" id="4_i13yh"]
+[ext_resource type="Texture2D" uid="uid://dif4qvsssick2" path="res://assets/TempAssets/Outdoor decoration/portal1.png" id="4_y5vm2"]
 [ext_resource type="PackedScene" uid="uid://clbb0drt0mnwn" path="res://Scenes/Player/player_ambatekkom.tscn" id="5_5xcqf"]
+[ext_resource type="Texture2D" uid="uid://co6qvexlme830" path="res://assets/TempAssets/Player/cibiru - orang cewe upi.png" id="5_25bdu"]
+[ext_resource type="LabelSettings" uid="uid://dtjqqml1axibd" path="res://Scenes/dialog.tres" id="5_vjw8s"]
+[ext_resource type="Texture2D" uid="uid://btxav81jyerpg" path="res://assets/TempAssets/Outdoor decoration/portal2.png" id="5_w0h87"]
 [ext_resource type="Texture2D" uid="uid://c3s63wsv150ba" path="res://assets/PNG/buttonSquare_brown.png" id="6_cwi52"]
-[ext_resource type="Texture2D" uid="uid://c3s63wsv150ba" path="res://assets/PNG/buttonSquare_brown.png" id="6_cwi52"]
-[ext_resource type="PackedScene" uid="uid://cpjjfneouj1l1" path="res://Scenes/Monster/monster.tscn" id="7_j6ufg"]
+[ext_resource type="Texture2D" uid="uid://bjp72niysj55h" path="res://assets/TempAssets/Player/cibiru - orang cowogerobak.png" id="7_dbp30"]
 [ext_resource type="Texture2D" uid="uid://ttmfypw4m1cw" path="res://assets/PNG/buttonSquare_brown_pressed.png" id="7_ot32f"]
 [ext_resource type="Texture2D" uid="uid://c1b6pchoh0u3b" path="res://assets/PNG/arrowBrown_right.png" id="8_3vrdj"]
+[ext_resource type="Texture2D" uid="uid://d0n3e2t3n1oc8" path="res://assets/TempAssets/Player/cibiru - gerobak1.png" id="8_f85i7"]
 [ext_resource type="Texture2D" uid="uid://crqd35gjkbvsu" path="res://assets/PNG/arrowBrown_left.png" id="9_p6gir"]
+[ext_resource type="Texture2D" uid="uid://dxulp1a6kntnx" path="res://assets/PNG/buttonSquare_blue.png" id="9_xpvfc"]
+[ext_resource type="Texture2D" uid="uid://dq424nr4jyisc" path="res://assets/PNG/buttonSquare_blue_pressed.png" id="10_65ir7"]
+[ext_resource type="PackedScene" uid="uid://bnwc4rro4omdx" path="res://Scenes/Cutscene/cinematic_screen.tscn" id="11_s27hh"]
+[ext_resource type="FontFile" uid="uid://dluwn7pawqh0p" path="res://assets/Fonts/pixelated.ttf" id="12_c2h3d"]
+[ext_resource type="Texture2D" uid="uid://bs0pswykmglws" path="res://assets/PNG/panel_blue.png" id="17_t5we5"]
+[ext_resource type="Script" path="res://Scenes/dialog.gd" id="17_vebti"]
+[ext_resource type="Texture2D" uid="uid://cfijdacwc0tig" path="res://assets/PNG/panelInset_brown.png" id="18_qo8w5"]
+[ext_resource type="Texture2D" uid="uid://c7qgli4qpw61v" path="res://assets/PNG/buttonLong_beige.png" id="19_le4va"]
+[ext_resource type="Texture2D" uid="uid://mdsif37plwrh" path="res://assets/PNG/buttonLong_beige_pressed.png" id="20_i0exs"]
+
+[sub_resource type="Animation" id="Animation_mqww7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAmbatekkom/Camera:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerAmbatekkom/Camera:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flash:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Flash:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MapDefaultPos/Portal:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("NPC_Cewek/DialogBox:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_2h8tw"]
+resource_name = "pan_to_portal"
+length = 5.0
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAmbatekkom/Camera:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(100, 0), Vector2(100, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flash:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.25, 2.5, 2.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flash:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.25, 2.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_4hnp2")
+}],
+"times": PackedFloat32Array(2.25)
+}
+tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MapDefaultPos/Portal:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("NPC_Cewek/DialogBox:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_d61kg"]
+resource_name = "zoom_in"
+length = 0.25
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAmbatekkom/Camera:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.25, 1.25)]
+}
+
+[sub_resource type="Animation" id="Animation_3jexj"]
+resource_name = "zoom_out"
+length = 0.25
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAmbatekkom/Camera:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.25, 1.25), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lvsyx"]
+_data = {
+"RESET": SubResource("Animation_mqww7"),
+"pan_to_portal": SubResource("Animation_2h8tw"),
+"zoom_in": SubResource("Animation_d61kg"),
+"zoom_out": SubResource("Animation_3jexj")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tp0hg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_y5vm2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_w0h87")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h4ksj"]
+
+[sub_resource type="Animation" id="Animation_fr36c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InteractButton:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.01, 0.01)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DialogBox:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.01, 0.01)]
+}
+
+[sub_resource type="Animation" id="Animation_cbwj2"]
+resource_name = "button_scale_down"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InteractButton:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.01, 0.01)]
+}
+
+[sub_resource type="Animation" id="Animation_xqonx"]
+resource_name = "button_scale_up"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InteractButton:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.01, 0.01), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_d5cm6"]
+resource_name = "dialog_scale_down"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogBox:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.01, 0.01)]
+}
+
+[sub_resource type="Animation" id="Animation_5ebbi"]
+resource_name = "dialog_scale_up"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogBox:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.01, 0.01), Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bmxqp"]
+_data = {
+"RESET": SubResource("Animation_fr36c"),
+"button_scale_down": SubResource("Animation_cbwj2"),
+"button_scale_up": SubResource("Animation_xqonx"),
+"dialog_scale_down": SubResource("Animation_d5cm6"),
+"dialog_scale_up": SubResource("Animation_5ebbi")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrct3"]
+size = Vector2(11, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1mt8"]
+size = Vector2(23, 10.5)
+
+[sub_resource type="Animation" id="Animation_4xwrj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../PlayerAmbatekkom/DialogBox:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.01, 0.01)]
+}
+
+[sub_resource type="Animation" id="Animation_valgd"]
+resource_name = "dialog_scale_down"
+length = 0.25
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../PlayerAmbatekkom/DialogBox:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.01, 0.01)]
+}
+
+[sub_resource type="Animation" id="Animation_v2jau"]
+resource_name = "dialog_scale_up"
+length = 0.25
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../PlayerAmbatekkom/DialogBox:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.01, 0.01), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_36pm3"]
+_data = {
+"RESET": SubResource("Animation_4xwrj"),
+"dialog_scale_down": SubResource("Animation_valgd"),
+"dialog_scale_up": SubResource("Animation_v2jau")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_23pds"]
+font = ExtResource("12_c2h3d")
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_o5i63"]
+font = ExtResource("12_c2h3d")
+font_size = 12
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_tesnu")
 
-[node name="Town" parent="." instance=ExtResource("4_csalh")]
+[node name="CameraAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lvsyx")
+}
+
+[node name="MapDefaultPos" type="Marker2D" parent="."]
+position = Vector2(13, -145)
+
+[node name="Portal" type="AnimatedSprite2D" parent="MapDefaultPos"]
+position = Vector2(553, 6)
+sprite_frames = SubResource("SpriteFrames_tp0hg")
+
+[node name="Area2D" type="Area2D" parent="MapDefaultPos/Portal"]
+position = Vector2(0, 13)
+scale = Vector2(0.660524, 0.24965)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapDefaultPos/Portal/Area2D"]
+shape = SubResource("CircleShape2D_h4ksj")
+
+[node name="FadeTransition" parent="." instance=ExtResource("1_4ugg2")]
+visible = false
+z_index = 4096
+offset_left = -192.0
+offset_top = -144.0
+offset_right = 608.0
+offset_bottom = 448.0
+
+[node name="Flash" type="ColorRect" parent="."]
+offset_top = -262.0
+offset_right = 762.0
+color = Color(1, 1, 1, 0)
+
+[node name="NPC_Cewek" type="CharacterBody2D" parent="." groups=["cibiru"]]
+texture_filter = 1
+position = Vector2(461, -130)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NPC_Cewek"]
+libraries = {
+"": SubResource("AnimationLibrary_bmxqp")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="NPC_Cewek"]
+texture = ExtResource("5_25bdu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC_Cewek"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_xrct3")
+
+[node name="Area2D" type="Area2D" parent="NPC_Cewek"]
+position = Vector2(35, 2)
+
+[node name="InteractBody" type="CollisionShape2D" parent="NPC_Cewek/Area2D"]
+position = Vector2(-34, 17.75)
+shape = SubResource("RectangleShape2D_d1mt8")
+debug_color = Color(0.831239, 0.274633, 0.706121, 0.42)
+
+[node name="Area2D2" type="Area2D" parent="NPC_Cewek"]
+position = Vector2(-335, 334)
+
+[node name="InteractBody" type="CollisionShape2D" parent="NPC_Cewek/Area2D2"]
+position = Vector2(57, 9)
+scale = Vector2(7.08408, 3.26348)
+shape = SubResource("RectangleShape2D_d1mt8")
+debug_color = Color(0.831239, 0.274633, 0.706121, 0.42)
+
+[node name="DialogBox" type="TextureButton" parent="NPC_Cewek"]
+z_index = 1
+texture_filter = 1
+offset_left = -31.0
+offset_top = -50.0
+offset_right = 99.0
+offset_bottom = 15.0
+scale = Vector2(0.01, 0.01)
+texture_normal = ExtResource("17_t5we5")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Text1" type="Label" parent="NPC_Cewek/DialogBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 9.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.92, 0.92)
+theme_override_constants/outline_size = 1
+text = "HAI,  AKU  PUTRI!  KAMU  PASTI  SI  ANAK  BARU  KAN?"
+label_settings = ExtResource("5_vjw8s")
+autowrap_mode = 3
+
+[node name="Text2" type="Label" parent="NPC_Cewek/DialogBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 3.0
+offset_right = 10.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.92, 0.92)
+theme_override_constants/outline_size = 1
+text = "KAMU  BENERAN  MAU  PERGI  KE  MASA  LALU?"
+label_settings = ExtResource("5_vjw8s")
+autowrap_mode = 3
+
+[node name="InteractButton" type="TextureButton" parent="NPC_Cewek"]
+z_index = 1
+texture_filter = 1
+offset_left = -33.0
+offset_top = -45.0
+offset_right = 38.0
+offset_bottom = -16.0
+scale = Vector2(0.01, 0.01)
+texture_normal = ExtResource("9_xpvfc")
+texture_pressed = ExtResource("10_65ir7")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Text1" type="Label" parent="NPC_Cewek/InteractButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.5
+offset_top = -12.5
+offset_right = 36.5
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.92, 0.92)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("12_c2h3d")
+theme_override_font_sizes/font_size = 20
+text = "TEKAN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NPC_Pedagang1" type="CharacterBody2D" parent="." groups=["cibiru"]]
+texture_filter = 1
+position = Vector2(102, -56)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NPC_Pedagang1"]
+libraries = {
+"": SubResource("AnimationLibrary_bmxqp")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="NPC_Pedagang1"]
+texture = ExtResource("7_dbp30")
+
+[node name="Sprite2D2" type="Sprite2D" parent="NPC_Pedagang1"]
+position = Vector2(15, 1)
+rotation = -1.57243
+texture = ExtResource("8_f85i7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC_Pedagang1"]
+position = Vector2(8, 1.5)
+shape = SubResource("RectangleShape2D_d1mt8")
+
+[node name="Area2D" type="Area2D" parent="NPC_Pedagang1"]
+position = Vector2(42, 2)
+
+[node name="InteractBody" type="CollisionShape2D" parent="NPC_Pedagang1/Area2D"]
+position = Vector2(-5.5, 0)
+shape = SubResource("RectangleShape2D_d1mt8")
+debug_color = Color(0.831239, 0.274633, 0.706121, 0.42)
+
+[node name="Area2D2" type="Area2D" parent="NPC_Pedagang1"]
+position = Vector2(24, 259)
+
+[node name="InteractBody" type="CollisionShape2D" parent="NPC_Pedagang1/Area2D2"]
+position = Vector2(57, 9)
+scale = Vector2(7.08408, 3.26348)
+shape = SubResource("RectangleShape2D_d1mt8")
+debug_color = Color(0.831239, 0.274633, 0.706121, 0.42)
+
+[node name="DialogBox" type="NinePatchRect" parent="NPC_Pedagang1"]
+z_index = 1
+texture_filter = 1
+offset_left = -51.0
+offset_top = 25.0
+offset_right = 79.0
+offset_bottom = 90.0
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("17_t5we5")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Text1" type="RichTextLabel" parent="NPC_Pedagang1/DialogBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 2.0
+offset_right = 6.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.92, 0.92)
+theme_override_constants/outline_size = 1
+theme_override_constants/line_separation = 0
+theme_override_fonts/normal_font = ExtResource("12_c2h3d")
+text = "MAU  BELI  APA,  KANG?"
+fit_content = true
+scroll_active = false
+
+[node name="InteractButton" type="TextureButton" parent="NPC_Pedagang1"]
+z_index = 1
+texture_filter = 1
+offset_left = -18.0
+offset_top = -49.0
+offset_right = 53.0
+offset_bottom = -20.0
+scale = Vector2(0.01, 0.01)
+texture_normal = ExtResource("9_xpvfc")
+texture_pressed = ExtResource("10_65ir7")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Text1" type="Label" parent="NPC_Pedagang1/InteractButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.5
+offset_top = -12.5
+offset_right = 36.5
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.92, 0.92)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("12_c2h3d")
+theme_override_font_sizes/font_size = 20
+text = "TEKAN"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PlayerAmbatekkom" parent="." groups=["player"] instance=ExtResource("5_5xcqf")]
-position = Vector2(64, 112)
+position = Vector2(180, 274)
 
 [node name="Camera" type="Camera2D" parent="PlayerAmbatekkom"]
 position = Vector2(16, 16)
@@ -33,149 +680,338 @@ script = ExtResource("4_i13yh")
 position = Vector2(-80, -128)
 
 [node name="TopLeft" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits"]
+position = Vector2(50, -300)
 
 [node name="BottomRight" type="Marker2D" parent="PlayerAmbatekkom/Camera/Limits"]
-position = Vector2(640, 256)
+position = Vector2(640, 269)
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
-
-[node name="PauseButton" type="TextureButton" parent="Control/CanvasLayer"]
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 32.0
-offset_bottom = 32.0
-scale = Vector2(1.97567, 1.99398)
-texture_normal = ExtResource("6_cwi52")
-texture_pressed = ExtResource("7_ot32f")
-ignore_texture_size = true
-stretch_mode = 6
-metadata/_edit_group_ = true
-
-[node name="Label" type="Label" parent="Control/CanvasLayer/PauseButton"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -3.5
-offset_top = -8.5
-offset_right = 3.5
-offset_bottom = 4.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 9
-text = "II"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ControlButton" type="Node2D" parent="Control/CanvasLayer"]
-texture_filter = 1
-position = Vector2(16, 169)
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
-
-[node name="PauseButton" type="TextureButton" parent="Control/CanvasLayer"]
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 32.0
-offset_bottom = 32.0
-scale = Vector2(1.97567, 1.99398)
-texture_normal = ExtResource("6_cwi52")
-texture_pressed = ExtResource("7_ot32f")
-ignore_texture_size = true
-stretch_mode = 6
-metadata/_edit_group_ = true
-
-[node name="Label" type="Label" parent="Control/CanvasLayer/PauseButton"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -3.5
-offset_top = -8.5
-offset_right = 3.5
-offset_bottom = 4.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 9
-text = "II"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ControlButton" type="Node2D" parent="Control/CanvasLayer"]
-texture_filter = 1
-position = Vector2(16, 169)
-metadata/_edit_group_ = true
-
-[node name="Top" type="TouchScreenButton" parent="Control/CanvasLayer/ControlButton"]
-position = Vector2(32, 14)
-rotation = -1.5708
-texture_normal = ExtResource("8_3vrdj")
-
-[node name="Right" type="TouchScreenButton" parent="Control/CanvasLayer/ControlButton"]
-position = Vector2(64, 22)
-texture_normal = ExtResource("8_3vrdj")
-
-[node name="Left" type="TouchScreenButton" parent="Control/CanvasLayer/ControlButton"]
-position = Vector2(0, 22)
-texture_normal = ExtResource("9_p6gir")
-
-[node name="Bottom" type="TouchScreenButton" parent="Control/CanvasLayer/ControlButton"]
-position = Vector2(32, 74)
-rotation = -1.5708
-texture_normal = ExtResource("9_p6gir")
-
-[node name="Top" type="TouchScreenButton" parent="Control/CanvasLayer/ControlButton"]
-position = Vector2(32, 14)
-rotation = -1.5708
-texture_normal = ExtResource("8_3vrdj")
-
-[node name="Right" type="TouchScreenButton" parent="Control/CanvasLayer/ControlButton"]
-position = Vector2(64, 22)
-texture_normal = ExtResource("8_3vrdj")
-
-[node name="Left" type="TouchScreenButton" parent="Control/CanvasLayer/ControlButton"]
-position = Vector2(0, 22)
-texture_normal = ExtResource("9_p6gir")
-
-[node name="Bottom" type="TouchScreenButton" parent="Control/CanvasLayer/ControlButton"]
-position = Vector2(32, 74)
-rotation = -1.5708
-texture_normal = ExtResource("9_p6gir")
-
-[node name="FadeTransition" parent="." instance=ExtResource("1_4ugg2")]
+[node name="DialogBox" type="TextureButton" parent="PlayerAmbatekkom"]
 visible = false
+z_index = 1
+texture_filter = 1
+offset_left = -47.0
+offset_top = -79.0
+offset_right = 83.0
+offset_bottom = -14.0
+scale = Vector2(0.01, 0.01)
+texture_normal = ExtResource("17_t5we5")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("17_vebti")
+
+[node name="Text1" type="Label" parent="PlayerAmbatekkom/DialogBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 9.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.92, 0.92)
+theme_override_constants/outline_size = 1
+text = "AKHIRNYA  AKU  SAMPE  KAMPUS  JUGA . . ."
+label_settings = ExtResource("5_vjw8s")
+autowrap_mode = 3
+
+[node name="Text2" type="Label" parent="PlayerAmbatekkom/DialogBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 3.0
+offset_right = 10.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.92, 0.92)
+theme_override_constants/outline_size = 1
+text = "DARITADI  JALAN  KOK  RASANYA  PENGAP  YA . . ."
+label_settings = ExtResource("5_vjw8s")
+autowrap_mode = 3
+
+[node name="Text3" type="Label" parent="PlayerAmbatekkom/DialogBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 3.0
+offset_right = 10.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.92, 0.92)
+theme_override_constants/outline_size = 1
+text = "APA  KARENA  DI  KAMPUS  GAK  ADA  POHON ?"
+label_settings = ExtResource("5_vjw8s")
+autowrap_mode = 3
+
+[node name="Text4" type="Label" parent="PlayerAmbatekkom/DialogBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 3.0
+offset_right = 10.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.92, 0.92)
+theme_override_constants/outline_size = 1
+text = "AKU  HARUS  PERGI  KE  MASA  LALU  SEKARANG  JUGA!"
+label_settings = ExtResource("5_vjw8s")
+autowrap_mode = 3
+
+[node name="Text5" type="Label" parent="PlayerAmbatekkom/DialogBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 3.0
+offset_right = 10.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.92, 0.92)
+theme_override_constants/outline_size = 1
+text = "HARUS  CARI  KAK  PUTRI  DULU  NIH . . . DIMANA YA . ."
+label_settings = ExtResource("5_vjw8s")
+autowrap_mode = 3
+
+[node name="OpeningCutscene" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="OpeningCutscene"]
+libraries = {
+"": SubResource("AnimationLibrary_36pm3")
+}
+
+[node name="MoveTimer" type="Timer" parent="OpeningCutscene"]
+wait_time = 0.5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="CinematicScreen" parent="CanvasLayer" instance=ExtResource("11_s27hh")]
+
+[node name="CinematicScreenTimer" type="Timer" parent="CanvasLayer/CinematicScreen"]
+
+[node name="Control" type="Control" parent="."]
+top_level = true
 z_index = 4096
-offset_left = -192.0
-offset_top = -144.0
-offset_right = 608.0
-offset_bottom = 448.0
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Monster" parent="." instance=ExtResource("7_j6ufg")]
-position = Vector2(368, 160)
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
 
-[node name="Monster2" parent="." instance=ExtResource("7_j6ufg")]
-position = Vector2(64, 48)
+[node name="UsernameText" type="Label" parent="Control/CanvasLayer"]
+offset_left = 334.0
+offset_top = 9.0
+offset_right = 392.0
+offset_bottom = 32.0
+label_settings = SubResource("LabelSettings_23pds")
 
-[node name="Monster3" parent="." instance=ExtResource("7_j6ufg")]
-position = Vector2(112, 240)
+[node name="LevelText" type="Label" parent="Control/CanvasLayer"]
+offset_left = 334.0
+offset_top = 32.0
+offset_right = 374.0
+offset_bottom = 55.0
+text = "Lv.  "
+label_settings = SubResource("LabelSettings_23pds")
 
+[node name="PlayerLevel" type="Label" parent="Control/CanvasLayer/LevelText"]
+offset_left = 24.0
+offset_right = 64.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_23pds")
+
+[node name="PauseButton" type="TextureButton" parent="Control/CanvasLayer"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 32.0
+offset_bottom = 32.0
+scale = Vector2(1.97567, 1.99398)
+texture_normal = ExtResource("6_cwi52")
+texture_pressed = ExtResource("7_ot32f")
+ignore_texture_size = true
+stretch_mode = 6
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Control/CanvasLayer/PauseButton"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.5
+offset_top = -8.5
+offset_right = 3.5
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 9
+text = "II"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PauseMenu" type="NinePatchRect" parent="Control/CanvasLayer"]
+process_mode = 3
+offset_left = 120.0
+offset_top = 48.0
+offset_right = 296.0
+offset_bottom = 185.0
+texture = ExtResource("18_qo8w5")
+
+[node name="PauseLabel" type="Label" parent="Control/CanvasLayer/PauseMenu"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -52.5
+offset_right = -2.0
+offset_bottom = -38.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.10581, 2.1379)
+theme_override_font_sizes/font_size = 9
+text = "GAME PAUSED"
+label_settings = SubResource("LabelSettings_o5i63")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResumeButton" type="TextureButton" parent="Control/CanvasLayer/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -12.5
+offset_right = 18.0
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.4956, 1.58348)
+texture_normal = ExtResource("19_le4va")
+texture_pressed = ExtResource("20_i0exs")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Control/CanvasLayer/PauseMenu/ResumeButton"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.8338
+offset_top = -7.99396
+offset_right = 20.1662
+offset_bottom = 6.00604
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 9
+text = "LANJUT"
+label_settings = SubResource("LabelSettings_o5i63")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitButton" type="TextureButton" parent="Control/CanvasLayer/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = 25.5
+offset_right = 18.0
+offset_bottom = 45.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.4956, 1.58348)
+texture_normal = ExtResource("19_le4va")
+texture_pressed = ExtResource("20_i0exs")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Control/CanvasLayer/PauseMenu/QuitButton"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.8338
+offset_top = -7.99396
+offset_right = 20.1662
+offset_bottom = 6.00604
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 9
+text = "KELUAR"
+label_settings = SubResource("LabelSettings_o5i63")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControlButton" type="Node2D" parent="Control/CanvasLayer"]
+texture_filter = 1
+position = Vector2(16, 169)
+
+[node name="Top" type="TouchScreenButton" parent="Control/CanvasLayer/ControlButton"]
+position = Vector2(32, 14)
+rotation = -1.5708
+texture_normal = ExtResource("8_3vrdj")
+
+[node name="Right" type="TouchScreenButton" parent="Control/CanvasLayer/ControlButton"]
+position = Vector2(64, 22)
+texture_normal = ExtResource("8_3vrdj")
+
+[node name="Left" type="TouchScreenButton" parent="Control/CanvasLayer/ControlButton"]
+position = Vector2(0, 22)
+texture_normal = ExtResource("9_p6gir")
+
+[node name="Bottom" type="TouchScreenButton" parent="Control/CanvasLayer/ControlButton"]
+position = Vector2(32, 74)
+rotation = -1.5708
+texture_normal = ExtResource("9_p6gir")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="body_entered" from="MapDefaultPos/Portal/Area2D" to="." method="_on_portal_body_entered"]
+[connection signal="body_entered" from="NPC_Cewek/Area2D" to="." method="_on_npc_cewek_body_entered"]
+[connection signal="body_exited" from="NPC_Cewek/Area2D" to="." method="_on_npc_cewek_body_exited"]
+[connection signal="body_entered" from="NPC_Cewek/Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="pressed" from="NPC_Cewek/DialogBox" to="." method="_on_npc_cewek_dialog_box_pressed"]
+[connection signal="pressed" from="NPC_Cewek/InteractButton" to="." method="_on_npc_cewek_button_pressed"]
+[connection signal="body_entered" from="NPC_Pedagang1/Area2D" to="." method="_on_npc_pedagang1_body_entered"]
+[connection signal="body_exited" from="NPC_Pedagang1/Area2D" to="." method="_on_npc_pedagang1_body_exited"]
+[connection signal="body_entered" from="NPC_Pedagang1/Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="pressed" from="NPC_Pedagang1/InteractButton" to="." method="_on_npc_pedagang1_button_pressed"]
+[connection signal="pressed" from="PlayerAmbatekkom/DialogBox" to="." method="_on_player_box1_pressed"]
+[connection signal="timeout" from="OpeningCutscene/MoveTimer" to="." method="_on_move_timer_timeout"]
+[connection signal="timeout" from="CanvasLayer/CinematicScreen/CinematicScreenTimer" to="." method="_on_cinematic_screen_timer_timeout"]
+[connection signal="pressed" from="Control/CanvasLayer/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="Control/CanvasLayer/PauseMenu/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Control/CanvasLayer/PauseMenu/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="Control/CanvasLayer/ControlButton/Top" to="PlayerAmbatekkom" method="_on_top_pressed"]
 [connection signal="released" from="Control/CanvasLayer/ControlButton/Top" to="PlayerAmbatekkom" method="_on_top_released"]
 [connection signal="pressed" from="Control/CanvasLayer/ControlButton/Right" to="PlayerAmbatekkom" method="_on_right_pressed"]

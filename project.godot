@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+Data="*res://Scenes/Global/data.gd"
 GameManager="*res://Scenes/Global/game_manager.gd"
 SignalManager="*res://Scenes/Global/signal_manager.gd"
 
@@ -24,6 +25,7 @@ SignalManager="*res://Scenes/Global/signal_manager.gd"
 
 window/size/viewport_width=400
 window/size/viewport_height=260
+window/size/resizable=false
 window/size/window_width_override=1200
 window/size/window_height_override=680
 window/stretch/mode="canvas_items"
@@ -36,3 +38,4 @@ pointing/emulate_touch_from_mouse=true
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

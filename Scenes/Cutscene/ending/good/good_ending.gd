@@ -1,35 +1,17 @@
 extends Node2D
 
-var save_path := "user://player_data.json"
-var username = null
-
-func load_user() -> void:
-	if not FileAccess.file_exists(save_path):
-		return
-	var file_access := FileAccess.open(save_path, FileAccess.READ)
-	var json_string := file_access.get_line()
-	file_access.close()
-
-	var json := JSON.new()
-	var error := json.parse(json_string)
-	if error:
-		print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
-		return
-	var data:Dictionary = json.data
-	username = data.get("username")
+@onready var save_file: Dictionary = {}
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	load_user()
-	
+func _ready() -> void:	
 	$Cutscene/TextBox/AnimationPlayer.play("tpyewriter")
 	$Cutscene/Timer.start()
 	
 	# Untuk player
 	$PlayerAmbatekkom.max_speed = 0
 	
-	if username != null:
-		$Cutscene/TextBox/LineEdit.text = username
+	if GameManager.username != null:
+		$Cutscene/TextBox/LineEdit.text = GameManager.username
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

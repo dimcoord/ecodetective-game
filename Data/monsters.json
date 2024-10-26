@@ -1,0 +1,28 @@
+{
+    "data": [
+        {
+           "name": "Si Jago Gosong",
+           "pollution_code": "t_fire",
+           "max_hp": 25,
+           "base_attack": 6,
+           "sprite_path": "",
+           "attack_effect_path": ""
+        },
+        {
+           "name": "Si Asap Kenyang",
+           "pollution_code": "t_smoke",
+           "max_hp": 25,
+           "base_attack": 6,
+           "sprite_path": "",
+           "attack_effect_path": ""
+        },
+        {
+           "name": "Bang Iyak",
+           "pollution_code": "t_stink",
+           "max_hp": 25,
+           "base_attack": 6,
+           "sprite_path": "",
+           "attack_effect_path": ""
+        }
+    ]
+}
