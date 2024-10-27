@@ -29,6 +29,9 @@ func setLimits() -> void:
 	limit_right = bottom_right.position.x
 
 func _ready():
+	if GameManager.current_map == "good_end":
+		top_left = $Limits/TopLeft
+		bottom_right = $Limits/BottomRight
 	setLimits()
 
 func _process(delta):

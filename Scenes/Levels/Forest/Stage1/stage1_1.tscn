@@ -478,29 +478,17 @@ tile_map_data = PackedByteArray("AAASAAgAAQAEAAQAAAASAAkAAQAEAAUAAAAOAAgAAQAEAAQ
 tile_set = SubResource("TileSet_8bbul")
 
 [node name="Monster" parent="." instance=ExtResource("11_qdpde")]
-position = Vector2(205, 271)
-monster_code = "m_iyk"
-
-[node name="Monster6" parent="." instance=ExtResource("11_qdpde")]
-position = Vector2(205, 271)
-monster_code = "m_iyk"
-
-[node name="Monster7" parent="." instance=ExtResource("11_qdpde")]
-position = Vector2(285, 111)
-monster_code = "m_iyk"
+position = Vector2(180, 186)
+monster_code = "m_gen"
 
 [node name="Monster2" parent="." instance=ExtResource("11_qdpde")]
-position = Vector2(381, -49)
-monster_code = "m_iyk"
+position = Vector2(326, 64)
+monster_code = "m_gen"
 
 [node name="Monster3" parent="." instance=ExtResource("11_qdpde")]
-position = Vector2(157, 15)
-monster_code = "m_iyk"
+position = Vector2(453, 198)
+monster_code = "m_gen"
 
 [node name="Monster4" parent="." instance=ExtResource("11_qdpde")]
-position = Vector2(157, 15)
-monster_code = "m_iyk"
-
-[node name="Monster5" parent="." instance=ExtResource("11_qdpde")]
-position = Vector2(157, 15)
-monster_code = "m_iyk"
+position = Vector2(119, -5)
+monster_code = "m_gen"

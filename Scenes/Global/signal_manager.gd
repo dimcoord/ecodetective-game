@@ -11,6 +11,7 @@ signal player_animation_finished
 signal hit
 signal win_combat
 signal exit_combat
+signal win(monster_code)
 
 signal player_attack
 signal player_block

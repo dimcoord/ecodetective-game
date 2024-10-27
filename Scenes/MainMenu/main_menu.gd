@@ -55,3 +55,7 @@ func _on_fade_timer_timeout() -> void:
 		get_tree().quit()
 	else:
 		get_tree().change_scene_to_file("res://Scenes/Cutscene/opening/opening_cutscene.tscn")
+
+
+func _on_help_button_pressed() -> void:
+	$ButtonsRect/HelpMenu.visible = true

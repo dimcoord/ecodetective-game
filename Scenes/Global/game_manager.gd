@@ -17,6 +17,7 @@ var is_dialog: bool = false
 var is_new: bool = true
 var game_over: bool = false
 var base_attack: int = 10
+var boss_defeated: int = 0
 
 func _ready():
 	levelUp()
@@ -37,8 +38,8 @@ func _ready():
 func levelUp() -> void:
 	level += 1
 	exp = 0
-	base_attack += level + 1
-	max_hp += 5
+	base_attack += 2
+	max_hp += 2
 	
 func _gains_exp(exp_gained: int):
 	exp += exp
@@ -66,3 +67,5 @@ func setDefaults() -> void:
 	is_dialog = false
 	is_new = true
 	game_over = false
+	base_attack = 10
+	boss_defeated = 0

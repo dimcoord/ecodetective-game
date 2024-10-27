@@ -154,7 +154,11 @@ func on_hit():
 	$CanvasLayer/AttackSound.play()
 
 func win():
+	
 	GameManager.win_combat(monster.monster_attribute["is_boss"])
 
 func exit_combat():
 	anim.play("fade_out")
+	await get_tree().create_timer(1.0).timeout
+	GameManager.is_battle = false
+	SignalManager.win.emit(monster_code)

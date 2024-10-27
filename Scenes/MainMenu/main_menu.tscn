@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ckciifrtxaglb"]
+[gd_scene load_steps=14 format=3 uid="uid://ckciifrtxaglb"]
 
 [ext_resource type="Script" path="res://Scenes/MainMenu/main_menu.gd" id="1_n1v7s"]
 [ext_resource type="Shader" path="res://Scenes/MainMenu/main_menu.gdshader" id="2_lwy7u"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://ft17gsj86oab" path="res://assets/Sounds/switch-a.ogg" id="6_3tvx4"]
 [ext_resource type="PackedScene" uid="uid://cebgm8jsj671r" path="res://Scenes/Transition/fade_transition.tscn" id="7_0h6ar"]
 [ext_resource type="AudioStream" uid="uid://becioeh7idsif" path="res://assets/Sounds/Soundtrack/intro1.wav" id="10_kug1i"]
+[ext_resource type="LabelSettings" uid="uid://l7s3kctpa142" path="res://assets/Fonts/logo.tres" id="11_le6ht"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k4323"]
 shader = ExtResource("2_lwy7u")
@@ -39,32 +40,14 @@ offset_bottom = 1024.0
 scale = Vector2(0.255, 0.255)
 texture = ExtResource("3_hothj")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.298039, 0.686275, 0.886275, 0.223529)
-
-[node name="Logo" type="Label" parent="."]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -107.0
-offset_top = 68.0
-offset_right = 107.0
-offset_bottom = 108.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 4
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 56.0
+offset_right = 300.0
+offset_bottom = 96.0
 text = "EcoDetective"
-label_settings = ExtResource("4_63ym4")
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
+label_settings = ExtResource("11_le6ht")
 
 [node name="Version" type="Label" parent="."]
 texture_filter = 1
@@ -104,6 +87,15 @@ text = "(C) Ambatekkom"
 label_settings = ExtResource("4_63ym4")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.298039, 0.686275, 0.886275, 0.223529)
 
 [node name="ButtonsRect" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -200,9 +192,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -42.0
-offset_top = 15.0
+offset_top = 14.0
 offset_right = 43.0
-offset_bottom = 37.0
+offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("3_v66tx")

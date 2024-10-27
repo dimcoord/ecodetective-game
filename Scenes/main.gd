@@ -4,6 +4,7 @@ extends Node2D
 var iterator = 0
 var map
 var mapInstance
+var helpIterator = 0
 
 func showLevel() -> void:
 	$Control/CanvasLayer/UsernameText.text = GameManager.username
@@ -30,10 +31,13 @@ func initiateDefaultAnims() -> void:
 	$OpeningCutscene/AnimationPlayer.play("RESET")
 	$NPC_Cewek/AnimationPlayer.play("RESET")
 	$Portal.play("default")
-	$NPC_Cewek/Area2D/InteractBody.disabled = true
+	$NPC_Cewek/Area2D/InteractBody.position = Vector2(1000, 1000)
+	$NPC_Cewek/InteractButton.visible = false
 	if GameManager.is_new == true:
-		$NPC_Cewek/Area2D/InteractBody.disabled = false
-		$Portal/Area2D/CollisionShape2D.disabled = true
+		$NPC_Cewek/Area2D/InteractBody.position = Vector2(-34, 17.75)
+		$Portal.visible = false
+		$Portal.position = Vector2(1000, 1000)
+		$NPC_Cewek/InteractButton.visible = true
 	$Control/CanvasLayer/PauseMenu.visible = false
 
 func flushNPC() -> void:
@@ -73,7 +77,7 @@ func preloadMap() -> void:
 		else:
 			get_tree().change_scene_to_file("res://Scenes/Cutscene/ending/bad/game_over.tscn")
 		$Portal.visible = false
-		$Portal/Area2D/CollisionShape2D.disabled = true
+		$Portal.position = Vector2(1000, 1000)
 
 func defineTeleportPoints() -> void:
 	$TeleportPoints/LeftArea.position = $MapDefaultPos/ForestPos/LeftArea.position
@@ -126,6 +130,7 @@ func instantiateMap() -> void:
 			$MapDefaultPos/ForestPos/BottomArea.position = Vector2(1000, 1000)
 			mapInstance.position = $MapDefaultPos/ForestFullPos/ForestFullPos4.position
 	defineTeleportPoints()
+	$Control/CanvasLayer/TotalMove/Label.text = str(GameManager.total_move)
 
 func showTexts(whichCharacter: String):
 	var dialog
@@ -137,13 +142,21 @@ func showTexts(whichCharacter: String):
 		dialog[i].visible = false
 	dialog[iterator].visible = true
 	print(iterator)
-		
+
 func update_level_status():
 	$Control/CanvasLayer/LevelText/PlayerLevel.text = str(GameManager.level)
+
+func win(monster_code) -> void:
+	print(GameManager.is_battle)
+	if monster_code == "m_sjg" && !GameManager.is_battle:
+		print(monster_code)
+		GameManager.current_map = "good_end"
+		get_tree().change_scene_to_file("res://Scenes/Cutscene/ending/good/good_ending.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalManager.connect("exit_combat", update_level_status)
+	SignalManager.connect("win", win)
 	playFadeIn()
 	initiateDefaultAnims()
 	preloadMap()
@@ -159,7 +172,7 @@ func _process(_delta: float) -> void:
 		music.stop()
 	if !GameManager.is_battle and !music.is_playing():
 		music.play()
-	print($PlayerAmbatekkom.position)
+	#print($PlayerAmbatekkom.position)
 
 func _on_move_timer_timeout() -> void:
 	$PlayerAmbatekkom.is_moving = false
@@ -183,7 +196,6 @@ func _on_cinematic_screen_timer_timeout() -> void:
 	$Control/CanvasLayer.visible = true
 	$CanvasLayer/CinematicScreen/CinematicScreenTimer.stop()
 	$CanvasLayer.visible = false
-	$Portal/Area2D/CollisionShape2D.disabled = false
 
 func _on_pause_button_pressed() -> void:
 	$Control/CanvasLayer/PauseMenu.visible = true
@@ -219,13 +231,13 @@ func _on_npc_cewek_button_pressed() -> void:
 func _on_npc_cewek_dialog_box_pressed() -> void:
 	var dialog = $NPC_Cewek/DialogBox.get_children()
 	if iterator == (len(dialog) - 1):
+		$Portal.position = Vector2(566, -139)
 		$PlayerAmbatekkom.is_input_locked = false
 		$CameraAnim.play("zoom_out")
 		$NPC_Cewek/AnimationPlayer.play("dialog_scale_down")
 		$CanvasLayer/CinematicScreen/Screen/AnimationPlayer.play("curtains_out")
 		$CanvasLayer/CinematicScreen/CinematicScreenTimer.start()
-		if GameManager.is_new == true:
-			$CameraAnim.play("pan_to_portal")
+		$CameraAnim.play("pan_to_portal")
 		$PlayerAmbatekkom/Camera.offset = Vector2(0, 0)
 		GameManager.is_new = false
 		iterator = 0

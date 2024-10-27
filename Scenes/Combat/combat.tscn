@@ -1,13 +1,13 @@
 [gd_scene load_steps=14 format=3 uid="uid://c2p71hryj44ue"]
 
 [ext_resource type="Script" path="res://Scenes/Combat/combat.gd" id="1_wn64j"]
-[ext_resource type="Texture2D" uid="uid://gmamqm37ucvm" path="res://assets/Backgrounds/combat_background.jpeg" id="2_h7at7"]
+[ext_resource type="Texture2D" uid="uid://bulx0t7t82rx8" path="res://assets/Backgrounds/background.webp" id="2_hlo3o"]
 [ext_resource type="PackedScene" uid="uid://beil038uf0af2" path="res://Scenes/Combat/player_battle.tscn" id="3_4rsqx"]
 [ext_resource type="PackedScene" uid="uid://v3nt2hjwoeji" path="res://Scenes/Combat/menu.tscn" id="5_62cda"]
 [ext_resource type="AudioStream" uid="uid://r6algs5lmb8d" path="res://assets/Sounds/Attacks/slam.mp3" id="6_p61va"]
 [ext_resource type="PackedScene" uid="uid://bwkddt5liukf2" path="res://Scenes/Combat/combat_result.tscn" id="8_m6ptf"]
+[ext_resource type="AudioStream" uid="uid://dyqqmc77rbs7p" path="res://assets/Sounds/Soundtrack/combat1.wav" id="8_mw83s"]
 [ext_resource type="PackedScene" uid="uid://c835b5f555m12" path="res://Scenes/Combat/monster_battle.tscn" id="13_t45cs"]
-[ext_resource type="AudioStream" uid="uid://cvnepp6wxygk3" path="res://assets/TempAssets/Musics/fnaf_world_combat.mp3" id="15_5rlui"]
 
 [sub_resource type="Animation" id="Animation_xgqrn"]
 length = 0.001
@@ -131,7 +131,7 @@ script = ExtResource("1_wn64j")
 texture_filter = 1
 position = Vector2(192, 128)
 scale = Vector2(0.233929, 0.27575)
-texture = ExtResource("2_h7at7")
+texture = ExtResource("2_hlo3o")
 
 [node name="Player" parent="CanvasLayer" instance=ExtResource("3_4rsqx")]
 position = Vector2(16, 48)
@@ -168,7 +168,6 @@ stream = ExtResource("6_p61va")
 volume_db = 10.281
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("15_5rlui")
-parameters/looping = true
+stream = ExtResource("8_mw83s")
 
 [connection signal="animation_finished" from="CanvasLayer/FadeTransition" to="." method="_on_fade_transition_animation_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://eggh2x842jnq"]
+[gd_scene load_steps=30 format=4 uid="uid://eggh2x842jnq"]
 
 [ext_resource type="AudioStream" uid="uid://b27gtfd8auane" path="res://assets/Sounds/Soundtrack/adventure1.wav" id="1_chaxc"]
 [ext_resource type="Texture2D" uid="uid://ce3nhuoqbdj3u" path="res://assets/TempAssets/Tiles/Grass_Middle.png" id="2_i1mmb"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cm6nkmvyubv4t" path="res://assets/TempAssets/Outdoor decoration/Oak_Tree_Small.png" id="8_sygf4"]
 [ext_resource type="Texture2D" uid="uid://d0g4mix3xiqj1" path="res://assets/TempAssets/Outdoor decoration/Chest.png" id="9_adg0q"]
 [ext_resource type="Texture2D" uid="uid://bjng1y4g0h68y" path="res://assets/TempAssets/Outdoor decoration/Fences.png" id="10_7ncds"]
+[ext_resource type="PackedScene" uid="uid://cpjjfneouj1l1" path="res://Scenes/Monster/monster.tscn" id="11_1081q"]
 
 [sub_resource type="GDScript" id="GDScript_05710"]
 script/source = "extends Node2D
@@ -496,3 +497,14 @@ z_index = 2
 texture_filter = 1
 tile_map_data = PackedByteArray("AAASAAgAAQAEAAQAAAASAAkAAQAEAAUAAAAOAAgAAQAEAAQAAAAOAAkAAQAEAAUAAAAOAAQAAQAEAAQAAAAOAAUAAQAEAAUAAAASAAQAAQAEAAQAAAASAAUAAQAEAAUAAAA=")
 tile_set = SubResource("TileSet_8bbul")
+
+[node name="Monster" parent="." instance=ExtResource("11_1081q")]
+monster_code = "m_sak"
+
+[node name="Monster2" parent="." instance=ExtResource("11_1081q")]
+position = Vector2(283, 241)
+monster_code = "m_sak"
+
+[node name="Monster3" parent="." instance=ExtResource("11_1081q")]
+position = Vector2(311, -27)
+monster_code = "m_sak"

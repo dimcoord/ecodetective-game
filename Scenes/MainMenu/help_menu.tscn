@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd70b6obw8d3d"]
+
+[ext_resource type="Texture2D" uid="uid://cfijdacwc0tig" path="res://assets/PNG/panelInset_brown.png" id="1_b7ih0"]
+[ext_resource type="Texture2D" uid="uid://bjqu6i1fi77i" path="res://assets/PNG/arrowBeige_left.png" id="2_givor"]
+[ext_resource type="Texture2D" uid="uid://bs6hwsctd6024" path="res://assets/PNG/arrowBeige_right.png" id="3_xbycq"]
+[ext_resource type="Texture2D" uid="uid://camp51iux8n0k" path="res://assets/PNG/iconCross_beige.png" id="4_pp367"]
+
+[node name="HelpMenu" type="NinePatchRect"]
+process_mode = 3
+texture_filter = 1
+offset_left = 120.0
+offset_top = 48.0
+offset_right = 296.0
+offset_bottom = 185.0
+texture = ExtResource("1_b7ih0")
+
+[node name="Image1" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LeftButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -10.5
+offset_right = 22.0
+offset_bottom = 10.5
+grow_vertical = 2
+scale = Vector2(0.9, 0.952)
+texture_normal = ExtResource("2_givor")
+metadata/_edit_group_ = true
+
+[node name="RightButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -10.5
+offset_bottom = 10.5
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.9, 0.952)
+texture_normal = ExtResource("3_xbycq")
+metadata/_edit_group_ = true
+
+[node name="ExitButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -63.5
+offset_right = 2.0
+offset_bottom = -42.5
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.9, 0.952)
+texture_normal = ExtResource("4_pp367")
+metadata/_edit_group_ = true
+
+[connection signal="pressed" from="LeftButton" to="." method="_on_help_left_button_pressed"]
+[connection signal="pressed" from="RightButton" to="." method="_on_help_right_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_help_exit_button_pressed"]

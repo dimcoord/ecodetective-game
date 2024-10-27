@@ -23,6 +23,7 @@ func _ready() -> void:
 	$Status/Label.text = user_data["username"]
 	
 	SignalManager.connect("player_hp_changed", on_player_hp_changed)
+	max_hp = GameManager.max_hp
 	hp = max_hp
 	hp_bar.max_value = max_hp
 	hp_bar.value = max_hp

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://b6dtnwy7c3q3n"]
+[gd_scene load_steps=28 format=4 uid="uid://b6dtnwy7c3q3n"]
 
 [ext_resource type="AudioStream" uid="uid://b27gtfd8auane" path="res://assets/Sounds/Soundtrack/adventure1.wav" id="1_d0eja"]
 [ext_resource type="Texture2D" uid="uid://ce3nhuoqbdj3u" path="res://assets/TempAssets/Tiles/Grass_Middle.png" id="2_o8tcl"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cm6nkmvyubv4t" path="res://assets/TempAssets/Outdoor decoration/Oak_Tree_Small.png" id="7_kqba2"]
 [ext_resource type="Texture2D" uid="uid://d0g4mix3xiqj1" path="res://assets/TempAssets/Outdoor decoration/Chest.png" id="8_uhe0o"]
 [ext_resource type="Texture2D" uid="uid://bjng1y4g0h68y" path="res://assets/TempAssets/Outdoor decoration/Fences.png" id="9_o1arb"]
+[ext_resource type="PackedScene" uid="uid://cpjjfneouj1l1" path="res://Scenes/Monster/monster.tscn" id="10_4g6an"]
 
 [sub_resource type="GDScript" id="GDScript_05710"]
 script/source = "extends Node2D
@@ -461,3 +462,19 @@ z_index = 2
 texture_filter = 1
 tile_map_data = PackedByteArray("AAASAAgAAQAEAAQAAAASAAkAAQAEAAUAAAAOAAgAAQAEAAQAAAAOAAkAAQAEAAUAAAAEAAQAAgAAAAEAAAAEAAUAAgAAAAIAAAAFAAMAAgABAAAAAAAFAAQAAgABAAEAAAAFAAUAAgABAAIAAAAGAAMAAgACAAAAAAAGAAQAAgACAAEAAAAGAAUAAgACAAIAAAAHAAQAAgADAAEAAAAHAAUAAgADAAIAAAAdAAQAAgAAAAEAAAAdAAUAAgAAAAIAAAAeAAMAAgABAAAAAAAeAAQAAgABAAEAAAAeAAUAAgABAAIAAAAfAAMAAgACAAAAAAAfAAQAAgACAAEAAAAfAAUAAgACAAIAAAAgAAQAAgADAAEAAAAgAAUAAgADAAIAAAAHAAwAAwACAAAAAAAIAAwAAwADAAAAAAAXAAwAAgAAAAEAAAAXAA0AAgAAAAIAAAAYAAsAAgABAAAAAAAYAAwAAgABAAEAAAAYAA0AAgABAAIAAAAZAAsAAgACAAAAAAAZAAwAAgACAAEAAAAZAA0AAgACAAIAAAAaAAwAAgADAAEAAAAaAA0AAgADAAIAAAAeAA8AAwADAAAAAAAdAA8AAwACAAAAAAAOAAQAAQAEAAQAAAAOAAUAAQAEAAUAAAASAAQAAQAEAAQAAAASAAUAAQAEAAUAAAA=")
 tile_set = SubResource("TileSet_8bbul")
+
+[node name="Monster" parent="LayerHolder" instance=ExtResource("10_4g6an")]
+position = Vector2(256, 127)
+monster_code = "m_iyk"
+
+[node name="Monster2" parent="LayerHolder" instance=ExtResource("10_4g6an")]
+position = Vector2(299, 243)
+monster_code = "m_gen"
+
+[node name="Monster3" parent="LayerHolder" instance=ExtResource("10_4g6an")]
+position = Vector2(334, 42)
+monster_code = "m_gen"
+
+[node name="Monster4" parent="LayerHolder" instance=ExtResource("10_4g6an")]
+position = Vector2(192, 221)
+monster_code = "m_gen"

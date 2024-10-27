@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://drrl8wthi3rkr"]
+[gd_scene load_steps=52 format=3 uid="uid://drrl8wthi3rkr"]
 
 [ext_resource type="PackedScene" uid="uid://cebgm8jsj671r" path="res://Scenes/Transition/fade_transition.tscn" id="1_4ugg2"]
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_tesnu"]
@@ -22,7 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://cfijdacwc0tig" path="res://assets/PNG/panelInset_brown.png" id="18_qo8w5"]
 [ext_resource type="Texture2D" uid="uid://c7qgli4qpw61v" path="res://assets/PNG/buttonLong_beige.png" id="19_le4va"]
 [ext_resource type="Texture2D" uid="uid://mdsif37plwrh" path="res://assets/PNG/buttonLong_beige_pressed.png" id="20_i0exs"]
-[ext_resource type="Texture2D" uid="uid://bb2ve1rvuprm1" path="res://assets/PNG/items/fire_extinguisher.png" id="23_gx7ql"]
 [ext_resource type="AudioStream" uid="uid://b27gtfd8auane" path="res://assets/Sounds/Soundtrack/adventure1.wav" id="23_jgjih"]
 
 [sub_resource type="Animation" id="Animation_mqww7"]
@@ -266,42 +265,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0.01, 0.01)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Control/CanvasLayer/FireExtinguisher:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../Control/CanvasLayer/FireExtinguisher:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(172, 77)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../Control/CanvasLayer/FireExtinguisher:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_cbwj2"]
 resource_name = "button_scale_down"
@@ -371,42 +334,6 @@ tracks/0/keys = {
 resource_name = "fire_ext"
 length = 3.0
 step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Control/CanvasLayer/FireExtinguisher:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(1.76, 1.76)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Control/CanvasLayer/FireExtinguisher:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.75, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(172, 77), Vector2(172, 77), Vector2(172, 400)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Control/CanvasLayer/FireExtinguisher:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bmxqp"]
 _data = {
@@ -480,8 +407,32 @@ _data = {
 "dialog_scale_up": SubResource("Animation_v2jau")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_s5fmu"]
+font = ExtResource("12_c2h3d")
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_23pds"]
 font = ExtResource("12_c2h3d")
+font_color = Color(0, 0.639216, 0.894118, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_aopb6"]
+font = ExtResource("12_c2h3d")
+font_color = Color(0, 0.639216, 0.894118, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jbhsw"]
+font = ExtResource("12_c2h3d")
+font_color = Color(0.910155, 0.443245, 3.85046e-07, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h230w"]
+font = ExtResource("12_c2h3d")
+font_color = Color(0.909804, 0.443137, 0, 1)
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
@@ -750,6 +701,23 @@ text = "AMBIL  APAR  INI  UNTUK  BERJAGA-JAGA!"
 label_settings = ExtResource("5_vjw8s")
 autowrap_mode = 3
 
+[node name="Text6" type="Label" parent="NPC_Cewek/DialogBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 3.0
+offset_right = 10.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.92, 0.92)
+theme_override_constants/outline_size = 1
+text = "SEMOGA  BERHASIL!"
+label_settings = ExtResource("5_vjw8s")
+autowrap_mode = 3
+
 [node name="InteractButton" type="TextureButton" parent="NPC_Cewek"]
 z_index = 1
 texture_filter = 1
@@ -975,16 +943,16 @@ offset_bottom = 40.0
 [node name="CanvasLayer" type="CanvasLayer" parent="Control"]
 
 [node name="UsernameText" type="Label" parent="Control/CanvasLayer"]
-offset_left = 334.0
+offset_left = 290.0
 offset_top = 9.0
-offset_right = 392.0
+offset_right = 348.0
 offset_bottom = 32.0
-label_settings = SubResource("LabelSettings_23pds")
+label_settings = SubResource("LabelSettings_s5fmu")
 
 [node name="LevelText" type="Label" parent="Control/CanvasLayer"]
-offset_left = 334.0
+offset_left = 290.0
 offset_top = 32.0
-offset_right = 374.0
+offset_right = 330.0
 offset_bottom = 55.0
 text = "Lv.  "
 label_settings = SubResource("LabelSettings_23pds")
@@ -994,7 +962,23 @@ layout_mode = 0
 offset_left = 24.0
 offset_right = 64.0
 offset_bottom = 23.0
-label_settings = SubResource("LabelSettings_23pds")
+label_settings = SubResource("LabelSettings_aopb6")
+
+[node name="TotalMove" type="Label" parent="Control/CanvasLayer"]
+offset_left = 290.0
+offset_top = 54.0
+offset_right = 372.0
+offset_bottom = 77.0
+text = "Total  Move: "
+label_settings = SubResource("LabelSettings_jbhsw")
+
+[node name="Label" type="Label" parent="Control/CanvasLayer/TotalMove"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 1.0
+offset_right = 125.0
+offset_bottom = 24.0
+label_settings = SubResource("LabelSettings_h230w")
 
 [node name="PauseButton" type="TextureButton" parent="Control/CanvasLayer"]
 offset_left = 16.0
@@ -1158,16 +1142,6 @@ texture_normal = ExtResource("9_p6gir")
 position = Vector2(32, 74)
 rotation = -1.5708
 texture_normal = ExtResource("9_p6gir")
-
-[node name="FireExtinguisher" type="TextureRect" parent="Control/CanvasLayer"]
-visible = false
-texture_filter = 1
-offset_left = 172.0
-offset_top = 77.0
-offset_right = 212.0
-offset_bottom = 117.0
-scale = Vector2(1e-05, 1e-05)
-texture = ExtResource("23_gx7ql")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
