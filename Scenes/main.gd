@@ -33,7 +33,7 @@ func initiateDefaultAnims() -> void:
 	$NPC_Cewek/Area2D/InteractBody.disabled = true
 	if GameManager.is_new == true:
 		$NPC_Cewek/Area2D/InteractBody.disabled = false
-		$Portal.position = Vector2(1000, 1000)
+		$Portal/Area2D/CollisionShape2D.disabled = true
 	$Control/CanvasLayer/PauseMenu.visible = false
 
 func flushNPC() -> void:
@@ -50,14 +50,14 @@ func showNPC() -> void:
 
 func preloadMap() -> void:
 	if GameManager.current_map == "cibiru":
-		map = load("res://Scenes/Levels/cibiru.tscn")
+		map = preload("res://Scenes/Levels/cibiru.tscn")
 	elif GameManager.current_map == "stage1_1":
 		if GameManager.total_move <= 10:
-			map = load("res://Scenes/Levels/Forest/Stage1/stage1_1.tscn")
+			map = preload("res://Scenes/Levels/Forest/Stage1/stage1_1.tscn")
 		elif GameManager.total_move <= 20:
-			map = load("res://Scenes/Levels/Forest/Stage1/stage2_1.tscn")
+			map = preload("res://Scenes/Levels/Forest/Stage1/stage2_1.tscn")
 		elif GameManager.total_move <= 30:
-			map = load("res://Scenes/Levels/Forest/Stage1/stage3_1.tscn")
+			map = preload("res://Scenes/Levels/Forest/Stage1/stage3_1.tscn")
 		else:
 			get_tree().change_scene_to_file("res://Scenes/Cutscene/ending/bad/game_over.tscn")
 		$Portal.visible = true
@@ -65,11 +65,11 @@ func preloadMap() -> void:
 		#$Portal/Area2D/CollisionShape2D.disabled = false
 	else:
 		if GameManager.total_move <= 10:
-			map = load("res://Scenes/Levels/Forest/Full/forest.tscn")
+			map = preload("res://Scenes/Levels/Forest/Full/forest.tscn")
 		elif GameManager.total_move <= 20:
-			map = load("res://Scenes/Levels/Forest/Full/forest_2.tscn")
+			map = preload("res://Scenes/Levels/Forest/Full/forest_2.tscn")
 		elif GameManager.total_move <= 30:
-			map = load("res://Scenes/Levels/Forest/Full/forest_3.tscn")
+			map = preload("res://Scenes/Levels/Forest/Full/forest_3.tscn")
 		else:
 			get_tree().change_scene_to_file("res://Scenes/Cutscene/ending/bad/game_over.tscn")
 		$Portal.visible = false
@@ -179,6 +179,7 @@ func _on_cinematic_screen_timer_timeout() -> void:
 	$Control/CanvasLayer.visible = true
 	$CanvasLayer/CinematicScreen/CinematicScreenTimer.stop()
 	$CanvasLayer.visible = false
+	$Portal/Area2D/CollisionShape2D.disabled = false
 
 func _on_pause_button_pressed() -> void:
 	$Control/CanvasLayer/PauseMenu.visible = true
