@@ -110,7 +110,7 @@ func instantiateMap() -> void:
 		"stage1_3":
 			$MapDefaultPos/ForestPos/LeftArea.position = Vector2(1000, 1000)
 			$MapDefaultPos/ForestPos/RightArea.position = Vector2(1000, 1000)
-			$MapDefaultPos/ForestPos/TopArea.position = Vector2(246, 1)
+			$MapDefaultPos/ForestPos/TopArea.position = Vector2(255, 24)
 			$MapDefaultPos/ForestPos/BottomArea.position = Vector2(1000, 1000)
 			mapInstance.position = $MapDefaultPos/ForestFullPos/ForestFullPos2.position
 		"stage1_4":
@@ -155,7 +155,7 @@ func _process(_delta: float) -> void:
 		music.stop()
 	if !GameManager.is_battle and !music.is_playing():
 		music.play()
-	#print($PlayerAmbatekkom.position)
+	print($PlayerAmbatekkom.position)
 
 func _on_move_timer_timeout() -> void:
 	$PlayerAmbatekkom.is_moving = false
