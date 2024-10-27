@@ -46,7 +46,8 @@ func save() -> void:
 		"exp": GameManager.exp,
 		"level": GameManager.level,
 		"total_move": GameManager.total_move,
-		"is_new": GameManager.is_new
+		"is_new": GameManager.is_new,
+		"base_attack": GameManager.base_attack
 	}
 	var json_string := JSON.stringify(save_dict)
 	var file_access := FileAccess.open(file_path, FileAccess.WRITE)

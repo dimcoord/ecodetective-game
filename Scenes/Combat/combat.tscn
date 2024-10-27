@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://c2p71hryj44ue"]
+[gd_scene load_steps=14 format=3 uid="uid://c2p71hryj44ue"]
 
-[ext_resource type="Texture2D" uid="uid://dsd68bwfdqoey" path="res://assets/TempAssets/Backgrounds/forest_background.png" id="1_17onk"]
 [ext_resource type="Script" path="res://Scenes/Combat/combat.gd" id="1_wn64j"]
+[ext_resource type="Texture2D" uid="uid://gmamqm37ucvm" path="res://assets/Backgrounds/combat_background.jpeg" id="2_h7at7"]
 [ext_resource type="PackedScene" uid="uid://beil038uf0af2" path="res://Scenes/Combat/player_battle.tscn" id="3_4rsqx"]
 [ext_resource type="PackedScene" uid="uid://v3nt2hjwoeji" path="res://Scenes/Combat/menu.tscn" id="5_62cda"]
 [ext_resource type="AudioStream" uid="uid://r6algs5lmb8d" path="res://assets/Sounds/Attacks/slam.mp3" id="6_p61va"]
+[ext_resource type="PackedScene" uid="uid://bwkddt5liukf2" path="res://Scenes/Combat/combat_result.tscn" id="8_m6ptf"]
 [ext_resource type="PackedScene" uid="uid://c835b5f555m12" path="res://Scenes/Combat/monster_battle.tscn" id="13_t45cs"]
 [ext_resource type="AudioStream" uid="uid://cvnepp6wxygk3" path="res://assets/TempAssets/Musics/fnaf_world_combat.mp3" id="15_5rlui"]
 
@@ -13,26 +14,42 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Fade:modulate")
+tracks/0/path = NodePath("CanvasLayer/Fade:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Fade:visible")
+tracks/1/path = NodePath("CanvasLayer/Fade:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1eva1"]
+resource_name = "combat_result_fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.509804)]
 }
 
 [sub_resource type="Animation" id="Animation_3mkeb"]
@@ -41,59 +58,59 @@ length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Fade:modulate")
+tracks/0/path = NodePath("CanvasLayer/Fade:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Fade:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Fade:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
 
 [sub_resource type="Animation" id="Animation_fjou7"]
 resource_name = "fade_out"
-length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Fade:modulate")
+tracks/0/path = NodePath("CanvasLayer/Fade:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1, 1.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [true, true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Fade:visible")
+tracks/1/path = NodePath("CanvasLayer/Fade:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1, 1.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, true]
+"update": 0,
+"values": [Color(1, 1, 1, 0.509804), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jm7fv"]
 _data = {
 "RESET": SubResource("Animation_xgqrn"),
+"combat_result_fade": SubResource("Animation_1eva1"),
 "fade_in": SubResource("Animation_3mkeb"),
 "fade_out": SubResource("Animation_fjou7")
 }
@@ -112,15 +129,21 @@ script = ExtResource("1_wn64j")
 
 [node name="CombatBackground" type="Sprite2D" parent="CanvasLayer"]
 texture_filter = 1
-position = Vector2(200, 143)
-scale = Vector2(0.5325, 0.6375)
-texture = ExtResource("1_17onk")
+position = Vector2(192, 128)
+scale = Vector2(0.233929, 0.27575)
+texture = ExtResource("2_h7at7")
 
 [node name="Player" parent="CanvasLayer" instance=ExtResource("3_4rsqx")]
+position = Vector2(16, 48)
 
 [node name="Monster" parent="CanvasLayer" instance=ExtResource("13_t45cs")]
+position = Vector2(0, 48)
 
 [node name="Menu" parent="CanvasLayer" instance=ExtResource("5_62cda")]
+
+[node name="CombatResult" parent="CanvasLayer" instance=ExtResource("8_m6ptf")]
+visible = false
+z_index = 4096
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer"]
 z_index = 999
@@ -135,10 +158,10 @@ libraries = {
 }
 
 [node name="FX_pos" type="Marker2D" parent="CanvasLayer"]
-position = Vector2(64, 176)
+position = Vector2(80, 224)
 
 [node name="FXE_pos" type="Marker2D" parent="CanvasLayer"]
-position = Vector2(256, 112)
+position = Vector2(256, 160)
 
 [node name="AttackSound" type="AudioStreamPlayer2D" parent="CanvasLayer"]
 stream = ExtResource("6_p61va")

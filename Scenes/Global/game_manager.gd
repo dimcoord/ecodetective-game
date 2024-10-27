@@ -8,7 +8,7 @@ var current_map: String = "cibiru"
 var current_hp: int = 100
 var max_hp: int = 100
 var exp: int = 0
-var level: int = 1
+var level: int = 0
 var total_move: int = 0
 var turn: String = "player"
 var is_alive: bool = true
@@ -16,10 +16,7 @@ var is_battle: bool = false
 var is_dialog: bool = false
 var is_new: bool = true
 var game_over: bool = false
-
-func levelUp() -> void:
-	if exp / 100 == 1:
-		level += 1
+var base_attack: int = 10
 
 func _ready():
 	levelUp()
@@ -35,6 +32,23 @@ func _ready():
 		level = save_file.get("level")
 		total_move = save_file.get("total_move")
 		is_new = save_file.get("is_new")
+		base_attack = save_file.get("base_attack")
+
+func levelUp() -> void:
+	level += 1
+	exp = 0
+	base_attack += level + 1
+	max_hp += 5
+	
+func _gains_exp(exp_gained: int):
+	exp += exp
+		
+func win_combat(is_boss: bool):
+	if is_boss:
+		exp += 100
+	else:
+		exp += 20
+		
 
 func setDefaults() -> void:
 	pos_x = 0

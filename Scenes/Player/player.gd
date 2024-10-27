@@ -30,6 +30,7 @@ func _physics_process(delta):
 	
 func get_input():
 	if GameManager.is_battle:
+		is_moving = false
 		move_direction = Vector2.ZERO
 	else:
 		if is_moving == true:
@@ -75,6 +76,8 @@ func move():
 	move_and_slide()
 		
 func battle(monster_code):
+	is_moving == false
+	
 	# Inisiate battle scene
 	GameManager.is_battle = true
 	var battle_instance = battle_scene.instantiate()

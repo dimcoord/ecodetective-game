@@ -1,10 +1,72 @@
-[gd_scene load_steps=6 format=3 uid="uid://c835b5f555m12"]
+[gd_scene load_steps=10 format=3 uid="uid://c835b5f555m12"]
 
 [ext_resource type="Script" path="res://Scenes/Combat/monster_battle.gd" id="1_1x5mp"]
 [ext_resource type="Texture2D" uid="uid://ttmfypw4m1cw" path="res://assets/PNG/buttonSquare_brown_pressed.png" id="1_sucnb"]
 [ext_resource type="LabelSettings" uid="uid://dvfj7c3m625nj" path="res://Scenes/Combat/status.tres" id="2_3chln"]
 [ext_resource type="Texture2D" uid="uid://em38aesow7ux" path="res://assets/PNG/barRed_horizontalMid.png" id="3_2oo1v"]
 [ext_resource type="Texture2D" uid="uid://dxotqlrfagq4n" path="res://assets/PNG/barBlue_horizontalBlue.png" id="5_3dg1w"]
+[ext_resource type="FontFile" uid="uid://dluwn7pawqh0p" path="res://assets/Fonts/pixelated.ttf" id="6_s0tsv"]
+
+[sub_resource type="Animation" id="Animation_ch6hw"]
+resource_name = "text_damage"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextDamage:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(228, 93), Vector2(214, 82), Vector2(242, 64), Vector2(228, 15)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextDamage:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.26667, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.447059), Color(1, 1, 1, 0.760784), Color(1, 1, 1, 0.815686), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ctlcs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextDamage:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(228, 93)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextDamage:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gkxns"]
+_data = {
+"RESET": SubResource("Animation_ctlcs"),
+"text_damage": SubResource("Animation_ch6hw")
+}
 
 [node name="Monster" type="Node2D"]
 script = ExtResource("1_1x5mp")
@@ -18,7 +80,7 @@ anchor_bottom = 0.5
 offset_left = 224.0
 offset_top = 48.0
 offset_right = 304.0
-offset_bottom = 80.0
+offset_bottom = 76.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_sucnb")
@@ -31,9 +93,9 @@ anchor_top = 0.17
 anchor_right = 0.067
 anchor_bottom = 0.17
 offset_left = 5.64
-offset_top = -4.44
+offset_top = -2.44
 offset_right = 178.64
-offset_bottom = 30.56
+offset_bottom = 32.56
 scale = Vector2(0.29, 0.415)
 text = "CURUT BIRU"
 label_settings = ExtResource("2_3chln")
@@ -41,10 +103,32 @@ label_settings = ExtResource("2_3chln")
 [node name="HealthBar" type="TextureProgressBar" parent="Status"]
 layout_mode = 0
 offset_left = 11.0
-offset_top = 20.0
+offset_top = 16.0
 offset_right = 69.0
-offset_bottom = 26.0
+offset_bottom = 22.0
 value = 100.0
 nine_patch_stretch = true
 texture_under = ExtResource("3_2oo1v")
 texture_progress = ExtResource("5_3dg1w")
+
+[node name="TextDamage" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+offset_left = 228.0
+offset_top = 93.0
+offset_right = 279.0
+offset_bottom = 124.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("6_s0tsv")
+theme_override_font_sizes/font_size = 16
+text = "-20"
+
+[node name="TeksDamageAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gkxns")
+}

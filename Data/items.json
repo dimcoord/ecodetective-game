@@ -4,7 +4,7 @@
             "code": "i_fire_extinguisher",
             "name": "Fire Extinguisher",
             "image_path": "",
-            "damage": 8,
+            "damage": 20,
             "attack_effect_path": "res://Scenes/Combat/AttackEffects/water.tscn"
         }
     ]

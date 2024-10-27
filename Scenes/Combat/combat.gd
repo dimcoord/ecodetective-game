@@ -7,7 +7,7 @@ extends Control
 @onready var menu_animation = $CanvasLayer/Menu/MenuAnimation
 @onready var menu = $CanvasLayer/CombatMenu
 
-var monster_code = "m_sak"
+var monster_code = "m_sjg"
 
 var playerBlocked = false
 
@@ -16,6 +16,8 @@ var item_attribute: Dictionary = {}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_initiate_signal()
+	
+	$CanvasLayer/CombatResult.visible = false
 	
 	$Music.play()
 	
@@ -30,6 +32,8 @@ func _initiate_signal():
 	SignalManager.connect("monster_animation_finished", on_monster_animation_finished)
 	SignalManager.connect("player_use_item", on_player_use_item)
 	SignalManager.connect("hit", on_hit)
+	SignalManager.connect("win_combat", win)
+	SignalManager.connect("exit_combat", exit_combat)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -48,9 +52,17 @@ func on_block_button_pressed() -> void:
 	on_monster_turn()
 	
 func on_monster_dead():
-	# Exit battle
-	print("curut na paeh")
-	anim.play("fade_out")
+	await get_tree().create_timer(0.5).timeout
+	
+	$Music.volume_db = -8.412
+	$CanvasLayer/Fade.visible = true
+	anim.play("combat_result_fade")
+	
+	await get_tree().create_timer(1.0).timeout
+	
+	# Show combat result
+	$CanvasLayer/CombatResult.visible = true
+	$CanvasLayer/CombatResult/AnimationPlayer.play("show")
 	
 func on_player_dead():
 	# Exit battle
@@ -77,17 +89,35 @@ func on_player_animation_finished(anim_name):
 			effect_instance.position = $CanvasLayer/FXE_pos.position	
 			await get_tree().create_timer(1.0).timeout 
 		
-		monster.animation_player.play("hit")
-		await get_tree().create_timer(1.0).timeout 
-		SignalManager.monster_hp_changed.emit(player.this_turn_attack)
+		if !monster.monster_attribute["normal_attack_resist"] || anim_name == "special_attack":	
+			var damage_dealt = randi_range(player.this_turn_attack - 5, player.this_turn_attack)
+			
+			monster.text_damage.text = "-%s" % str(damage_dealt)
+			
+			monster.animation_player.play("hit")
+			await get_tree().create_timer(1.0).timeout 
+			SignalManager.monster_hp_changed.emit(damage_dealt)
+		else:
+			monster.text_damage.text = "RESIST"
+			monster.animation_player.play("hit")
+			
 		await get_tree().create_timer(1.0).timeout
 		on_monster_turn()
 	elif (anim_name == "block"):
 		on_player_turn()
 	
 func on_monster_animation_finished():
+	var success_block = false
+	
+	if playerBlocked:
+		var probability = 0.8
+		var random_value = randi_range(1, 100) / 100.0
+		success_block = true if random_value <= probability else false
+	
+	print("BLOCK RESULT: %s" % success_block)
+
 	# If player not block
-	if !playerBlocked:
+	if !success_block:
 		var effect_scene = load(monster.monster_attribute["attack_effect_path"])
 		var effect_instance = effect_scene.instantiate()
 		canvas.add_child(effect_instance)
@@ -95,9 +125,12 @@ func on_monster_animation_finished():
 
 		await get_tree().create_timer(1.0).timeout 
 		
+		var damage_dealt = randi_range(monster.base_attack - 10, monster.base_attack)
+		
+		player.text_damage.text = "-%s" % str(damage_dealt)
 		player.animation_player.play("hit")
 		await get_tree().create_timer(1.0).timeout
-		SignalManager.player_hp_changed.emit(monster.base_attack)
+		SignalManager.player_hp_changed.emit(damage_dealt)
 	else:
 		player.shield.visible = true
 		player.animation_player.play("block")
@@ -119,3 +152,9 @@ func on_player_use_item(item_id: String):
 	
 func on_hit():
 	$CanvasLayer/AttackSound.play()
+
+func win():
+	GameManager.win_combat(monster.monster_attribute["is_boss"])
+
+func exit_combat():
+	anim.play("fade_out")

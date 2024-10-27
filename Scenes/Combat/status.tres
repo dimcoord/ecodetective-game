@@ -3,6 +3,7 @@
 [ext_resource type="FontFile" uid="uid://dluwn7pawqh0p" path="res://assets/Fonts/pixelated.ttf" id="1_teqtr"]
 
 [resource]
+resource_local_to_scene = true
 font = ExtResource("1_teqtr")
 font_size = 27
 outline_size = 2

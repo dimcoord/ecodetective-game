@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://beil038uf0af2"]
+[gd_scene load_steps=15 format=3 uid="uid://beil038uf0af2"]
 
 [ext_resource type="Texture2D" uid="uid://2j6w42pwmb1p" path="res://assets/TempAssets/Player/ambatekkom_player.png" id="1_p2pwt"]
 [ext_resource type="Script" path="res://Scenes/Combat/player_battle.gd" id="1_u7kj2"]
@@ -46,30 +46,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../TextDamage:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(72, 159)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../TextDamage:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_8pf8b"]
@@ -135,42 +111,13 @@ tracks/0/keys = {
 "values": [Vector2(60, 176), Vector2(92, 176), Vector2(60, 176)]
 }
 
-[sub_resource type="Animation" id="Animation_eixgj"]
-resource_name = "text_damage"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../TextDamage:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(72, 159), Vector2(81, 151), Vector2(73, 140), Vector2(82, 112)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../TextDamage:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.366667, 0.8, 1.2, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.603922), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rmfwx"]
 _data = {
 "RESET": SubResource("Animation_1e7b4"),
 "block": SubResource("Animation_8pf8b"),
 "hit": SubResource("Animation_w6ue2"),
 "normal_attack": SubResource("Animation_0as5k"),
-"special_attack": SubResource("Animation_i1y2o"),
-"text_damage": SubResource("Animation_eixgj")
+"special_attack": SubResource("Animation_i1y2o")
 }
 
 [node name="Player" type="Node2D"]
@@ -234,18 +181,16 @@ texture_progress = ExtResource("6_i13wr")
 
 [node name="Level" type="Label" parent="Status"]
 texture_filter = 1
-layout_mode = 0
-offset_left = 75.0
-offset_top = 22.0
-offset_right = 126.0
-offset_bottom = 53.0
+offset_left = 73.0
+offset_top = 21.0
+offset_right = 124.0
+offset_bottom = 52.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 6
-theme_override_constants/shadow_offset_y = 4
-theme_override_constants/outline_size = 2
-theme_override_constants/shadow_outline_size = 1
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
 theme_override_fonts/font = ExtResource("7_ohvqe")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 10
 text = "Lv. 1"
 
 [node name="Shield" type="Sprite2D" parent="."]
@@ -254,30 +199,5 @@ position = Vector2(109.5, 158.5)
 scale = Vector2(0.0575, 0.0558333)
 texture = ExtResource("7_3jnc0")
 
-[node name="TextDamage" type="Label" parent="."]
-modulate = Color(1, 1, 1, 0)
-texture_filter = 1
-offset_left = 72.0
-offset_top = 159.0
-offset_right = 123.0
-offset_bottom = 190.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 6
-theme_override_constants/shadow_offset_y = 4
-theme_override_constants/outline_size = 2
-theme_override_constants/shadow_outline_size = 1
-theme_override_fonts/font = ExtResource("7_ohvqe")
-theme_override_font_sizes/font_size = 16
-text = "-20"
-
-[node name="TeksDamageAnimation" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Sprite2D")
-libraries = {
-"": SubResource("AnimationLibrary_rmfwx")
-}
-
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
-[connection signal="animation_finished" from="TeksDamageAnimation" to="." method="_on_animation_player_animation_finished"]
-[connection signal="animation_started" from="TeksDamageAnimation" to="." method="_on_animation_player_animation_started"]

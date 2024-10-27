@@ -1,9 +1,10 @@
 extends Node2D
 
 @onready var animation_player = $AnimationPlayer
-@onready var base_attack = 4
+@onready var base_attack = GameManager.base_attack
 @onready var hp_bar = $Status/HealthBar
 @onready var shield = $Shield
+@onready var text_damage = $TextDamage
 
 @export var max_hp = 25
 
@@ -26,6 +27,8 @@ func _ready() -> void:
 	hp_bar.max_value = max_hp
 	hp_bar.value = max_hp
 	is_alive = true
+	
+	$Status/Level.text = "Lv. %d" % GameManager.level
 	
 	shield.visible = false
 	
@@ -53,3 +56,4 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 func _on_animation_player_animation_started(anim_name: StringName) -> void:
 	if (anim_name == "hit"):
 		SignalManager.hit.emit()
+		$TeksDamageAnimation.play("text_damage")

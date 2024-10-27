@@ -137,9 +137,13 @@ func showTexts(whichCharacter: String):
 		dialog[i].visible = false
 	dialog[iterator].visible = true
 	print(iterator)
+		
+func update_level_status():
+	$Control/CanvasLayer/LevelText/PlayerLevel.text = str(GameManager.level)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SignalManager.connect("exit_combat", update_level_status)
 	playFadeIn()
 	initiateDefaultAnims()
 	preloadMap()
